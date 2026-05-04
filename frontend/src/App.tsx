@@ -14,9 +14,10 @@ import {
   TreesIcon,
   Upload,
   X,
-  Settings,
   FileText,
   Activity,
+  Loader2,
+  Trash2,
 } from "lucide-react";
 
 export default function App() {
@@ -27,9 +28,8 @@ export default function App() {
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
-  const [uploadedFile, setUploadedFile] = useState<string | null>(null);
-  const [showConfig, setShowConfig] = useState(false);
-  const [configJson, setConfigJson] = useState("");
+  const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
+  const [isUploading, setIsUploading] = useState(false);
   const [rightTab, setRightTab] = useState<"tree" | "log">("tree");
   const wsRef = useRef<WebSocket | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -37,16 +37,13 @@ export default function App() {
   useEffect(() => {
     fetch("/api/tree")
       .then((r) => r.json())
-      .then((data) => {
-        setTreeConfig(data);
-        setConfigJson(JSON.stringify(data, null, 2));
-      })
+      .then((data: TreeConfig) => setTreeConfig(data))
       .catch(console.error);
 
-    fetch("/api/document")
+    fetch("/api/documents")
       .then((r) => r.json())
       .then((data) => {
-        if (data.filename) setUploadedFile(data.filename);
+        if (data.files?.length) setUploadedFiles(data.files);
       })
       .catch(() => {});
   }, []);
@@ -79,7 +76,14 @@ export default function App() {
             },
           ]);
 
-          if (msg.phase === "discovery" && msg.status === "start") {
+          if (msg.phase === "building") {
+            setNodeStates((prev) => ({
+              ...prev,
+              [msg.node_id]: { visualState: "building" },
+            }));
+          } else if (msg.phase === "analysis" && msg.status === "topics_found") {
+            // topics found — tree will be updated via tree_update
+          } else if (msg.phase === "discovery" && msg.status === "start") {
             setNodeStates((prev) => ({
               ...prev,
               [msg.node_id]: { visualState: "scoring" },
@@ -115,6 +119,9 @@ export default function App() {
               },
             }));
           }
+        } else if (msg.type === "tree_update") {
+          setTreeConfig({ tree: msg.tree });
+          setNodeStates({});
         } else if (msg.type === "result") {
           setMessages((prev) => [
             ...prev,
@@ -178,41 +185,41 @@ export default function App() {
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    setIsUploading(true);
+    setLogEntries([]);
     const formData = new FormData();
     formData.append("file", file);
     try {
       const res = await fetch("/api/upload", { method: "POST", body: formData });
       const data = await res.json();
-      if (data.status === "ok") setUploadedFile(data.filename);
+      if (data.status === "ok") {
+        setUploadedFiles((prev) => [...prev, data.filename]);
+        if (data.tree) {
+          setTreeConfig(data.tree);
+        }
+      }
     } catch (err) {
       console.error("Upload failed:", err);
     }
+    setIsUploading(false);
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
-  const handleRemoveDoc = async () => {
+  const handleClearAll = async () => {
     try {
-      await fetch("/api/document", { method: "DELETE" });
-      setUploadedFile(null);
+      await fetch("/api/documents", { method: "DELETE" });
+      setUploadedFiles([]);
+      setTreeConfig(null);
+      setMessages([]);
+      setLogEntries([]);
+      setNodeStates({});
+      setSelectedNodeId(null);
+      // Re-fetch the empty tree
+      const res = await fetch("/api/tree");
+      const data = await res.json();
+      setTreeConfig(data);
     } catch (err) {
       console.error(err);
-    }
-  };
-
-  const handleSaveConfig = async () => {
-    try {
-      const parsed = JSON.parse(configJson);
-      const res = await fetch("/api/tree", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: configJson,
-      });
-      if (res.ok) {
-        setTreeConfig(parsed);
-        setShowConfig(false);
-      }
-    } catch (err) {
-      alert("JSON non valido: " + err);
     }
   };
 
@@ -233,6 +240,8 @@ export default function App() {
       ? findNode(treeConfig.tree, selectedNodeId)
       : null;
 
+  const hasTree = treeConfig && treeConfig.tree.children.length > 0;
+
   return (
     <div className="h-screen flex flex-col bg-slate-950 text-slate-100">
       {/* Header */}
@@ -247,14 +256,25 @@ export default function App() {
           />
         </div>
         <div className="flex items-center gap-3">
-          {uploadedFile && (
-            <span className="flex items-center gap-1.5 text-xs bg-slate-800 px-3 py-1.5 rounded-full text-slate-300">
-              <FileText className="w-3.5 h-3.5 text-blue-400" />
-              {uploadedFile}
-              <button onClick={handleRemoveDoc} className="ml-1 hover:text-red-400 transition-colors">
-                <X className="w-3.5 h-3.5" />
+          {uploadedFiles.length > 0 && (
+            <div className="flex items-center gap-1.5">
+              {uploadedFiles.map((f, i) => (
+                <span
+                  key={i}
+                  className="flex items-center gap-1 text-xs bg-slate-800 px-2.5 py-1.5 rounded-full text-slate-300"
+                >
+                  <FileText className="w-3 h-3 text-blue-400" />
+                  {f}
+                </span>
+              ))}
+              <button
+                onClick={handleClearAll}
+                className="ml-1 p-1 hover:text-red-400 transition-colors text-slate-500"
+                title="Rimuovi tutti i documenti e resetta l'albero"
+              >
+                <Trash2 className="w-3.5 h-3.5" />
               </button>
-            </span>
+            </div>
           )}
           <input
             ref={fileInputRef}
@@ -265,68 +285,53 @@ export default function App() {
           />
           <button
             onClick={() => fileInputRef.current?.click()}
-            className="flex items-center gap-1.5 text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg transition-colors"
+            disabled={isUploading}
+            className="flex items-center gap-1.5 text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg transition-colors disabled:opacity-50"
           >
-            <Upload className="w-3.5 h-3.5" />
-            Carica documento
-          </button>
-          <button
-            onClick={() => setShowConfig(!showConfig)}
-            className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-colors ${
-              showConfig
-                ? "bg-emerald-600 hover:bg-emerald-500"
-                : "bg-slate-800 hover:bg-slate-700"
-            }`}
-          >
-            <Settings className="w-3.5 h-3.5" />
-            Configura
+            {isUploading ? (
+              <Loader2 className="w-3.5 h-3.5 animate-spin" />
+            ) : (
+              <Upload className="w-3.5 h-3.5" />
+            )}
+            {isUploading ? "Analisi in corso..." : "Carica documento"}
           </button>
         </div>
       </header>
-
-      {/* Config editor overlay */}
-      {showConfig && (
-        <div className="absolute inset-0 z-50 bg-slate-950/90 flex items-center justify-center p-8">
-          <div className="bg-slate-900 border border-slate-700 rounded-xl w-full max-w-3xl max-h-[80vh] flex flex-col">
-            <div className="flex items-center justify-between p-4 border-b border-slate-700">
-              <h2 className="font-semibold">Configurazione Albero</h2>
-              <button onClick={() => setShowConfig(false)}>
-                <X className="w-5 h-5 text-slate-400 hover:text-white" />
-              </button>
-            </div>
-            <textarea
-              value={configJson}
-              onChange={(e) => setConfigJson(e.target.value)}
-              className="flex-1 p-4 bg-slate-950 text-sm font-mono text-slate-300 resize-none focus:outline-none"
-              spellCheck={false}
-            />
-            <div className="flex justify-end gap-3 p-4 border-t border-slate-700">
-              <button
-                onClick={() => setShowConfig(false)}
-                className="px-4 py-2 text-sm rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors"
-              >
-                Annulla
-              </button>
-              <button
-                onClick={handleSaveConfig}
-                className="px-4 py-2 text-sm rounded-lg bg-emerald-600 hover:bg-emerald-500 transition-colors"
-              >
-                Salva
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Main content */}
       <div className="flex-1 flex overflow-hidden">
         {/* Left: Chat */}
         <div className="w-[420px] min-w-[360px] border-r border-slate-800 flex flex-col">
-          <ChatPanel
-            messages={messages}
-            isProcessing={isProcessing}
-            onSend={sendQuery}
-          />
+          {!hasTree ? (
+            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
+              <TreesIcon className="w-16 h-16 text-slate-700 mb-4" />
+              <h2 className="text-lg font-semibold text-slate-400 mb-2">
+                Carica un documento per iniziare
+              </h2>
+              <p className="text-sm text-slate-500 mb-6 max-w-xs">
+                L'albero di conoscenza verrà costruito automaticamente
+                analizzando gli argomenti del documento.
+              </p>
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                disabled={isUploading}
+                className="flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 rounded-lg transition-colors text-sm font-medium disabled:opacity-50"
+              >
+                {isUploading ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <Upload className="w-4 h-4" />
+                )}
+                {isUploading ? "Analisi in corso..." : "Carica documento"}
+              </button>
+            </div>
+          ) : (
+            <ChatPanel
+              messages={messages}
+              isProcessing={isProcessing}
+              onSend={sendQuery}
+            />
+          )}
         </div>
 
         {/* Right: Tree + Details */}
@@ -365,13 +370,25 @@ export default function App() {
           {rightTab === "tree" ? (
             <div className="flex-1 flex overflow-hidden">
               <div className="flex-1 overflow-auto p-6">
-                {treeConfig && (
+                {hasTree ? (
                   <TreeView
                     tree={treeConfig.tree}
                     nodeStates={nodeStates}
                     selectedNodeId={selectedNodeId}
                     onSelectNode={setSelectedNodeId}
                   />
+                ) : (
+                  <div className="flex flex-col items-center justify-center h-full text-slate-600">
+                    <TreesIcon className="w-20 h-20 mb-3 opacity-30" />
+                    <p className="text-sm">
+                      {isUploading
+                        ? "Costruzione albero in corso..."
+                        : "L'albero apparirà dopo il caricamento di un documento"}
+                    </p>
+                    {isUploading && (
+                      <Loader2 className="w-5 h-5 animate-spin mt-3 text-emerald-500" />
+                    )}
+                  </div>
                 )}
               </div>
               {selectedNode && (
@@ -386,7 +403,7 @@ export default function App() {
             <div className="flex-1 overflow-auto p-4 space-y-1.5">
               {logEntries.length === 0 && (
                 <p className="text-slate-500 text-sm text-center mt-8">
-                  Invia una domanda per vedere il log di esecuzione.
+                  Carica un documento o invia una domanda per vedere il log.
                 </p>
               )}
               {logEntries.map((entry) => (
@@ -402,6 +419,8 @@ export default function App() {
 
 function LogItem({ entry }: { entry: LogEntry }) {
   const phaseColors: Record<string, string> = {
+    analysis: "text-cyan-400 bg-cyan-400/10",
+    building: "text-orange-400 bg-orange-400/10",
     discovery: "text-amber-400 bg-amber-400/10",
     selection: "text-emerald-400 bg-emerald-400/10",
     routing: "text-blue-400 bg-blue-400/10",
@@ -418,6 +437,10 @@ function LogItem({ entry }: { entry: LogEntry }) {
     detail = `→ [${entry.data.join(", ")}]`;
   } else if (entry.status === "decomposed" && Array.isArray(entry.data)) {
     detail = `→ ${entry.data.length} sub-queries`;
+  } else if (entry.status === "topics_found" && Array.isArray(entry.data)) {
+    detail = `→ ${entry.data.join(", ")}`;
+  } else if (entry.status === "created") {
+    detail = "→ nodo creato";
   }
 
   return (

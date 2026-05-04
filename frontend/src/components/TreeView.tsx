@@ -74,7 +74,7 @@ function TreeNodeComponent({ node, nodeStates, selectedNodeId, onSelectNode }: N
         </div>
 
         {/* Processing indicator */}
-        {(state?.visualState === "scoring" || state?.visualState === "answering") && (
+        {(state?.visualState === "scoring" || state?.visualState === "answering" || state?.visualState === "building") && (
           <div className="absolute inset-0 rounded-xl border-2 border-transparent animate-pulse-slow pointer-events-none" />
         )}
       </button>
@@ -129,6 +129,8 @@ function getNodeStyle(
   }
 
   switch (visualState) {
+    case "building":
+      return `${base} border-orange-400/80 glow-amber animate-pulse-slow`;
     case "scoring":
       return `${base} border-amber-400/80 glow-amber animate-pulse-slow`;
     case "scored":

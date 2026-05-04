@@ -7,14 +7,24 @@ class TreeNodeConfig(BaseModel):
     id: str
     name: str
     model: str
-    role: str
+    role: str  # "root" | "node" | "leaf"
     system_prompt: str
+    context: str = ""  # document excerpts relevant to this node
     children: list[TreeNodeConfig] = []
+
+
+class TopicInfo(BaseModel):
+    name: str
+    subtopics: list[str] = []
+    excerpts: str = ""  # relevant text from the document
+
+
+class DocumentAnalysis(BaseModel):
+    topics: list[TopicInfo] = []
 
 
 class QueryRequest(BaseModel):
     query: str
-    document_context: Optional[str] = None
 
 
 class ScoreResult(BaseModel):

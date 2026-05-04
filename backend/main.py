@@ -1,7 +1,4 @@
-import json
-import os
-
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, UploadFile, File, HTTPException
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
@@ -20,74 +17,82 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-TREE_CONFIG_PATH = os.path.join(os.path.dirname(__file__), "tree_config.json")
-
-
-def load_tree_config() -> dict:
-    with open(TREE_CONFIG_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
-def save_tree_config(config: dict):
-    with open(TREE_CONFIG_PATH, "w", encoding="utf-8") as f:
-        json.dump(config, f, indent=2, ensure_ascii=False)
-
-
-engine: TreeEngine = TreeEngine(load_tree_config())
-document_store: dict[str, str | None] = {"context": None, "filename": None}
+engine = TreeEngine()
+uploaded_files: list[str] = []
+_active_ws: WebSocket | None = None
 
 
 @app.get("/api/tree")
 async def get_tree():
-    return load_tree_config()
+    return engine.get_tree_dict()
 
 
-@app.put("/api/tree")
-async def update_tree(config: dict):
-    try:
-        global engine
-        test_engine = TreeEngine(config)
-        save_tree_config(config)
-        engine = test_engine
-        return {"status": "ok"}
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+@app.get("/api/documents")
+async def get_documents():
+    return {"files": uploaded_files}
+
+
+@app.delete("/api/documents")
+async def clear_documents():
+    global engine
+    engine = TreeEngine()
+    uploaded_files.clear()
+    return {"status": "ok"}
 
 
 @app.post("/api/upload")
 async def upload_document(file: UploadFile = File(...)):
+    global _active_ws
     contents = await file.read()
     text = process_document(file.filename, contents)
 
-    max_chars = 15000
+    max_chars = 30000
     if len(text) > max_chars:
         text = text[:max_chars] + "\n\n[... documento troncato ...]"
 
-    document_store["context"] = text
-    document_store["filename"] = file.filename
-    return {"status": "ok", "filename": file.filename, "char_count": len(text)}
+    uploaded_files.append(file.filename)
 
+    async def ws_callback(phase, node_id, node_name, status, data=None):
+        if _active_ws:
+            payload = {
+                "type": "progress",
+                "phase": phase,
+                "node_id": node_id,
+                "node_name": node_name,
+                "status": status,
+            }
+            if data is not None:
+                payload["data"] = data
+            try:
+                await _active_ws.send_json(payload)
+            except Exception:
+                pass
 
-@app.get("/api/document")
-async def get_document_info():
-    if document_store["context"]:
-        return {
-            "filename": document_store["filename"],
-            "char_count": len(document_store["context"]),
-        }
-    return {"filename": None, "char_count": 0}
+    try:
+        await engine.build_tree_from_document(text, callback=ws_callback)
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
+    tree_data = engine.get_tree_dict()
+    if _active_ws:
+        try:
+            await _active_ws.send_json({"type": "tree_update", **tree_data})
+        except Exception:
+            pass
 
-@app.delete("/api/document")
-async def clear_document():
-    document_store["context"] = None
-    document_store["filename"] = None
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "filename": file.filename,
+        "char_count": len(text),
+        "tree": tree_data,
+    }
 
 
 @app.websocket("/ws/chat")
 async def websocket_chat(websocket: WebSocket):
+    global _active_ws
     await websocket.accept()
+    _active_ws = websocket
     try:
         while True:
             data = await websocket.receive_json()
@@ -112,7 +117,6 @@ async def websocket_chat(websocket: WebSocket):
             try:
                 result = await engine.process_query(
                     query,
-                    document_context=document_store.get("context"),
                     callback=progress_callback,
                 )
                 await websocket.send_json({"type": "result", **result})
@@ -123,3 +127,6 @@ async def websocket_chat(websocket: WebSocket):
         pass
     except Exception:
         pass
+    finally:
+        if _active_ws is websocket:
+            _active_ws = None

@@ -4,6 +4,7 @@ export interface TreeNodeConfig {
   model: string;
   role: "root" | "node" | "leaf";
   system_prompt: string;
+  context: string;
   children: TreeNodeConfig[];
 }
 
@@ -17,7 +18,8 @@ export type NodeVisualState =
   | "scored"
   | "selected"
   | "answering"
-  | "complete";
+  | "complete"
+  | "building";
 
 export interface NodeState {
   visualState: NodeVisualState;
@@ -72,9 +74,14 @@ export interface ResultMessage {
   leaf_responses: LeafResponseData[];
 }
 
+export interface TreeUpdateMessage {
+  type: "tree_update";
+  tree: TreeNodeConfig;
+}
+
 export interface ErrorMessage {
   type: "error";
   message: string;
 }
 
-export type WSMessage = ProgressMessage | ResultMessage | ErrorMessage;
+export type WSMessage = ProgressMessage | ResultMessage | TreeUpdateMessage | ErrorMessage;

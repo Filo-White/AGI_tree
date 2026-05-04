@@ -1,4 +1,4 @@
-import { X, Crown, GitBranch, Leaf, Cpu, FileCode } from "lucide-react";
+import { X, Crown, GitBranch, Leaf, Cpu, FileCode, BookOpen } from "lucide-react";
 import { TreeNodeConfig, NodeState } from "../types";
 
 interface Props {
@@ -117,6 +117,19 @@ export function NodeDetail({ node, state, onClose }: Props) {
           </div>
         </div>
 
+        {/* Context */}
+        {node.context && (
+          <div>
+            <label className="text-[10px] uppercase font-bold text-slate-500 tracking-wider flex items-center gap-1">
+              <BookOpen className="w-3 h-3" />
+              Contesto documento
+            </label>
+            <div className="mt-1.5 bg-slate-800/80 rounded-lg p-3 text-xs text-slate-300 leading-relaxed max-h-48 overflow-y-auto">
+              {node.context}
+            </div>
+          </div>
+        )}
+
         {/* Children count */}
         {node.children.length > 0 && (
           <Field
@@ -179,6 +192,8 @@ function getStateBadge(state: string): string {
       return "bg-emerald-500/20 text-emerald-400";
     case "answering":
       return "bg-blue-500/20 text-blue-400";
+    case "building":
+      return "bg-orange-500/20 text-orange-400";
     case "complete":
       return "bg-emerald-500/20 text-emerald-400";
     default:
@@ -187,6 +202,7 @@ function getStateBadge(state: string): string {
 }
 
 const stateLabels: Record<string, string> = {
+  building: "Costruzione in corso...",
   scoring: "Valutazione in corso...",
   scored: "Valutato",
   selected: "Selezionato",
