@@ -9,15 +9,18 @@ import {
   LogEntry,
   NodeState,
   WSMessage,
+  ProcessingLog,
 } from "./types";
 import {
   TreesIcon,
   Upload,
-  X,
   FileText,
   Activity,
   Loader2,
   Trash2,
+  Search,
+  ChevronDown,
+  ChevronRight,
 } from "lucide-react";
 
 export default function App() {
@@ -30,7 +33,8 @@ export default function App() {
   const [isConnected, setIsConnected] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const [isUploading, setIsUploading] = useState(false);
-  const [rightTab, setRightTab] = useState<"tree" | "log">("tree");
+  const [rightTab, setRightTab] = useState<"tree" | "log" | "analysis">("tree");
+  const [processingLog, setProcessingLog] = useState<ProcessingLog | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -197,11 +201,18 @@ export default function App() {
         if (data.tree) {
           setTreeConfig(data.tree);
         }
+        // Fetch processing log for inspection
+        try {
+          const logRes = await fetch("/api/processing-log");
+          const logData = await logRes.json();
+          setProcessingLog(logData);
+        } catch {}
       }
     } catch (err) {
       console.error("Upload failed:", err);
     }
     setIsUploading(false);
+    setRightTab("analysis");
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
@@ -214,6 +225,8 @@ export default function App() {
       setLogEntries([]);
       setNodeStates({});
       setSelectedNodeId(null);
+      setProcessingLog(null);
+      setRightTab("tree");
       // Re-fetch the empty tree
       const res = await fetch("/api/tree");
       const data = await res.json();
@@ -350,6 +363,17 @@ export default function App() {
               Albero
             </button>
             <button
+              onClick={() => setRightTab("analysis")}
+              className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-colors ${
+                rightTab === "analysis"
+                  ? "text-cyan-400 border-b-2 border-cyan-400"
+                  : "text-slate-400 hover:text-slate-200"
+              }`}
+            >
+              <Search className="w-4 h-4" />
+              Analisi
+            </button>
+            <button
               onClick={() => setRightTab("log")}
               className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-colors ${
                 rightTab === "log"
@@ -399,6 +423,8 @@ export default function App() {
                 />
               )}
             </div>
+          ) : rightTab === "analysis" ? (
+            <AnalysisPanel processingLog={processingLog} />
           ) : (
             <div className="flex-1 overflow-auto p-4 space-y-1.5">
               {logEntries.length === 0 && (
@@ -437,20 +463,122 @@ function LogItem({ entry }: { entry: LogEntry }) {
     detail = `→ [${entry.data.join(", ")}]`;
   } else if (entry.status === "decomposed" && Array.isArray(entry.data)) {
     detail = `→ ${entry.data.length} sub-queries`;
-  } else if (entry.status === "topics_found" && Array.isArray(entry.data)) {
-    detail = `→ ${entry.data.join(", ")}`;
+  } else if (entry.status === "chapters_found" && entry.data?.names) {
+    detail = `→ ${entry.data.count} capitoli (${entry.data.method}): ${entry.data.names.join(", ")}`;
+  } else if (entry.status === "sections_found" && entry.data?.names) {
+    detail = `→ ${entry.data.count} sezioni: ${entry.data.names.join(", ")}`;
+  } else if (entry.status === "extracting_sections" && entry.data) {
+    detail = `→ capitolo ${entry.data.chapter_index}/${entry.data.total_chapters}`;
+  } else if (entry.status === "created" && entry.data?.chapter) {
+    detail = `→ creato (cap: ${entry.data.chapter}, ${entry.data.excerpt_len} char)`;
   } else if (entry.status === "created") {
     detail = "→ nodo creato";
+  } else if (entry.status === "complete" && entry.data?.total_chapters) {
+    detail = `→ ${entry.data.total_chapters} capitoli, ${entry.data.total_sections} sezioni`;
   }
 
   return (
-    <div className="flex items-center gap-2 text-xs font-mono">
-      <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase font-semibold ${color}`}>
+    <div className="flex items-start gap-2 text-xs font-mono py-0.5">
+      <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase font-semibold shrink-0 ${color}`}>
         {entry.phase}
       </span>
-      <span className="text-slate-300">{entry.nodeName}</span>
-      <span className="text-slate-500">{entry.status}</span>
-      {detail && <span className="text-slate-400">{detail}</span>}
+      <span className="text-slate-300 shrink-0">{entry.nodeName}</span>
+      <span className="text-slate-500 shrink-0">{entry.status}</span>
+      {detail && <span className="text-slate-400 break-all">{detail}</span>}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Analysis / Inspection Panel                                        */
+/* ------------------------------------------------------------------ */
+
+function AnalysisPanel({ processingLog }: { processingLog: ProcessingLog | null }) {
+  const [expandedChapters, setExpandedChapters] = useState<Set<string>>(new Set());
+
+  if (!processingLog || processingLog.documents.length === 0) {
+    return (
+      <div className="flex-1 flex flex-col items-center justify-center text-slate-600 p-8">
+        <Search className="w-12 h-12 mb-3 opacity-30" />
+        <p className="text-sm">Carica un documento per vedere l'analisi della suddivisione.</p>
+      </div>
+    );
+  }
+
+  const toggleChapter = (key: string) => {
+    setExpandedChapters((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  };
+
+  return (
+    <div className="flex-1 overflow-auto p-5 space-y-6">
+      {/* Summary */}
+      <div className="flex items-center gap-4 text-sm">
+        <div className="bg-cyan-500/10 text-cyan-400 px-3 py-1.5 rounded-lg font-semibold">
+          {processingLog.total_chapters} capitoli
+        </div>
+        <div className="bg-purple-500/10 text-purple-400 px-3 py-1.5 rounded-lg font-semibold">
+          {processingLog.total_sections} sezioni
+        </div>
+      </div>
+
+      {processingLog.documents.map((doc, di) => (
+        <div key={di} className="space-y-3">
+          <div className="flex items-center gap-2">
+            <FileText className="w-4 h-4 text-blue-400" />
+            <span className="text-sm font-semibold text-slate-200">{doc.filename || "Documento"}</span>
+            <span className="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-400 uppercase">
+              rilevamento: {doc.detection_method}
+            </span>
+          </div>
+
+          <div className="space-y-1">
+            {doc.chapters.map((ch, ci) => {
+              const key = `${di}-${ci}`;
+              const isExpanded = expandedChapters.has(key);
+              return (
+                <div key={ci} className="border border-slate-800 rounded-lg overflow-hidden">
+                  <button
+                    onClick={() => toggleChapter(key)}
+                    className="w-full flex items-center gap-2 px-3 py-2 hover:bg-slate-800/50 transition-colors text-left"
+                  >
+                    {isExpanded
+                      ? <ChevronDown className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                      : <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />}
+                    <span className="text-xs font-semibold text-blue-400 shrink-0">Cap. {ci + 1}</span>
+                    <span className="text-xs text-slate-200 truncate">{ch.name}</span>
+                    <span className="ml-auto text-[10px] text-slate-500 shrink-0">
+                      {ch.sections.length} sez · {(ch.char_count / 1000).toFixed(1)}k car
+                    </span>
+                  </button>
+
+                  {isExpanded && (
+                    <div className="border-t border-slate-800 bg-slate-900/50 px-3 py-2 space-y-2">
+                      {ch.sections.map((sec, si) => (
+                        <div key={si} className="space-y-0.5">
+                          <div className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0" />
+                            <span className="text-xs font-medium text-purple-300">{sec.name}</span>
+                          </div>
+                          {sec.excerpt_preview && (
+                            <p className="text-[10px] text-slate-500 pl-4 leading-relaxed line-clamp-3">
+                              {sec.excerpt_preview}
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

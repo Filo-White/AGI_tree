@@ -8,9 +8,10 @@ from llm_client import (
     get_answer,
     decompose_query,
     synthesize_response,
-    analyze_document_topics,
+    detect_chapters,
+    extract_sections_for_chapter,
     generate_node_system_prompt,
-    merge_document_into_topics,
+    merge_chapter_lists,
     DEFAULT_MODEL,
 )
 
@@ -19,7 +20,7 @@ Callback = Callable[..., Any]
 
 def _slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "_", text.lower().strip())
-    return slug.strip("_")
+    return slug.strip("_")[:60]
 
 
 class TreeEngine:
@@ -37,7 +38,8 @@ class TreeEngine:
             children=[],
         )
         self._node_map: dict[str, TreeNodeConfig] = {"root": self.root}
-        self._raw_topics: list[dict] = []
+        self._chapters_data: list[dict] = []
+        self.processing_log: dict = {"documents": [], "total_chapters": 0, "total_sections": 0}
 
     def _rebuild_node_map(self):
         self._node_map = {}
@@ -55,91 +57,118 @@ class TreeEngine:
         return {"tree": self.root.model_dump()}
 
     # ------------------------------------------------------------------
-    # Build / update tree from document
+    # Build / update tree from document (two-phase: chapters → sections)
     # ------------------------------------------------------------------
     async def build_tree_from_document(
-        self, document_text: str, callback: Callback | None = None
+        self, document_text: str, filename: str = "", callback: Callback | None = None
     ):
+        doc_log: dict = {"filename": filename, "detection_method": "", "chapters": []}
+
+        # --- Phase 1: detect chapters ---
         if callback:
-            await callback("analysis", "root", "Orchestratore", "start")
+            await callback("analysis", "root", "Orchestratore", "detecting_chapters")
 
-        if self._raw_topics:
-            topics = await merge_document_into_topics(self._raw_topics, document_text)
-        else:
-            topics = await analyze_document_topics(document_text)
-
-        self._raw_topics = topics
+        chapters, method = await detect_chapters(document_text)
+        doc_log["detection_method"] = method
 
         if callback:
-            await callback("analysis", "root", "Orchestratore", "topics_found", [t["name"] for t in topics])
+            await callback(
+                "analysis", "root", "Orchestratore", "chapters_found",
+                {"count": len(chapters), "method": method, "names": [c["name"] for c in chapters]},
+            )
 
+        # --- Handle merge with existing chapters ---
+        if self._chapters_data:
+            existing_names = [c["name"] for c in self._chapters_data]
+            new_names = [c["name"] for c in chapters]
+            decisions = await merge_chapter_lists(existing_names, new_names)
+
+            merged_chapters = list(self._chapters_data)
+            for ch in chapters:
+                decision = next((d for d in decisions if d["new_chapter"] == ch["name"]), None)
+                if decision and decision.get("action") == "merge" and decision.get("merge_with"):
+                    target = next((ec for ec in merged_chapters if ec["name"] == decision["merge_with"]), None)
+                    if target:
+                        target["text"] += "\n\n" + ch["text"]
+                        target.pop("sections", None)
+                        continue
+                merged_chapters.append(ch)
+            chapters = merged_chapters
+
+        self._chapters_data = chapters
+
+        # --- Phase 2: extract sections per chapter ---
         new_children: list[TreeNodeConfig] = []
 
-        for topic in topics:
-            topic_id = f"node_{_slugify(topic['name'])}"
-            existing_node = self._node_map.get(topic_id)
+        for ch_idx, chapter in enumerate(chapters):
+            ch_name = chapter["name"]
+            ch_text = chapter["text"]
+            ch_id = f"ch_{_slugify(ch_name)}"
 
             if callback:
-                await callback("building", topic_id, topic["name"], "start")
+                await callback("building", ch_id, ch_name, "extracting_sections",
+                               {"chapter_index": ch_idx + 1, "total_chapters": len(chapters)})
 
-            if not existing_node:
-                topic_prompt = await generate_node_system_prompt(topic["name"])
-                topic_node = TreeNodeConfig(
-                    id=topic_id,
-                    name=topic["name"],
-                    model=DEFAULT_MODEL,
-                    role="node",
-                    system_prompt=topic_prompt,
-                    children=[],
-                )
+            if "sections" not in chapter:
+                sections = await extract_sections_for_chapter(ch_name, ch_text)
+                chapter["sections"] = sections
             else:
-                topic_node = existing_node.model_copy(deep=True)
-                topic_node.children = []
+                sections = chapter["sections"]
 
-            subtopics = topic.get("subtopics", [])
-            for sub in subtopics:
-                sub_name = sub["name"] if isinstance(sub, dict) else sub
-                sub_excerpt = sub.get("excerpt", "") if isinstance(sub, dict) else ""
-                leaf_id = f"leaf_{_slugify(topic['name'])}_{_slugify(sub_name)}"
+            ch_log = {"name": ch_name, "char_count": len(ch_text), "sections": []}
 
-                existing_leaf = self._node_map.get(leaf_id)
+            if callback:
+                await callback("building", ch_id, ch_name, "sections_found",
+                               {"count": len(sections), "names": [s["name"] for s in sections]})
 
-                if existing_leaf:
-                    merged_context = existing_leaf.context
-                    if sub_excerpt and sub_excerpt not in merged_context:
-                        merged_context += f"\n\n{sub_excerpt}"
-                    leaf_node = existing_leaf.model_copy(deep=True)
-                    leaf_node.context = merged_context
-                else:
-                    leaf_prompt = await generate_node_system_prompt(
-                        f"{sub_name} (nell'ambito di {topic['name']})"
-                    )
-                    leaf_node = TreeNodeConfig(
-                        id=leaf_id,
-                        name=sub_name,
-                        model=DEFAULT_MODEL,
-                        role="leaf",
-                        system_prompt=leaf_prompt,
-                        context=sub_excerpt,
-                        children=[],
-                    )
+            chapter_prompt = await generate_node_system_prompt(ch_name)
+            chapter_node = TreeNodeConfig(
+                id=ch_id, name=ch_name, model=DEFAULT_MODEL, role="node",
+                system_prompt=chapter_prompt, context=ch_text[:500], children=[],
+            )
 
-                topic_node.children.append(leaf_node)
+            for sec in sections:
+                sec_name = sec["name"] if isinstance(sec, dict) else sec
+                sec_excerpt = sec.get("excerpt", "") if isinstance(sec, dict) else ""
+                leaf_id = f"leaf_{_slugify(ch_name)}_{_slugify(sec_name)}"
+
+                leaf_prompt = await generate_node_system_prompt(
+                    f"{sec_name} (nel capitolo: {ch_name})"
+                )
+                leaf_node = TreeNodeConfig(
+                    id=leaf_id, name=sec_name, model=DEFAULT_MODEL, role="leaf",
+                    system_prompt=leaf_prompt, context=sec_excerpt, children=[],
+                )
+                chapter_node.children.append(leaf_node)
+
+                ch_log["sections"].append({
+                    "name": sec_name,
+                    "excerpt_preview": sec_excerpt[:150] + ("..." if len(sec_excerpt) > 150 else ""),
+                })
 
                 if callback:
-                    await callback("building", leaf_id, sub_name, "created")
+                    await callback("building", leaf_id, sec_name, "created",
+                                   {"chapter": ch_name, "excerpt_len": len(sec_excerpt)})
 
-            new_children.append(topic_node)
+            new_children.append(chapter_node)
+            doc_log["chapters"].append(ch_log)
 
             if callback:
-                await callback("building", topic_id, topic["name"], "complete")
+                await callback("building", ch_id, ch_name, "complete")
 
         self.root = self.root.model_copy(deep=True)
         self.root.children = new_children
         self._rebuild_node_map()
 
+        self.processing_log["documents"].append(doc_log)
+        self.processing_log["total_chapters"] = len(new_children)
+        self.processing_log["total_sections"] = sum(len(c.children) for c in new_children)
+
         if callback:
-            await callback("analysis", "root", "Orchestratore", "complete")
+            await callback("analysis", "root", "Orchestratore", "complete", {
+                "total_chapters": self.processing_log["total_chapters"],
+                "total_sections": self.processing_log["total_sections"],
+            })
 
     # ------------------------------------------------------------------
     # Phase 1 — Discovery (top-down): collect competence scores

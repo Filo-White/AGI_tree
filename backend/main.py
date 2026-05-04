@@ -40,15 +40,16 @@ async def clear_documents():
     return {"status": "ok"}
 
 
+@app.get("/api/processing-log")
+async def get_processing_log():
+    return engine.processing_log
+
+
 @app.post("/api/upload")
 async def upload_document(file: UploadFile = File(...)):
     global _active_ws
     contents = await file.read()
     text = process_document(file.filename, contents)
-
-    max_chars = 30000
-    if len(text) > max_chars:
-        text = text[:max_chars] + "\n\n[... documento troncato ...]"
 
     uploaded_files.append(file.filename)
 
@@ -69,7 +70,7 @@ async def upload_document(file: UploadFile = File(...)):
                 pass
 
     try:
-        await engine.build_tree_from_document(text, callback=ws_callback)
+        await engine.build_tree_from_document(text, filename=file.filename, callback=ws_callback)
     except Exception as e:
         return {"status": "error", "message": str(e)}
 

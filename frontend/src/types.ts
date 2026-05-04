@@ -85,3 +85,27 @@ export interface ErrorMessage {
 }
 
 export type WSMessage = ProgressMessage | ResultMessage | TreeUpdateMessage | ErrorMessage;
+
+// Processing log types
+export interface SectionLog {
+  name: string;
+  excerpt_preview: string;
+}
+
+export interface ChapterLog {
+  name: string;
+  char_count: number;
+  sections: SectionLog[];
+}
+
+export interface DocumentLog {
+  filename: string;
+  detection_method: string;
+  chapters: ChapterLog[];
+}
+
+export interface ProcessingLog {
+  documents: DocumentLog[];
+  total_chapters: number;
+  total_sections: number;
+}
