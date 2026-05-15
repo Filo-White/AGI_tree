@@ -9,3 +9,4 @@ venv/
 *.egg-info/
 .DS_Store
 Thumbs.db
+METODOLOGIA_ARCH.md
