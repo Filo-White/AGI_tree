@@ -232,30 +232,31 @@ class TreeEngine:
         self,
         query: str,
         callback: Callback | None = None,
-    ) -> dict[str, float]:
-        """Score all scorable nodes. Leaves if expanded, otherwise the node itself."""
+    ) -> tuple[dict[str, float], dict[str, str]]:
+        """Score all scorable nodes. Returns (scores, reasons)."""
         scores: dict[str, float] = {}
+        reasons: dict[str, str] = {}
 
         async def score_single(node: TreeNodeConfig):
             if callback:
                 await callback("discovery", node.id, node.name, "start")
-            s = await get_competence_score(node.system_prompt, query, node.context, node.model)
-            scores[node.id] = s
+            result = await get_competence_score(node.system_prompt, query, node.context, node.model)
+            scores[node.id] = result["score"]
+            reasons[node.id] = result["reason"]
             if callback:
-                await callback("discovery", node.id, node.name, "score", s)
+                await callback("discovery", node.id, node.name, "score",
+                               {"score": result["score"], "reason": result["reason"]})
 
         tasks = []
         for child in self.root.children:
             if child.children:
-                # Node is expanded — score leaves
                 for leaf in child.children:
                     tasks.append(score_single(leaf))
             else:
-                # Node is not expanded — score the node itself
                 tasks.append(score_single(child))
 
         await asyncio.gather(*tasks)
-        return scores
+        return scores, reasons
 
     # ------------------------------------------------------------------
     # Auto-expand logic
@@ -384,6 +385,7 @@ class TreeEngine:
             return {
                 "response": "Nessun documento caricato. Carica un documento per iniziare.",
                 "scores": {},
+                "reasons": {},
                 "selected_leaves": [],
                 "sub_queries": [],
                 "leaf_responses": [],
@@ -391,24 +393,26 @@ class TreeEngine:
             }
 
         # Score all scorable nodes
-        scores = await self.score_nodes(query, callback=callback)
+        scores, reasons = await self.score_nodes(query, callback=callback)
 
         # Check if auto-expansion is needed
         expanded, expanded_node_id = await self.maybe_auto_expand(query, scores, callback=callback)
 
         # If we expanded, re-score the new leaves
         if expanded and expanded_node_id:
-            # Re-score: remove old node score, score new leaves
             scores.pop(expanded_node_id, None)
+            reasons.pop(expanded_node_id, None)
             expanded_node = self.get_node(expanded_node_id)
             if expanded_node:
                 for leaf in expanded_node.children:
                     if callback:
                         await callback("discovery", leaf.id, leaf.name, "start")
-                    s = await get_competence_score(leaf.system_prompt, query, leaf.context, leaf.model)
-                    scores[leaf.id] = s
+                    result = await get_competence_score(leaf.system_prompt, query, leaf.context, leaf.model)
+                    scores[leaf.id] = result["score"]
+                    reasons[leaf.id] = result["reason"]
                     if callback:
-                        await callback("discovery", leaf.id, leaf.name, "score", s)
+                        await callback("discovery", leaf.id, leaf.name, "score",
+                                       {"score": result["score"], "reason": result["reason"]})
 
         # Select best responders
         selected = self.select_responders(scores)
@@ -424,6 +428,7 @@ class TreeEngine:
         return {
             "response": final_response,
             "scores": {k: round(v, 3) for k, v in scores.items()},
+            "reasons": reasons,
             "selected_leaves": selected,
             "sub_queries": sub_queries,
             "leaf_responses": [

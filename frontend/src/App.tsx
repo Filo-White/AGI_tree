@@ -94,12 +94,15 @@ export default function App() {
           } else if (msg.phase === "discovery" && msg.status === "start") {
             setNodeStates((prev) => ({
               ...prev,
-              [msg.node_id]: { visualState: "scoring" },
+              [msg.node_id]: { ...prev[msg.node_id], visualState: "scoring" },
             }));
           } else if (msg.phase === "discovery" && msg.status === "score") {
+            const scoreData = msg.data as { score: number; reason: string } | number;
+            const score = typeof scoreData === "number" ? scoreData : scoreData.score;
+            const reason = typeof scoreData === "object" ? scoreData.reason : "";
             setNodeStates((prev) => ({
               ...prev,
-              [msg.node_id]: { visualState: "scored", score: msg.data },
+              [msg.node_id]: { visualState: "scored", score, reason },
             }));
           } else if (msg.phase === "selection" && msg.status === "selected") {
             const selected = msg.data as string[];
@@ -129,7 +132,6 @@ export default function App() {
           }
         } else if (msg.type === "tree_update") {
           setTreeConfig({ tree: msg.tree });
-          setNodeStates({});
         } else if (msg.type === "result") {
           setMessages((prev) => [
             ...prev,
@@ -147,7 +149,6 @@ export default function App() {
             },
           ]);
           setIsProcessing(false);
-          setTimeout(() => setNodeStates({}), 4000);
         } else if (msg.type === "error") {
           setMessages((prev) => [
             ...prev,
@@ -484,8 +485,10 @@ function LogItem({ entry }: { entry: LogEntry }) {
   const color = phaseColors[entry.phase] || "text-slate-400 bg-slate-400/10";
 
   let detail = "";
-  if (entry.status === "score" && typeof entry.data === "number") {
-    detail = `→ ${entry.data.toFixed(2)}`;
+  if (entry.status === "score" && entry.data) {
+    const score = typeof entry.data === "number" ? entry.data : entry.data.score;
+    const reason = typeof entry.data === "object" ? entry.data.reason : "";
+    detail = `→ ${score.toFixed(2)}${reason ? ` (${reason})` : ""}`;
   } else if (entry.status === "selected" && Array.isArray(entry.data)) {
     detail = `→ [${entry.data.join(", ")}]`;
   } else if (entry.status === "decomposed" && Array.isArray(entry.data)) {

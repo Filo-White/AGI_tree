@@ -318,16 +318,19 @@ async def merge_node_lists(
 # Query processing — scoring, answering, decomposition, synthesis
 # ------------------------------------------------------------------
 
-async def get_competence_score(system_prompt: str, query: str, context: str = "", model: str = DEFAULT_MODEL) -> float:
+async def get_competence_score(
+    system_prompt: str, query: str, context: str = "", model: str = DEFAULT_MODEL
+) -> dict:
+    """Returns {"score": float, "reason": str}."""
     messages = [{"role": "system", "content": system_prompt}]
     prompt = (
-        "Valuta la tua competenza sulla seguente domanda. "
-        "Rispondi SOLO con un numero decimale tra 0.0 e 1.0, dove "
-        "0.0 = nessuna competenza e 1.0 = massima competenza.\n\n"
+        "Valuta la tua competenza sulla seguente domanda.\n"
+        "Rispondi SOLO in JSON con questo formato:\n"
+        '{"score": 0.0-1.0, "reason": "breve spiegazione in 1 frase del perché questo score"}\n\n'
     )
     if context:
         prompt += f"Contesto disponibile:\n{context[:2000]}\n\n"
-    prompt += f"Domanda: {query}\n\nScore:"
+    prompt += f"Domanda: {query}"
 
     messages.append({"role": "user", "content": prompt})
 
@@ -335,15 +338,24 @@ async def get_competence_score(system_prompt: str, query: str, context: str = ""
         model=model,
         messages=messages,
         temperature=0.1,
-        max_completion_tokens=10,
+        max_completion_tokens=150,
     )
     try:
         text = response.choices[0].message.content.strip()
-        match = re.search(r"[0-1]\.?\d*", text)
-        score = float(match.group()) if match else 0.0
-        return max(0.0, min(1.0, score))
-    except (ValueError, IndexError, AttributeError):
-        return 0.0
+        text = text.removeprefix("```json").removesuffix("```").strip()
+        data = json.loads(text)
+        score = max(0.0, min(1.0, float(data.get("score", 0.0))))
+        reason = data.get("reason", "")
+        return {"score": score, "reason": reason}
+    except (json.JSONDecodeError, ValueError, KeyError, TypeError):
+        # Fallback: try to extract just a number
+        try:
+            text = response.choices[0].message.content.strip()
+            match = re.search(r"[0-1]\.?\d*", text)
+            score = float(match.group()) if match else 0.0
+            return {"score": max(0.0, min(1.0, score)), "reason": ""}
+        except (ValueError, IndexError, AttributeError):
+            return {"score": 0.0, "reason": ""}
 
 
 async def get_answer(

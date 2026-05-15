@@ -86,6 +86,11 @@ export function NodeDetail({ node, state, onClose, onExpand, isExpanding }: Prop
                   {state.score.toFixed(2)}
                 </span>
               </div>
+              {state.reason && (
+                <p className="mt-2 text-[11px] text-slate-400 leading-relaxed bg-slate-800/60 rounded px-2.5 py-1.5 italic">
+                  {state.reason}
+                </p>
+              )}
             </div>
           </div>
         )}

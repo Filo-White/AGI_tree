@@ -25,6 +25,7 @@ export type NodeVisualState =
 export interface NodeState {
   visualState: NodeVisualState;
   score?: number;
+  reason?: string;
 }
 
 export interface ChatMessage {
