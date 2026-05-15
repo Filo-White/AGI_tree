@@ -19,7 +19,8 @@ export type NodeVisualState =
   | "selected"
   | "answering"
   | "complete"
-  | "building";
+  | "building"
+  | "expanding";
 
 export interface NodeState {
   visualState: NodeVisualState;
@@ -87,25 +88,23 @@ export interface ErrorMessage {
 export type WSMessage = ProgressMessage | ResultMessage | TreeUpdateMessage | ErrorMessage;
 
 // Processing log types
-export interface SectionLog {
-  name: string;
-  excerpt_preview: string;
-}
-
-export interface ChapterLog {
+export interface NodeLog {
   name: string;
   char_count: number;
-  sections: SectionLog[];
+  expanded: boolean;
 }
 
 export interface DocumentLog {
   filename: string;
+  doc_type: string;
   detection_method: string;
-  chapters: ChapterLog[];
+  nodes: NodeLog[];
 }
 
 export interface ProcessingLog {
   documents: DocumentLog[];
-  total_chapters: number;
-  total_sections: number;
+  total_nodes: number;
+  total_leaves: number;
+  doc_type: string | null;
+  doc_description: string | null;
 }

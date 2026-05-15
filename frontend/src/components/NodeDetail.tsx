@@ -1,13 +1,15 @@
-import { X, Crown, GitBranch, Leaf, Cpu, FileCode, BookOpen } from "lucide-react";
+import { X, Crown, GitBranch, Leaf, Cpu, FileCode, BookOpen, Expand, Loader2 } from "lucide-react";
 import { TreeNodeConfig, NodeState } from "../types";
 
 interface Props {
   node: TreeNodeConfig;
   state?: NodeState;
   onClose: () => void;
+  onExpand?: (nodeId: string) => void;
+  isExpanding?: boolean;
 }
 
-export function NodeDetail({ node, state, onClose }: Props) {
+export function NodeDetail({ node, state, onClose, onExpand, isExpanding }: Props) {
   return (
     <div className="w-80 border-l border-slate-800 bg-slate-900/50 flex flex-col overflow-hidden">
       {/* Header */}
@@ -130,10 +132,31 @@ export function NodeDetail({ node, state, onClose }: Props) {
           </div>
         )}
 
+        {/* Expand button — only for unexpanded nodes */}
+        {node.role === "node" && node.children.length === 0 && onExpand && (
+          <div>
+            <button
+              onClick={() => onExpand(node.id)}
+              disabled={isExpanding}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 rounded-lg transition-colors text-sm font-medium"
+            >
+              {isExpanding ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <Expand className="w-4 h-4" />
+              )}
+              {isExpanding ? "Espansione in corso..." : "Espandi in sotto-sezioni"}
+            </button>
+            <p className="mt-1.5 text-[10px] text-slate-500 text-center">
+              Crea foglie specializzate per questo nodo
+            </p>
+          </div>
+        )}
+
         {/* Children count */}
         {node.children.length > 0 && (
           <Field
-            label="Figli"
+            label="Foglie"
             value={`${node.children.length} (${node.children
               .map((c) => c.name)
               .join(", ")})`}
@@ -203,6 +226,7 @@ function getStateBadge(state: string): string {
 
 const stateLabels: Record<string, string> = {
   building: "Costruzione in corso...",
+  expanding: "Espansione in corso...",
   scoring: "Valutazione in corso...",
   scored: "Valutato",
   selected: "Selezionato",

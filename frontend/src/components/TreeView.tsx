@@ -97,7 +97,7 @@ const sizeMap = {
 function CircleNode({ node, state, isSelected, onClick, size }: CircleProps) {
   const s = sizeMap[size];
   const borderStyle = getCircleStyle(node.role, state?.visualState, isSelected);
-  const isAnimating = state?.visualState === "scoring" || state?.visualState === "answering" || state?.visualState === "building";
+  const isAnimating = state?.visualState === "scoring" || state?.visualState === "answering" || state?.visualState === "building" || state?.visualState === "expanding";
 
   return (
     <div className="flex flex-col items-center gap-0.5">
@@ -140,12 +140,13 @@ function getCircleStyle(role: string, visualState?: NodeVisualState, isSelected?
   if (isSelected) return `${base} border-white/70 ring-2 ring-white/20 shadow-lg`;
 
   switch (visualState) {
-    case "building":  return `${base} border-orange-400/80 shadow-orange-500/20 shadow-md`;
-    case "scoring":   return `${base} border-amber-400/80 shadow-amber-500/20 shadow-md`;
-    case "scored":    return `${base} border-amber-400/50`;
-    case "selected":  return `${base} border-emerald-400/80 shadow-emerald-500/20 shadow-md`;
-    case "answering": return `${base} border-blue-400/80 shadow-blue-500/20 shadow-md`;
-    case "complete":  return `${base} border-emerald-400/60 shadow-emerald-500/20 shadow-sm`;
+    case "building":   return `${base} border-orange-400/80 shadow-orange-500/20 shadow-md`;
+    case "expanding":  return `${base} border-cyan-400/80 shadow-cyan-500/20 shadow-md`;
+    case "scoring":    return `${base} border-amber-400/80 shadow-amber-500/20 shadow-md`;
+    case "scored":     return `${base} border-amber-400/50`;
+    case "selected":   return `${base} border-emerald-400/80 shadow-emerald-500/20 shadow-md`;
+    case "answering":  return `${base} border-blue-400/80 shadow-blue-500/20 shadow-md`;
+    case "complete":   return `${base} border-emerald-400/60 shadow-emerald-500/20 shadow-sm`;
   }
 
   switch (role) {

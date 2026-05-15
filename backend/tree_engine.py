@@ -8,14 +8,18 @@ from llm_client import (
     get_answer,
     decompose_query,
     synthesize_response,
-    detect_chapters,
-    extract_sections_for_chapter,
+    classify_document,
+    detect_top_level_nodes,
+    expand_node_into_leaves,
+    check_node_relevance,
     generate_node_system_prompt,
-    merge_chapter_lists,
+    merge_node_lists,
     DEFAULT_MODEL,
 )
 
 Callback = Callable[..., Any]
+
+AUTO_EXPAND_THRESHOLD = 0.7
 
 
 def _slugify(text: str) -> str:
@@ -38,8 +42,11 @@ class TreeEngine:
             children=[],
         )
         self._node_map: dict[str, TreeNodeConfig] = {"root": self.root}
-        self._chapters_data: list[dict] = []
-        self.processing_log: dict = {"documents": [], "total_chapters": 0, "total_sections": 0}
+        self._nodes_data: list[dict] = []  # raw text data for each top-level node
+        self.processing_log: dict = {
+            "documents": [], "total_nodes": 0, "total_leaves": 0,
+            "doc_type": None, "doc_description": None,
+        }
 
     def _rebuild_node_map(self):
         self._node_map = {}
@@ -56,181 +63,271 @@ class TreeEngine:
     def get_tree_dict(self) -> dict:
         return {"tree": self.root.model_dump()}
 
+    def _get_node_text(self, node_id: str) -> str:
+        """Get raw text for a node from stored data."""
+        for nd in self._nodes_data:
+            if nd.get("id") == node_id:
+                return nd.get("text", "")
+        return ""
+
+    def is_node_expanded(self, node_id: str) -> bool:
+        """Check if a node already has leaves."""
+        node = self.get_node(node_id)
+        return node is not None and len(node.children) > 0
+
     # ------------------------------------------------------------------
-    # Build / update tree from document (two-phase: chapters → sections)
+    # Build tree from document — ONLY top-level nodes, no leaves
     # ------------------------------------------------------------------
     async def build_tree_from_document(
         self, document_text: str, filename: str = "", callback: Callback | None = None
     ):
-        doc_log: dict = {"filename": filename, "detection_method": "", "chapters": []}
+        doc_log: dict = {"filename": filename, "doc_type": "", "detection_method": "", "nodes": []}
 
-        # --- Phase 1: detect chapters ---
+        # --- Step 1: Classify document ---
         if callback:
-            await callback("analysis", "root", "Orchestratore", "detecting_chapters")
+            await callback("analysis", "root", "Orchestratore", "classifying")
 
-        chapters, method = await detect_chapters(document_text)
+        classification = await classify_document(document_text)
+        doc_type = classification.get("doc_type", "other")
+        doc_description = classification.get("description", "")
+        doc_log["doc_type"] = doc_type
+
+        if callback:
+            await callback("analysis", "root", "Orchestratore", "classified", classification)
+
+        # --- Step 2: Detect top-level nodes ---
+        if callback:
+            await callback("analysis", "root", "Orchestratore", "detecting_nodes")
+
+        nodes_raw, method = await detect_top_level_nodes(document_text, doc_type)
         doc_log["detection_method"] = method
 
         if callback:
             await callback(
-                "analysis", "root", "Orchestratore", "chapters_found",
-                {"count": len(chapters), "method": method, "names": [c["name"] for c in chapters]},
+                "analysis", "root", "Orchestratore", "nodes_found",
+                {"count": len(nodes_raw), "method": method, "names": [n["name"] for n in nodes_raw]},
             )
 
-        # --- Handle merge with existing chapters ---
-        if self._chapters_data:
-            existing_names = [c["name"] for c in self._chapters_data]
-            new_names = [c["name"] for c in chapters]
-            decisions = await merge_chapter_lists(existing_names, new_names)
+        # --- Handle merge with existing nodes ---
+        if self._nodes_data:
+            existing_names = [n["name"] for n in self._nodes_data]
+            new_names = [n["name"] for n in nodes_raw]
+            decisions = await merge_node_lists(existing_names, new_names)
 
-            merged_chapters = list(self._chapters_data)
-            for ch in chapters:
-                decision = next((d for d in decisions if d["new_chapter"] == ch["name"]), None)
+            merged = list(self._nodes_data)
+            for nd in nodes_raw:
+                decision = next((d for d in decisions if d.get("new_node") == nd["name"]), None)
                 if decision and decision.get("action") == "merge" and decision.get("merge_with"):
-                    target = next((ec for ec in merged_chapters if ec["name"] == decision["merge_with"]), None)
+                    target = next((e for e in merged if e["name"] == decision["merge_with"]), None)
                     if target:
-                        target["text"] += "\n\n" + ch["text"]
-                        target.pop("sections", None)
+                        target["text"] += "\n\n" + nd["text"]
                         continue
-                merged_chapters.append(ch)
-            chapters = merged_chapters
+                merged.append(nd)
+            nodes_raw = merged
 
-        self._chapters_data = chapters
-
-        # --- Phase 2: extract sections per chapter ---
+        # --- Step 3: Create top-level tree nodes (no leaves) ---
         new_children: list[TreeNodeConfig] = []
 
-        for ch_idx, chapter in enumerate(chapters):
-            ch_name = chapter["name"]
-            ch_text = chapter["text"]
-            ch_id = f"ch_{_slugify(ch_name)}"
+        for nd in nodes_raw:
+            nd_name = nd["name"]
+            nd_text = nd["text"]
+            nd_id = f"node_{_slugify(nd_name)}"
+            nd["id"] = nd_id  # store id for later lookup
 
             if callback:
-                await callback("building", ch_id, ch_name, "extracting_sections",
-                               {"chapter_index": ch_idx + 1, "total_chapters": len(chapters)})
+                await callback("building", nd_id, nd_name, "creating")
 
-            if "sections" not in chapter:
-                sections = await extract_sections_for_chapter(ch_name, ch_text)
-                chapter["sections"] = sections
-            else:
-                sections = chapter["sections"]
-
-            ch_log = {"name": ch_name, "char_count": len(ch_text), "sections": []}
-
-            if callback:
-                await callback("building", ch_id, ch_name, "sections_found",
-                               {"count": len(sections), "names": [s["name"] for s in sections]})
-
-            chapter_prompt = await generate_node_system_prompt(ch_name)
-            chapter_node = TreeNodeConfig(
-                id=ch_id, name=ch_name, model=DEFAULT_MODEL, role="node",
-                system_prompt=chapter_prompt, context=ch_text[:500], children=[],
+            node_prompt = await generate_node_system_prompt(nd_name)
+            tree_node = TreeNodeConfig(
+                id=nd_id, name=nd_name, model=DEFAULT_MODEL, role="node",
+                system_prompt=node_prompt, context=nd_text[:2000], children=[],
             )
+            new_children.append(tree_node)
 
-            for sec in sections:
-                sec_name = sec["name"] if isinstance(sec, dict) else sec
-                sec_excerpt = sec.get("excerpt", "") if isinstance(sec, dict) else ""
-                leaf_id = f"leaf_{_slugify(ch_name)}_{_slugify(sec_name)}"
-
-                leaf_prompt = await generate_node_system_prompt(
-                    f"{sec_name} (nel capitolo: {ch_name})"
-                )
-                leaf_node = TreeNodeConfig(
-                    id=leaf_id, name=sec_name, model=DEFAULT_MODEL, role="leaf",
-                    system_prompt=leaf_prompt, context=sec_excerpt, children=[],
-                )
-                chapter_node.children.append(leaf_node)
-
-                ch_log["sections"].append({
-                    "name": sec_name,
-                    "excerpt_preview": sec_excerpt[:150] + ("..." if len(sec_excerpt) > 150 else ""),
-                })
-
-                if callback:
-                    await callback("building", leaf_id, sec_name, "created",
-                                   {"chapter": ch_name, "excerpt_len": len(sec_excerpt)})
-
-            new_children.append(chapter_node)
-            doc_log["chapters"].append(ch_log)
+            doc_log["nodes"].append({"name": nd_name, "char_count": len(nd_text), "expanded": False})
 
             if callback:
-                await callback("building", ch_id, ch_name, "complete")
+                await callback("building", nd_id, nd_name, "created")
 
+        self._nodes_data = nodes_raw
         self.root = self.root.model_copy(deep=True)
         self.root.children = new_children
         self._rebuild_node_map()
 
         self.processing_log["documents"].append(doc_log)
-        self.processing_log["total_chapters"] = len(new_children)
-        self.processing_log["total_sections"] = sum(len(c.children) for c in new_children)
+        self.processing_log["total_nodes"] = len(new_children)
+        self.processing_log["total_leaves"] = sum(len(c.children) for c in new_children)
+        self.processing_log["doc_type"] = doc_type
+        self.processing_log["doc_description"] = doc_description
 
         if callback:
             await callback("analysis", "root", "Orchestratore", "complete", {
-                "total_chapters": self.processing_log["total_chapters"],
-                "total_sections": self.processing_log["total_sections"],
+                "total_nodes": len(new_children),
+                "doc_type": doc_type,
+                "doc_description": doc_description,
             })
 
     # ------------------------------------------------------------------
-    # Phase 1 — Discovery (top-down): collect competence scores
+    # Expand a node into leaves (on demand or auto)
     # ------------------------------------------------------------------
-    async def phase1_discovery(
+    async def expand_node(
+        self, node_id: str, callback: Callback | None = None
+    ) -> bool:
+        """Expand a top-level node into leaf sub-sections. Returns True if expanded."""
+        node = self.get_node(node_id)
+        if not node or node.role == "leaf" or node.role == "root":
+            return False
+
+        if node.children:
+            return False  # already expanded
+
+        node_text = self._get_node_text(node_id)
+        if not node_text:
+            node_text = node.context  # fallback
+
+        if callback:
+            await callback("expanding", node_id, node.name, "start")
+
+        leaves_data = await expand_node_into_leaves(node.name, node_text)
+
+        if callback:
+            await callback("expanding", node_id, node.name, "leaves_found",
+                           {"count": len(leaves_data), "names": [l["name"] for l in leaves_data]})
+
+        for leaf in leaves_data:
+            leaf_name = leaf["name"] if isinstance(leaf, dict) else leaf
+            leaf_excerpt = leaf.get("excerpt", "") if isinstance(leaf, dict) else ""
+            leaf_id = f"leaf_{_slugify(node.name)}_{_slugify(leaf_name)}"
+
+            leaf_prompt = await generate_node_system_prompt(
+                f"{leaf_name} (nella sezione: {node.name})"
+            )
+            leaf_node = TreeNodeConfig(
+                id=leaf_id, name=leaf_name, model=DEFAULT_MODEL, role="leaf",
+                system_prompt=leaf_prompt, context=leaf_excerpt, children=[],
+            )
+            node.children.append(leaf_node)
+
+            if callback:
+                await callback("expanding", leaf_id, leaf_name, "leaf_created",
+                               {"parent": node.name})
+
+        self._rebuild_node_map()
+
+        # Update processing log
+        self.processing_log["total_leaves"] = sum(
+            len(c.children) for c in self.root.children
+        )
+
+        if callback:
+            await callback("expanding", node_id, node.name, "complete",
+                           {"leaves_count": len(node.children)})
+
+        return True
+
+    # ------------------------------------------------------------------
+    # Score nodes (top-level only, or leaves if expanded)
+    # ------------------------------------------------------------------
+    async def score_nodes(
         self,
         query: str,
-        node: TreeNodeConfig | None = None,
         callback: Callback | None = None,
     ) -> dict[str, float]:
-        if node is None:
-            node = self.root
+        """Score all scorable nodes. Leaves if expanded, otherwise the node itself."""
+        scores: dict[str, float] = {}
 
-        if callback:
-            await callback("discovery", node.id, node.name, "start")
-
-        if not node.children:
-            score = await get_competence_score(
-                node.system_prompt, query, node.context, node.model
-            )
+        async def score_single(node: TreeNodeConfig):
             if callback:
-                await callback("discovery", node.id, node.name, "score", score)
-            return {node.id: score}
+                await callback("discovery", node.id, node.name, "start")
+            s = await get_competence_score(node.system_prompt, query, node.context, node.model)
+            scores[node.id] = s
+            if callback:
+                await callback("discovery", node.id, node.name, "score", s)
 
-        tasks = [
-            self.phase1_discovery(query, child, callback) for child in node.children
-        ]
-        results = await asyncio.gather(*tasks)
+        tasks = []
+        for child in self.root.children:
+            if child.children:
+                # Node is expanded — score leaves
+                for leaf in child.children:
+                    tasks.append(score_single(leaf))
+            else:
+                # Node is not expanded — score the node itself
+                tasks.append(score_single(child))
 
-        merged: dict[str, float] = {}
-        for result in results:
-            merged.update(result)
-
-        if callback:
-            await callback("discovery", node.id, node.name, "aggregated", merged)
-
-        return merged
+        await asyncio.gather(*tasks)
+        return scores
 
     # ------------------------------------------------------------------
-    # Phase 2 — Select best leaves
+    # Auto-expand logic
     # ------------------------------------------------------------------
-    async def phase2_select_leaves(
+    async def maybe_auto_expand(
         self,
+        query: str,
         scores: dict[str, float],
-        threshold: float = 0.3,
-        max_leaves: int = 4,
+        callback: Callback | None = None,
+    ) -> tuple[bool, str | None]:
+        """
+        If no node scores >= AUTO_EXPAND_THRESHOLD, check if the best-scoring
+        node is relevant. If yes, expand it. Returns (expanded, node_id).
+        """
+        max_score = max(scores.values()) if scores else 0.0
+        if max_score >= AUTO_EXPAND_THRESHOLD:
+            return False, None
+
+        # Find best scoring node (must be unexpanded)
+        best_id = max(scores, key=scores.get) if scores else None
+        if not best_id:
+            return False, None
+
+        # Find parent node if best_id is already a leaf
+        best_node = self.get_node(best_id)
+        if not best_node:
+            return False, None
+
+        # If best_node is a top-level node (not expanded), that's the candidate
+        # If best_node is a leaf, its parent is already expanded — no further expansion
+        if best_node.role == "leaf":
+            return False, None
+
+        # Check relevance before expanding
+        if callback:
+            await callback("auto_expand", best_id, best_node.name, "checking_relevance")
+
+        is_relevant = await check_node_relevance(
+            best_node.name, best_node.context, query
+        )
+
+        if not is_relevant:
+            if callback:
+                await callback("auto_expand", best_id, best_node.name, "not_relevant")
+            return False, None
+
+        # Expand!
+        if callback:
+            await callback("auto_expand", best_id, best_node.name, "expanding")
+
+        expanded = await self.expand_node(best_id, callback=callback)
+        return expanded, best_id if expanded else None
+
+    # ------------------------------------------------------------------
+    # Select best responders
+    # ------------------------------------------------------------------
+    def select_responders(
+        self, scores: dict[str, float], threshold: float = 0.3, max_count: int = 4
     ) -> list[str]:
-        sorted_leaves = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-        selected = [lid for lid, s in sorted_leaves if s >= threshold][:max_leaves]
-
-        if not selected and sorted_leaves:
-            selected = [sorted_leaves[0][0]]
-
+        sorted_items = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+        selected = [nid for nid, s in sorted_items if s >= threshold][:max_count]
+        if not selected and sorted_items:
+            selected = [sorted_items[0][0]]
         return selected
 
     # ------------------------------------------------------------------
-    # Phase 3 — Route sub-queries and collect responses
+    # Route and respond
     # ------------------------------------------------------------------
-    async def phase3_route_and_respond(
+    async def route_and_respond(
         self,
         query: str,
-        selected_leaf_ids: list[str],
+        selected_ids: list[str],
         scores: dict[str, float],
         callback: Callback | None = None,
     ) -> tuple[str, list[str], list[LeafResponse]]:
@@ -243,14 +340,10 @@ class TreeEngine:
 
         for sub_query in sub_queries:
             tasks = []
-            for leaf_id in selected_leaf_ids:
-                leaf = self.get_node(leaf_id)
-                if leaf:
-                    tasks.append(
-                        self._get_leaf_response(
-                            leaf, sub_query, scores.get(leaf_id, 0), callback
-                        )
-                    )
+            for nid in selected_ids:
+                node = self.get_node(nid)
+                if node:
+                    tasks.append(self._get_node_response(node, sub_query, scores.get(nid, 0), callback))
             responses = await asyncio.gather(*tasks)
             all_responses.extend(responses)
 
@@ -268,37 +361,24 @@ class TreeEngine:
 
         return final, sub_queries, all_responses
 
-    async def _get_leaf_response(
-        self,
-        leaf: TreeNodeConfig,
-        query: str,
-        score: float,
-        callback: Callback | None = None,
+    async def _get_node_response(
+        self, node: TreeNodeConfig, query: str, score: float, callback: Callback | None = None,
     ) -> LeafResponse:
         if callback:
-            await callback("answering", leaf.id, leaf.name, "start")
+            await callback("answering", node.id, node.name, "start")
 
-        response = await get_answer(
-            leaf.system_prompt, query, leaf.context, leaf.model
-        )
+        response = await get_answer(node.system_prompt, query, node.context, node.model)
 
         if callback:
-            await callback("answering", leaf.id, leaf.name, "complete")
+            await callback("answering", node.id, node.name, "complete")
 
-        return LeafResponse(
-            node_id=leaf.id,
-            node_name=leaf.name,
-            response=response,
-            score=score,
-        )
+        return LeafResponse(node_id=node.id, node_name=node.name, response=response, score=score)
 
     # ------------------------------------------------------------------
-    # Full pipeline
+    # Full pipeline with auto-expand
     # ------------------------------------------------------------------
     async def process_query(
-        self,
-        query: str,
-        callback: Callback | None = None,
+        self, query: str, callback: Callback | None = None,
     ) -> dict:
         if not self.root.children:
             return {
@@ -307,16 +387,37 @@ class TreeEngine:
                 "selected_leaves": [],
                 "sub_queries": [],
                 "leaf_responses": [],
+                "auto_expanded": None,
             }
 
-        scores = await self.phase1_discovery(query, callback=callback)
+        # Score all scorable nodes
+        scores = await self.score_nodes(query, callback=callback)
 
-        selected = await self.phase2_select_leaves(scores)
+        # Check if auto-expansion is needed
+        expanded, expanded_node_id = await self.maybe_auto_expand(query, scores, callback=callback)
+
+        # If we expanded, re-score the new leaves
+        if expanded and expanded_node_id:
+            # Re-score: remove old node score, score new leaves
+            scores.pop(expanded_node_id, None)
+            expanded_node = self.get_node(expanded_node_id)
+            if expanded_node:
+                for leaf in expanded_node.children:
+                    if callback:
+                        await callback("discovery", leaf.id, leaf.name, "start")
+                    s = await get_competence_score(leaf.system_prompt, query, leaf.context, leaf.model)
+                    scores[leaf.id] = s
+                    if callback:
+                        await callback("discovery", leaf.id, leaf.name, "score", s)
+
+        # Select best responders
+        selected = self.select_responders(scores)
 
         if callback:
             await callback("selection", "root", self.root.name, "selected", selected)
 
-        final_response, sub_queries, leaf_responses = await self.phase3_route_and_respond(
+        # Route and respond
+        final_response, sub_queries, leaf_responses = await self.route_and_respond(
             query, selected, scores, callback
         )
 
@@ -326,12 +427,8 @@ class TreeEngine:
             "selected_leaves": selected,
             "sub_queries": sub_queries,
             "leaf_responses": [
-                {
-                    "node_id": r.node_id,
-                    "node_name": r.node_name,
-                    "response": r.response,
-                    "score": round(r.score, 3),
-                }
+                {"node_id": r.node_id, "node_name": r.node_name, "response": r.response, "score": round(r.score, 3)}
                 for r in leaf_responses
             ],
+            "auto_expanded": expanded_node_id,
         }

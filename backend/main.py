@@ -45,6 +45,42 @@ async def get_processing_log():
     return engine.processing_log
 
 
+@app.post("/api/node/{node_id}/expand")
+async def expand_node(node_id: str):
+    global _active_ws
+
+    if engine.is_node_expanded(node_id):
+        return {"status": "already_expanded", "tree": engine.get_tree_dict()}
+
+    async def ws_callback(phase, nid, node_name, status, data=None):
+        if _active_ws:
+            payload = {"type": "progress", "phase": phase, "node_id": nid,
+                       "node_name": node_name, "status": status}
+            if data is not None:
+                payload["data"] = data
+            try:
+                await _active_ws.send_json(payload)
+            except Exception:
+                pass
+
+    try:
+        success = await engine.expand_node(node_id, callback=ws_callback)
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+    if not success:
+        return {"status": "error", "message": "Impossibile espandere questo nodo"}
+
+    tree_data = engine.get_tree_dict()
+    if _active_ws:
+        try:
+            await _active_ws.send_json({"type": "tree_update", **tree_data})
+        except Exception:
+            pass
+
+    return {"status": "ok", "tree": tree_data}
+
+
 @app.post("/api/upload")
 async def upload_document(file: UploadFile = File(...)):
     global _active_ws
@@ -120,6 +156,9 @@ async def websocket_chat(websocket: WebSocket):
                     query,
                     callback=progress_callback,
                 )
+                # If auto-expansion happened, send updated tree
+                if result.get("auto_expanded"):
+                    await websocket.send_json({"type": "tree_update", **engine.get_tree_dict()})
                 await websocket.send_json({"type": "result", **result})
             except Exception as e:
                 await websocket.send_json({"type": "error", "message": str(e)})

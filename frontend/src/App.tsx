@@ -19,8 +19,6 @@ import {
   Loader2,
   Trash2,
   Search,
-  ChevronDown,
-  ChevronRight,
 } from "lucide-react";
 
 export default function App() {
@@ -33,6 +31,7 @@ export default function App() {
   const [isConnected, setIsConnected] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const [isUploading, setIsUploading] = useState(false);
+  const [isExpanding, setIsExpanding] = useState(false);
   const [rightTab, setRightTab] = useState<"tree" | "log" | "analysis">("tree");
   const [processingLog, setProcessingLog] = useState<ProcessingLog | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
@@ -85,8 +84,13 @@ export default function App() {
               ...prev,
               [msg.node_id]: { visualState: "building" },
             }));
-          } else if (msg.phase === "analysis" && msg.status === "topics_found") {
-            // topics found — tree will be updated via tree_update
+          } else if (msg.phase === "expanding" || msg.phase === "auto_expand") {
+            setNodeStates((prev) => ({
+              ...prev,
+              [msg.node_id]: { visualState: "expanding" },
+            }));
+          } else if (msg.phase === "analysis") {
+            // classification/detection — no node state change needed
           } else if (msg.phase === "discovery" && msg.status === "start") {
             setNodeStates((prev) => ({
               ...prev,
@@ -234,6 +238,25 @@ export default function App() {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleExpandNode = async (nodeId: string) => {
+    setIsExpanding(true);
+    try {
+      const res = await fetch(`/api/node/${nodeId}/expand`, { method: "POST" });
+      const data = await res.json();
+      if (data.tree) {
+        setTreeConfig(data.tree);
+      }
+      // Refresh processing log
+      try {
+        const logRes = await fetch("/api/processing-log");
+        setProcessingLog(await logRes.json());
+      } catch {}
+    } catch (err) {
+      console.error("Expand failed:", err);
+    }
+    setIsExpanding(false);
   };
 
   const findNode = (
@@ -420,6 +443,8 @@ export default function App() {
                   node={selectedNode}
                   state={nodeStates[selectedNode.id]}
                   onClose={() => setSelectedNodeId(null)}
+                  onExpand={handleExpandNode}
+                  isExpanding={isExpanding}
                 />
               )}
             </div>
@@ -447,6 +472,8 @@ function LogItem({ entry }: { entry: LogEntry }) {
   const phaseColors: Record<string, string> = {
     analysis: "text-cyan-400 bg-cyan-400/10",
     building: "text-orange-400 bg-orange-400/10",
+    expanding: "text-sky-400 bg-sky-400/10",
+    auto_expand: "text-sky-400 bg-sky-400/10",
     discovery: "text-amber-400 bg-amber-400/10",
     selection: "text-emerald-400 bg-emerald-400/10",
     routing: "text-blue-400 bg-blue-400/10",
@@ -463,18 +490,22 @@ function LogItem({ entry }: { entry: LogEntry }) {
     detail = `→ [${entry.data.join(", ")}]`;
   } else if (entry.status === "decomposed" && Array.isArray(entry.data)) {
     detail = `→ ${entry.data.length} sub-queries`;
-  } else if (entry.status === "chapters_found" && entry.data?.names) {
-    detail = `→ ${entry.data.count} capitoli (${entry.data.method}): ${entry.data.names.join(", ")}`;
-  } else if (entry.status === "sections_found" && entry.data?.names) {
-    detail = `→ ${entry.data.count} sezioni: ${entry.data.names.join(", ")}`;
-  } else if (entry.status === "extracting_sections" && entry.data) {
-    detail = `→ capitolo ${entry.data.chapter_index}/${entry.data.total_chapters}`;
-  } else if (entry.status === "created" && entry.data?.chapter) {
-    detail = `→ creato (cap: ${entry.data.chapter}, ${entry.data.excerpt_len} char)`;
+  } else if (entry.status === "classified" && entry.data) {
+    detail = `→ ${entry.data.doc_type}: ${entry.data.description || ""}`;
+  } else if (entry.status === "nodes_found" && entry.data?.names) {
+    detail = `→ ${entry.data.count} nodi (${entry.data.method}): ${entry.data.names.join(", ")}`;
+  } else if (entry.status === "leaves_found" && entry.data?.names) {
+    detail = `→ ${entry.data.count} foglie: ${entry.data.names.join(", ")}`;
+  } else if (entry.status === "leaf_created" && entry.data?.parent) {
+    detail = `→ creata (padre: ${entry.data.parent})`;
   } else if (entry.status === "created") {
     detail = "→ nodo creato";
-  } else if (entry.status === "complete" && entry.data?.total_chapters) {
-    detail = `→ ${entry.data.total_chapters} capitoli, ${entry.data.total_sections} sezioni`;
+  } else if (entry.status === "not_relevant") {
+    detail = "→ non pertinente, nessuna espansione";
+  } else if (entry.status === "complete" && entry.data?.total_nodes) {
+    detail = `→ ${entry.data.total_nodes} nodi, tipo: ${entry.data.doc_type}`;
+  } else if (entry.status === "complete" && entry.data?.leaves_count) {
+    detail = `→ ${entry.data.leaves_count} foglie create`;
   }
 
   return (
@@ -494,8 +525,6 @@ function LogItem({ entry }: { entry: LogEntry }) {
 /* ------------------------------------------------------------------ */
 
 function AnalysisPanel({ processingLog }: { processingLog: ProcessingLog | null }) {
-  const [expandedChapters, setExpandedChapters] = useState<Set<string>>(new Set());
-
   if (!processingLog || processingLog.documents.length === 0) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center text-slate-600 p-8">
@@ -505,80 +534,66 @@ function AnalysisPanel({ processingLog }: { processingLog: ProcessingLog | null 
     );
   }
 
-  const toggleChapter = (key: string) => {
-    setExpandedChapters((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
-  };
-
   return (
     <div className="flex-1 overflow-auto p-5 space-y-6">
       {/* Summary */}
-      <div className="flex items-center gap-4 text-sm">
-        <div className="bg-cyan-500/10 text-cyan-400 px-3 py-1.5 rounded-lg font-semibold">
-          {processingLog.total_chapters} capitoli
+      <div className="flex items-center gap-4 text-sm flex-wrap">
+        {processingLog.doc_type && (
+          <div className="bg-indigo-500/10 text-indigo-400 px-3 py-1.5 rounded-lg font-semibold uppercase text-xs">
+            {processingLog.doc_type}
+          </div>
+        )}
+        <div className="bg-blue-500/10 text-blue-400 px-3 py-1.5 rounded-lg font-semibold">
+          {processingLog.total_nodes} nodi
         </div>
         <div className="bg-purple-500/10 text-purple-400 px-3 py-1.5 rounded-lg font-semibold">
-          {processingLog.total_sections} sezioni
+          {processingLog.total_leaves} foglie
         </div>
       </div>
 
+      {processingLog.doc_description && (
+        <p className="text-xs text-slate-400">{processingLog.doc_description}</p>
+      )}
+
       {processingLog.documents.map((doc, di) => (
         <div key={di} className="space-y-3">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <FileText className="w-4 h-4 text-blue-400" />
             <span className="text-sm font-semibold text-slate-200">{doc.filename || "Documento"}</span>
+            <span className="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-400 uppercase">
+              tipo: {doc.doc_type}
+            </span>
             <span className="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-400 uppercase">
               rilevamento: {doc.detection_method}
             </span>
           </div>
 
-          <div className="space-y-1">
-            {doc.chapters.map((ch, ci) => {
-              const key = `${di}-${ci}`;
-              const isExpanded = expandedChapters.has(key);
-              return (
-                <div key={ci} className="border border-slate-800 rounded-lg overflow-hidden">
-                  <button
-                    onClick={() => toggleChapter(key)}
-                    className="w-full flex items-center gap-2 px-3 py-2 hover:bg-slate-800/50 transition-colors text-left"
-                  >
-                    {isExpanded
-                      ? <ChevronDown className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                      : <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />}
-                    <span className="text-xs font-semibold text-blue-400 shrink-0">Cap. {ci + 1}</span>
-                    <span className="text-xs text-slate-200 truncate">{ch.name}</span>
-                    <span className="ml-auto text-[10px] text-slate-500 shrink-0">
-                      {ch.sections.length} sez · {(ch.char_count / 1000).toFixed(1)}k car
-                    </span>
-                  </button>
-
-                  {isExpanded && (
-                    <div className="border-t border-slate-800 bg-slate-900/50 px-3 py-2 space-y-2">
-                      {ch.sections.map((sec, si) => (
-                        <div key={si} className="space-y-0.5">
-                          <div className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0" />
-                            <span className="text-xs font-medium text-purple-300">{sec.name}</span>
-                          </div>
-                          {sec.excerpt_preview && (
-                            <p className="text-[10px] text-slate-500 pl-4 leading-relaxed line-clamp-3">
-                              {sec.excerpt_preview}
-                            </p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          <div className="space-y-1.5">
+            {doc.nodes.map((nd, ni) => (
+              <div key={ni} className="flex items-center gap-3 px-3 py-2 border border-slate-800 rounded-lg">
+                <div className="w-2 h-2 rounded-full bg-blue-500 shrink-0" />
+                <span className="text-xs text-slate-200 flex-1 truncate">{nd.name}</span>
+                <span className="text-[10px] text-slate-500 shrink-0">
+                  {(nd.char_count / 1000).toFixed(1)}k car
+                </span>
+                {nd.expanded && (
+                  <span className="text-[10px] bg-purple-500/20 text-purple-400 px-1.5 py-0.5 rounded">
+                    espanso
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       ))}
+
+      <div className="pt-4 border-t border-slate-800">
+        <p className="text-[10px] text-slate-500">
+          I nodi non espansi rispondono direttamente alle domande.
+          Clicca su un nodo nell'albero e premi "Espandi" per creare sotto-sezioni specializzate.
+          L'espansione automatica avviene se nessun nodo supera 0.7 di score su una domanda pertinente.
+        </p>
+      </div>
     </div>
   );
 }
