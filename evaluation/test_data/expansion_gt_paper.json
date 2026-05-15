@@ -1,0 +1,63 @@
+{
+  "document_file": "test_paper.txt",
+  "test_cases": [
+    {
+      "id": "p_exp1",
+      "query": "Explain the exact architecture of Double DQN and how it differs from vanilla DQN mathematically",
+      "should_expand": true,
+      "expected_expand_node": "Model-Free",
+      "reason": "Very specific sub-topic within Model-Free Methods chapter"
+    },
+    {
+      "id": "p_exp2",
+      "query": "Qual è la ricetta della carbonara?",
+      "should_expand": false,
+      "expected_expand_node": null,
+      "reason": "Completely unrelated to RL/robotics"
+    },
+    {
+      "id": "p_exp3",
+      "query": "What are the main paradigms of model-free RL?",
+      "should_expand": false,
+      "expected_expand_node": null,
+      "reason": "Directly answered by the Model-Free Methods section"
+    },
+    {
+      "id": "p_exp4",
+      "query": "What is the capital of Japan?",
+      "should_expand": false,
+      "expected_expand_node": null,
+      "reason": "Geography question, completely out of scope"
+    }
+  ],
+  "relevance_checks": [
+    {
+      "id": "p_rel1",
+      "node_name": "Model-Free Methods",
+      "node_context": "Q-learning is a model-free, off-policy algorithm that directly learns the optimal action-value function. Deep Q-Networks extend Q-learning to high-dimensional state spaces. Policy gradient methods directly parameterize and optimize the policy. PPO uses a clipped surrogate objective.",
+      "query": "How does the DQN experience replay buffer work?",
+      "expected_relevant": true
+    },
+    {
+      "id": "p_rel2",
+      "node_name": "Applications in Robotics",
+      "node_context": "RL has achieved remarkable results in robot locomotion. Policies trained in simulation can enable quadruped robots to walk. Robot manipulation ranges from simple pick-and-place to complex dexterous manipulation.",
+      "query": "What is the mathematical proof of the policy gradient theorem?",
+      "expected_relevant": false
+    },
+    {
+      "id": "p_rel3",
+      "node_name": "Actor-Critic Architectures",
+      "node_context": "Actor-critic methods combine the benefits of policy gradient and value function approaches. SAC maximizes both expected reward and policy entropy. TD3 addresses overestimation in actor-critic methods.",
+      "query": "What is the entropy bonus in SAC?",
+      "expected_relevant": true
+    },
+    {
+      "id": "p_rel4",
+      "node_name": "Theoretical Foundations",
+      "node_context": "The standard framework for RL is the Markov Decision Process (MDP). The value function V represents expected return. The Bellman equations form the basis for dynamic programming. Exploration vs exploitation is a fundamental challenge.",
+      "query": "How do you grill a steak medium rare?",
+      "expected_relevant": false
+    }
+  ]
+}

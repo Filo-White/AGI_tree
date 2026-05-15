@@ -1,0 +1,11 @@
+{
+  "document_file": "test_doc.txt",
+  "queries": [
+    "Quali sono i tre paradigmi di machine learning?",
+    "Cos'è il meccanismo di self-attention nei Transformer?",
+    "Quali problemi etici solleva l'uso dell'IA nel settore militare?",
+    "Come funzionano le CNN per la classificazione di immagini?",
+    "Qual è la differenza tra IA debole e IA forte?"
+  ],
+  "expand_node_name": "Machine Learning"
+}

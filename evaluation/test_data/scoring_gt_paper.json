@@ -1,0 +1,65 @@
+{
+  "document_file": "test_paper.txt",
+  "test_cases": [
+    {
+      "id": "p_q1",
+      "query": "What is the Bellman optimality equation?",
+      "correct_node_names": ["Theoretical Foundations", "Foundations"],
+      "irrelevant_node_names": ["Robotics", "Applications", "Locomotion"]
+    },
+    {
+      "id": "p_q2",
+      "query": "How does PPO work and what is the clipped surrogate objective?",
+      "correct_node_names": ["Model-Free", "Policy Gradient"],
+      "irrelevant_node_names": ["Actor-Critic", "Robotics", "Applications"]
+    },
+    {
+      "id": "p_q3",
+      "query": "What is the sim-to-real transfer problem in robotics?",
+      "correct_node_names": ["Challenges", "Future", "Robotics", "Applications"],
+      "irrelevant_node_names": ["Theoretical Foundations", "Model-Free"]
+    },
+    {
+      "id": "p_q4",
+      "query": "How does Soft Actor-Critic maximize entropy?",
+      "correct_node_names": ["Actor-Critic"],
+      "irrelevant_node_names": ["Theoretical Foundations", "Model-Based", "Robotics"]
+    },
+    {
+      "id": "p_q5",
+      "query": "What is MuZero and how does it learn without knowing game rules?",
+      "correct_node_names": ["Model-Based"],
+      "irrelevant_node_names": ["Actor-Critic", "Locomotion", "Manipulation"]
+    },
+    {
+      "id": "p_q6",
+      "query": "What are the main challenges of robot manipulation with RL?",
+      "correct_node_names": ["Robotics", "Applications", "Manipulation"],
+      "irrelevant_node_names": ["Theoretical Foundations", "Model-Free"]
+    },
+    {
+      "id": "p_q7",
+      "query": "What is the exploration-exploitation dilemma?",
+      "correct_node_names": ["Theoretical Foundations", "Foundations"],
+      "irrelevant_node_names": ["Robotics", "Actor-Critic"]
+    },
+    {
+      "id": "p_q8",
+      "query": "How do World Models work according to Ha and Schmidhuber?",
+      "correct_node_names": ["Model-Based"],
+      "irrelevant_node_names": ["Model-Free", "Actor-Critic", "Robotics"]
+    },
+    {
+      "id": "p_q9",
+      "query": "What is experience replay in DQN?",
+      "correct_node_names": ["Model-Free", "Q-Learning", "DQN"],
+      "irrelevant_node_names": ["Model-Based", "Robotics", "Actor-Critic"]
+    },
+    {
+      "id": "p_q10",
+      "query": "What is the difference between A2C and A3C?",
+      "correct_node_names": ["Actor-Critic"],
+      "irrelevant_node_names": ["Theoretical Foundations", "Model-Based", "Robotics"]
+    }
+  ]
+}

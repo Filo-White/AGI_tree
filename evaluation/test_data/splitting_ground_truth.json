@@ -1,0 +1,18 @@
+{
+  "test_cases": [
+    {
+      "id": "doc1",
+      "document_file": "test_doc.txt",
+      "expected_doc_type": "book",
+      "expected_sections": [
+        "Introduzione all'Intelligenza Artificiale",
+        "Machine Learning e Reti Neurali",
+        "Elaborazione del Linguaggio Naturale",
+        "Visione Artificiale",
+        "Etica e Impatto Sociale"
+      ],
+      "min_nodes": 4,
+      "max_nodes": 7
+    }
+  ]
+}

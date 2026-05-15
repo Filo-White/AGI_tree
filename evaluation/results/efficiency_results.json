@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-05-15 14:26:25",
+  "total_tests": 4,
+  "passed": 4,
+  "failed": 0,
+  "results": [
+    {
+      "test_id": "build_tree",
+      "dimension": "efficiency",
+      "metrics": {
+        "total_calls": 6,
+        "total_input_tokens": 1912,
+        "total_output_tokens": 2587,
+        "total_tokens": 4499,
+        "total_latency_ms": 20093.9,
+        "avg_latency_ms": 3349.0,
+        "wall_time_ms": 20094.9
+      },
+      "details": {
+        "document_chars": 7702,
+        "nodes_created": 5
+      },
+      "passed": true
+    },
+    {
+      "test_id": "scoring_avg",
+      "dimension": "efficiency",
+      "metrics": {
+        "avg_calls": 5.0,
+        "avg_tokens": 5047.0,
+        "avg_input_tokens": 4742.0,
+        "avg_output_tokens": 305.0,
+        "avg_latency_ms": 1545.2
+      },
+      "details": {
+        "num_queries": 5,
+        "num_nodes": 5
+      },
+      "passed": true
+    },
+    {
+      "test_id": "expand_node",
+      "dimension": "efficiency",
+      "metrics": {
+        "total_calls": 7,
+        "total_input_tokens": 1227,
+        "total_output_tokens": 3733,
+        "total_tokens": 4960,
+        "total_latency_ms": 28525.3,
+        "avg_latency_ms": 4075.0,
+        "wall_time_ms": 28525.9
+      },
+      "details": {
+        "node_name": "CAPITOLO 2 — Machine Learning e Reti Neurali",
+        "leaves_created": 6
+      },
+      "passed": true
+    },
+    {
+      "test_id": "full_query_avg",
+      "dimension": "efficiency",
+      "metrics": {
+        "avg_calls": 9.7,
+        "avg_tokens": 10720.0,
+        "avg_latency_ms": 8935.8,
+        "max_calls": 11,
+        "max_tokens": 14835
+      },
+      "details": {
+        "num_queries_tested": 3
+      },
+      "passed": true
+    }
+  ]
+}

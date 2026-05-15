@@ -1,0 +1,458 @@
+{
+  "timestamp": "2026-05-15 14:22:01",
+  "total_tests": 10,
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "test_id": "q1",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": true,
+        "hit@3": true,
+        "score_separation": 0.7,
+        "avg_correct_score": 0.9,
+        "avg_irrelevant_score": 0.2,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Cos'è il meccanismo di self-attention nei Transformer?",
+        "ranking": [
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.9
+          ],
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            0.85
+          ],
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.35
+          ],
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            0.25
+          ],
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.05
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La risposta richiesta è direttamente collegata al contenuto del capitolo (Transformer e self-attention) e la domanda è chiara e ben definita, quindi la competenza dell’assistente è alta.",
+          "CAPITOLO 4 — Visione Artificiale": "La domanda sul self-attention è pertinente all’IA ma il contesto fornito è focalizzato su Computer Vision (CNN, detection, segmentazione, multimodali) e non introduce Transformers o self-attention, quindi la risposta non è direttamente supportata dal materiale.",
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La domanda richiede una spiegazione tecnica specifica (self-attention nei Transformer) che va oltre i contenuti tipici di un’introduzione generale del Capitolo 1, quindi la competenza valutata su quel contesto è limitata.",
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda è pertinente al capitolo e richiede una spiegazione concettuale del self-attention (attenzione su tutte le posizioni con pesi appresi tramite Q/K/V), che rientra pienamente nelle competenze sulle reti neurali e i Transformer.",
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda è principalmente tecnica (self-attention nei Transformer) e non valuta direttamente competenze di etica e impatto sociale dell’IA, quindi la mia specializzazione è poco pertinente."
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_id": "q2",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": true,
+        "hit@3": true,
+        "score_separation": 0.85,
+        "avg_correct_score": 1.0,
+        "avg_irrelevant_score": 0.15,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Quali sono i tre paradigmi di apprendimento automatico?",
+        "ranking": [
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            1.0
+          ],
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            0.15
+          ],
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.15
+          ],
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.15
+          ],
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.05
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 4 — Visione Artificiale": "Il contesto tratta principalmente di Computer Vision e non dei tre paradigmi di apprendimento automatico, quindi la risposta non è supportata dalle informazioni fornite.",
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda è diretta e la risposta corretta (supervisionato, non supervisionato, per rinforzo) è esplicitamente presente nel contesto fornito.",
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La domanda chiede i tre paradigmi di apprendimento automatico, ma il contesto fornito non li elenca né li definisce, quindi non posso rispondere con sicurezza basandomi solo su queste informazioni.",
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La domanda riguarda i paradigmi di apprendimento automatico (es. supervisionato, non supervisionato, per rinforzo) che non sono trattati nel contesto fornito sul capitolo di NLP, quindi la risposta non è direttamente supportata.",
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda sui “tre paradigmi di apprendimento automatico” è più di classificazione tecnica (es. supervised/unsupervised/reinforcement) che di etica e impatto sociale, quindi la competenza richiesta dal capitolo è solo indirettamente rilevante."
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_id": "q3",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": false,
+        "hit@3": true,
+        "score_separation": 0.4,
+        "avg_correct_score": 0.95,
+        "avg_irrelevant_score": 0.55,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Cos'è l'object detection?",
+        "ranking": [
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            0.95
+          ],
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.95
+          ],
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.25
+          ],
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            0.15
+          ],
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.15
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda è definitoria e riguarda l’object detection più che l’etica e l’impatto sociale dell’IA, quindi la competenza specifica del capitolo è solo indirettamente rilevante.",
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La domanda richiede una definizione specifica (object detection) che non è presente nel contesto fornito, quindi posso solo rispondere in modo parziale senza riferimenti al materiale del capitolo.",
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda è semplice e rientra nel capitolo (ML/vision con reti neurali), quindi posso rispondere con una definizione chiara e contestualizzata senza richiedere matematica avanzata.",
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La domanda riguarda l’object detection (visione computer) mentre il contesto fornito è focalizzato sull’NLP, quindi la competenza richiesta non è pienamente allineata.",
+          "CAPITOLO 4 — Visione Artificiale": "La domanda è definitoria e il contesto del capitolo include chiaramente l’object detection come compito fondamentale, quindi la risposta può essere data in modo accurato e coerente."
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_id": "q4",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": true,
+        "hit@3": true,
+        "score_separation": 0.285,
+        "avg_correct_score": 0.95,
+        "avg_irrelevant_score": 0.665,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Quali problemi etici causa il bias nei dati di addestramento?",
+        "ranking": [
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.95
+          ],
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            0.9
+          ],
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.78
+          ],
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.78
+          ],
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            0.55
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La domanda è pertinente al capitolo (limiti e rischi dell’IA) e richiede una risposta etica legata al bias nei dati, che posso spiegare in modo chiaro e didattico.",
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La domanda è pertinente al capitolo (bias nei dati e rischi etici) e la risposta attesa è chiara, ma il contesto fornito non dettaglia esplicitamente quali problemi etici specifici siano causati dal bias, quindi la copertura potrebbe essere incompleta.",
+          "CAPITOLO 4 — Visione Artificiale": "La domanda è pertinente al capitolo (bias e implicazioni etiche) ma il contesto fornito non tratta esplicitamente quali problemi etici specifici derivino dal bias, quindi la risposta richiede conoscenze aggiuntive oltre al testo.",
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda è direttamente collegata al tema del bias nei dati di addestramento e posso rispondere in modo accurato descrivendo discriminazione, amplificazione di pregiudizi e impatti in contesti critici.",
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda è pertinente e collegata al bias nei dati, ma richiede una risposta ampia e specifica su impatti etici (es. discriminazione, ingiustizia, violazione privacy) che non sono esplicitati nel contesto fornito, quindi la valutazione è solo parzialmente supportata."
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_id": "q5",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": true,
+        "hit@3": true,
+        "score_separation": 0.5,
+        "avg_correct_score": 1.0,
+        "avg_irrelevant_score": 0.5,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Chi ha proposto il test di Turing?",
+        "ranking": [
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            1.0
+          ],
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.95
+          ],
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.85
+          ],
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            0.15
+          ],
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.05
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 4 — Visione Artificiale": "Il contesto riguarda la visione artificiale ma la domanda chiede un’informazione generale sul test di Turing, non trattata nel materiale fornito.",
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La domanda è di conoscenza generale (Alan Turing ha proposto il Test di Turing) e rientra solo indirettamente nel contesto NLP, quindi la competenza specifica è alta ma non pienamente pertinente.",
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda è storica (Alan Turing) e non è direttamente collegata ai contenuti del capitolo su ML e reti neurali, quindi la competenza specifica richiesta dal contesto è bassa.",
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda è fattuale e richiede conoscenza storica (Alan Turing), competenza che rientra nel mio ambito generale di risposta accurata anche se non è direttamente legata all’etica dell’IA.",
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La domanda chiede chi ha proposto il test di Turing e il contesto indica chiaramente che è stato Alan Turing."
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_id": "q6",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": false,
+        "hit@3": true,
+        "score_separation": 0.62,
+        "avg_correct_score": 0.72,
+        "avg_irrelevant_score": 0.1,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Come funzionano le CNN per l'elaborazione di immagini?",
+        "ranking": [
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            0.78
+          ],
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.72
+          ],
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            0.25
+          ],
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.15
+          ],
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.05
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La domanda riguarda CNN per immagini, quindi è solo marginalmente collegata al capitolo NLP e non valuta direttamente competenze di elaborazione del linguaggio naturale.",
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La domanda richiede una spiegazione tecnica delle CNN (architettura, convoluzioni, pooling, filtri), che va oltre l’introduzione richiesta e non è coperta in modo adeguato dal contesto fornito.",
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda è pertinente al capitolo e consente una risposta didattica sulle CNN (convoluzioni, filtri, pooling, feature map e backprop), ma richiede comunque dettagli tecnici non esplicitati nel contesto fornito.",
+          "CAPITOLO 4 — Visione Artificiale": "La domanda è pertinente e consente una risposta tecnica sulle CNN (convoluzioni, pooling, attivazioni, feature map e classificazione), ma il contesto fornito non include dettagli operativi specifici su come avvengano i passaggi interni.",
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda è principalmente tecnica (come funzionano le CNN) e solo marginalmente collegata all’etica/impatti sociali dell’IA, quindi la mia competenza sul capitolo 5 è applicabile solo in modo limitato."
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_id": "q7",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": true,
+        "hit@3": true,
+        "score_separation": 0.9,
+        "avg_correct_score": 0.95,
+        "avg_irrelevant_score": 0.05,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Cos'è l'AI Act dell'Unione Europea?",
+        "ranking": [
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.95
+          ],
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.15
+          ],
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            0.15
+          ],
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.05
+          ],
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            0.05
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La domanda riguarda l’AI Act (normativa UE) più che l’NLP, quindi la competenza sul capitolo 3 è solo indirettamente rilevante.",
+          "CAPITOLO 4 — Visione Artificiale": "Il contesto fornito riguarda la Computer Vision e non include informazioni sull’AI Act, quindi non posso rispondere correttamente alla domanda con le sole informazioni disponibili.",
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda riguarda il quadro normativo dell’UE (AI Act) e non un concetto di Machine Learning o Reti Neurali del capitolo, quindi la competenza ML non è direttamente applicabile.",
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda è diretta e posso rispondere con precisione descrivendo cos’è l’AI Act, la logica risk-based, i requisiti e gli obblighi principali, coerentemente con il contesto del capitolo.",
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La domanda riguarda l’AI Act dell’UE, un tema normativo non coperto dal contesto fornito sul Capitolo 1, quindi posso solo rispondere in modo parziale e non basato sul materiale disponibile."
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_id": "q8",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": true,
+        "hit@3": true,
+        "score_separation": 0.85,
+        "avg_correct_score": 1.0,
+        "avg_irrelevant_score": 0.15,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Qual è la differenza tra IA debole e IA forte?",
+        "ranking": [
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            1.0
+          ],
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.95
+          ],
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            0.85
+          ],
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.15
+          ],
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.15
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La risposta richiesta è direttamente coperta dal contesto: IA debole (stretta) per compiti specifici vs IA forte (generale) che mira a replicare l’intelligenza umana in modo completo.",
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La domanda riguarda la distinzione tra IA debole e IA forte, concetto più filosofico/di teoria dell’IA che non è trattato nel contesto fornito sul CAPITOLO 3 di NLP, quindi la risposta non è direttamente supportata dal materiale.",
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda richiede una distinzione concettuale (IA debole vs IA forte) che posso spiegare con precisione e collegare, se utile, alle implicazioni etiche e sociali del capitolo.",
+          "CAPITOLO 4 — Visione Artificiale": "Il contesto riguarda la visione artificiale ma la domanda su IA debole vs IA forte è concettuale e non è trattata nel materiale fornito, quindi la risposta non è direttamente supportata dal capitolo.",
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda è pertinente al contesto generale di AI/ML ma richiede una distinzione concettuale (IA debole vs IA forte) non esplicitamente trattata nel materiale fornito, quindi posso rispondere comunque con buona competenza ma senza appoggiarmi direttamente al testo del capitolo."
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_id": "q9",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": true,
+        "hit@3": true,
+        "score_separation": 0.5,
+        "avg_correct_score": 0.85,
+        "avg_irrelevant_score": 0.35,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Come funziona l'apprendimento per rinforzo?",
+        "ranking": [
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            0.85
+          ],
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            0.55
+          ],
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.15
+          ],
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.15
+          ],
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.05
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La domanda riguarda l’apprendimento per rinforzo, ma il contesto fornito è centrato su NLP e Transformer/LLM, quindi la risposta non è supportata direttamente dal materiale del capitolo.",
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda è pertinente al capitolo e richiede una spiegazione chiara dell’apprendimento per rinforzo (agente, ambiente, ricompense, politica e aggiornamento), che rientra pienamente nelle competenze indicate.",
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La domanda è pertinente al capitolo ma il contesto fornito non spiega l’apprendimento per rinforzo, quindi posso solo rispondere in modo generale senza dettagli specifici.",
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda è principalmente tecnica (come funziona l’apprendimento per rinforzo) e solo indirettamente collegata all’etica e all’impatto sociale, quindi la mia competenza sul capitolo è parzialmente pertinente.",
+          "CAPITOLO 4 — Visione Artificiale": "Il contesto riguarda principalmente Computer Vision e modelli come CNN e multimodali, mentre la domanda chiede come funziona l'apprendimento per rinforzo, argomento non trattato nel materiale fornito."
+        }
+      },
+      "passed": true
+    },
+    {
+      "test_id": "q10",
+      "dimension": "scoring",
+      "metrics": {
+        "hit@1": true,
+        "hit@3": true,
+        "score_separation": 0.1,
+        "avg_correct_score": 0.95,
+        "avg_irrelevant_score": 0.85,
+        "reason_provided": true
+      },
+      "details": {
+        "query": "Cosa sono i modelli multimodali come CLIP e DALL-E?",
+        "ranking": [
+          [
+            "CAPITOLO 4 — Visione Artificiale",
+            0.95
+          ],
+          [
+            "CAPITOLO 5 — Etica e Impatto Sociale dell'IA",
+            0.92
+          ],
+          [
+            "CAPITOLO 2 — Machine Learning e Reti Neurali",
+            0.9
+          ],
+          [
+            "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale",
+            0.78
+          ],
+          [
+            "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)",
+            0.15
+          ]
+        ],
+        "reasons": {
+          "CAPITOLO 2 — Machine Learning e Reti Neurali": "La domanda è ben collegata al capitolo e richiede una spiegazione concisa di modelli che combinano più tipi di dati (es. testo+immagini), concetto tipico dell’ML moderno e delle reti neurali, quindi la competenza è alta.",
+          "CAPITOLO 5 — Etica e Impatto Sociale dell'IA": "La domanda richiede una spiegazione tecnica ma collegabile al capitolo (impatti, governance e rischi), e la mia competenza su etica e impatto sociale dell’IA mi consente di rispondere in modo accurato e contestualizzato, pur restando meno centrata su dettagli puramente architetturali.",
+          "CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)": "La domanda richiede una definizione di modelli multimodali (testo+immagini), ma il contesto fornito sul capitolo 3 non include CLIP/DALL-E né spiega multimodalità, quindi la risposta sarebbe poco supportata.",
+          "CAPITOLO 4 — Visione Artificiale": "La domanda è direttamente collegata al contesto fornito e posso spiegare con precisione cosa sono i modelli multimodali (collegano visione e linguaggio) citando CLIP e DALL-E e le loro funzioni principali.",
+          "CAPITOLO 1 — Introduzione all'Intelligenza Artificiale": "La domanda è pertinente al capitolo e richiede una spiegazione introduttiva, ma il contesto fornito non include direttamente la definizione di modelli multimodali né esempi come CLIP e DALL-E, quindi la risposta richiederebbe conoscenze aggiuntive oltre al testo."
+        }
+      },
+      "passed": true
+    }
+  ]
+}

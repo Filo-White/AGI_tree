@@ -1,0 +1,65 @@
+{
+  "document_file": "test_doc.txt",
+  "test_cases": [
+    {
+      "id": "q1",
+      "query": "Cos'è il meccanismo di self-attention nei Transformer?",
+      "correct_node_names": ["Elaborazione del Linguaggio Naturale", "NLP"],
+      "irrelevant_node_names": ["Visione Artificiale", "Etica"]
+    },
+    {
+      "id": "q2",
+      "query": "Quali sono i tre paradigmi di apprendimento automatico?",
+      "correct_node_names": ["Machine Learning", "Reti Neurali"],
+      "irrelevant_node_names": ["Etica", "Introduzione"]
+    },
+    {
+      "id": "q3",
+      "query": "Cos'è l'object detection?",
+      "correct_node_names": ["Visione Artificiale", "Computer Vision"],
+      "irrelevant_node_names": ["NLP", "Linguaggio Naturale", "Machine Learning"]
+    },
+    {
+      "id": "q4",
+      "query": "Quali problemi etici causa il bias nei dati di addestramento?",
+      "correct_node_names": ["Etica", "Impatto Sociale"],
+      "irrelevant_node_names": ["Visione Artificiale", "Machine Learning"]
+    },
+    {
+      "id": "q5",
+      "query": "Chi ha proposto il test di Turing?",
+      "correct_node_names": ["Introduzione", "Intelligenza Artificiale"],
+      "irrelevant_node_names": ["Etica", "Visione Artificiale"]
+    },
+    {
+      "id": "q6",
+      "query": "Come funzionano le CNN per l'elaborazione di immagini?",
+      "correct_node_names": ["Visione Artificiale", "Computer Vision"],
+      "irrelevant_node_names": ["NLP", "Linguaggio Naturale", "Etica"]
+    },
+    {
+      "id": "q7",
+      "query": "Cos'è l'AI Act dell'Unione Europea?",
+      "correct_node_names": ["Etica", "Impatto Sociale"],
+      "irrelevant_node_names": ["Machine Learning", "Visione Artificiale"]
+    },
+    {
+      "id": "q8",
+      "query": "Qual è la differenza tra IA debole e IA forte?",
+      "correct_node_names": ["Introduzione", "Intelligenza Artificiale"],
+      "irrelevant_node_names": ["Visione Artificiale", "NLP"]
+    },
+    {
+      "id": "q9",
+      "query": "Come funziona l'apprendimento per rinforzo?",
+      "correct_node_names": ["Machine Learning", "Reti Neurali"],
+      "irrelevant_node_names": ["Etica", "Introduzione"]
+    },
+    {
+      "id": "q10",
+      "query": "Cosa sono i modelli multimodali come CLIP e DALL-E?",
+      "correct_node_names": ["Visione Artificiale", "Computer Vision"],
+      "irrelevant_node_names": ["Etica", "Introduzione"]
+    }
+  ]
+}

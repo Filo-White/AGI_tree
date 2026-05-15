@@ -1,0 +1,63 @@
+{
+  "document_file": "test_administrative.txt",
+  "test_cases": [
+    {
+      "id": "a_exp1",
+      "query": "Qual è la procedura esatta per fare ricorso contro una sanzione disciplinare e quali sono i termini?",
+      "should_expand": true,
+      "expected_expand_node": "Sanzioni",
+      "reason": "Dettaglio procedurale specifico che potrebbe richiedere espansione"
+    },
+    {
+      "id": "a_exp2",
+      "query": "Come si risolve un'equazione differenziale del secondo ordine?",
+      "should_expand": false,
+      "expected_expand_node": null,
+      "reason": "Matematica, completamente fuori scope dal regolamento"
+    },
+    {
+      "id": "a_exp3",
+      "query": "A che ora apre la mensa?",
+      "should_expand": false,
+      "expected_expand_node": null,
+      "reason": "Informazione diretta nel testo del nodo ristorazione"
+    },
+    {
+      "id": "a_exp4",
+      "query": "Quali sono i pianeti del sistema solare?",
+      "should_expand": false,
+      "expected_expand_node": null,
+      "reason": "Astronomia, completamente fuori scope"
+    }
+  ],
+  "relevance_checks": [
+    {
+      "id": "a_rel1",
+      "node_name": "Servizi Informatici",
+      "node_context": "La rete Wi-Fi del Campus è accessibile con credenziali istituzionali. È vietato l'utilizzo per attività illegali. Le postazioni informatiche sono ad uso esclusivo per attività didattiche. Il servizio di stampa offre 100 pagine B/N e 20 a colori per studente.",
+      "query": "Posso installare programmi sul computer dell'aula?",
+      "expected_relevant": true
+    },
+    {
+      "id": "a_rel2",
+      "node_name": "Ristorazione e Aree Comuni",
+      "node_context": "Il servizio mensa è riservato agli studenti e al personale con tessera mensa. Le tariffe sono differenziate in base all'ISEE. I distributori automatici sono in tutti gli edifici. Le aree verdi sono fruibili nel rispetto dell'ambiente.",
+      "query": "Come funziona il sistema di videosorveglianza?",
+      "expected_relevant": false
+    },
+    {
+      "id": "a_rel3",
+      "node_name": "Accesso e Sicurezza",
+      "node_context": "L'accesso al Campus è consentito dal lunedì al venerdì 7:00-23:00. I visitatori devono registrarsi alla portineria. Il Campus è dotato di videosorveglianza. In caso di emergenza seguire le procedure di evacuazione.",
+      "query": "Posso entrare nel Campus di domenica?",
+      "expected_relevant": true
+    },
+    {
+      "id": "a_rel4",
+      "node_name": "Aule Studio e Biblioteche",
+      "node_context": "Le aule studio sono disponibili senza prenotazione. È vietato consumare cibi. I telefoni devono essere in modalità silenziosa. Le sale riunioni sono prenotabili online con 24 ore di anticipo.",
+      "query": "Qual è il PIL della Germania?",
+      "expected_relevant": false
+    }
+  ]
+}

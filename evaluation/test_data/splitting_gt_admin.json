@@ -1,0 +1,19 @@
+{
+  "test_cases": [
+    {
+      "id": "admin1",
+      "document_file": "test_administrative.txt",
+      "expected_doc_type": "administrative",
+      "expected_sections": [
+        "Disposizioni Generali",
+        "Accesso e Sicurezza",
+        "Aule Studio e Biblioteche",
+        "Servizi Informatici",
+        "Ristorazione e Aree Comuni",
+        "Sanzioni e Disposizioni Finali"
+      ],
+      "min_nodes": 4,
+      "max_nodes": 9
+    }
+  ]
+}

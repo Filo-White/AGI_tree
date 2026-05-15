@@ -1,0 +1,82 @@
+CAPITOLO 1 — Introduzione all'Intelligenza Artificiale
+
+L'intelligenza artificiale (IA) è un campo dell'informatica che si occupa della creazione di sistemi in grado di eseguire compiti che normalmente richiedono intelligenza umana. Questi compiti includono il riconoscimento vocale, la comprensione del linguaggio naturale, la visione artificiale e il processo decisionale.
+
+La storia dell'IA inizia negli anni '50 con i lavori pionieristici di Alan Turing, che propose il famoso "test di Turing" come criterio per determinare se una macchina possa essere considerata intelligente. Negli anni successivi, ricercatori come John McCarthy, Marvin Minsky e Herbert Simon gettarono le basi teoriche del campo.
+
+L'IA moderna si divide in due grandi categorie: l'IA debole (o stretta), che è progettata per eseguire compiti specifici, e l'IA forte (o generale), che mira a replicare l'intelligenza umana in modo completo. Attualmente, tutti i sistemi commerciali rientrano nella categoria dell'IA debole.
+
+Le applicazioni pratiche dell'IA sono molteplici: assistenti virtuali come Siri e Alexa, sistemi di raccomandazione come quelli di Netflix e Spotify, veicoli a guida autonoma, diagnostica medica assistita e molto altro.
+
+
+CAPITOLO 2 — Machine Learning e Reti Neurali
+
+Il Machine Learning (ML) è un sottoinsieme dell'intelligenza artificiale che permette ai sistemi di apprendere automaticamente dall'esperienza senza essere esplicitamente programmati. L'apprendimento avviene attraverso l'esposizione a dati, da cui il sistema estrae pattern e regolarità.
+
+Esistono tre paradigmi principali di apprendimento automatico:
+
+1. Apprendimento supervisionato: il sistema apprende da esempi etichettati. Per ogni input è fornito l'output desiderato. Algoritmi comuni includono regressione lineare, alberi decisionali, Support Vector Machine (SVM) e reti neurali.
+
+2. Apprendimento non supervisionato: il sistema deve trovare strutture nei dati senza etichette. Tecniche comuni includono clustering (K-means, DBSCAN), riduzione della dimensionalità (PCA, t-SNE) e modelli generativi.
+
+3. Apprendimento per rinforzo: un agente interagisce con un ambiente e apprende una politica ottimale attraverso ricompense e penalità. Questo paradigma è alla base di sistemi come AlphaGo e dei robot che imparano a camminare.
+
+Le reti neurali artificiali sono modelli computazionali ispirati alla struttura del cervello umano. Sono composte da neuroni artificiali organizzati in strati (layer): uno strato di input, uno o più strati nascosti (hidden layers) e uno strato di output.
+
+Il deep learning utilizza reti neurali con molti strati nascosti (deep neural networks). Architetture importanti includono:
+- CNN (Convolutional Neural Networks): specializzate per l'elaborazione di immagini
+- RNN (Recurrent Neural Networks): per dati sequenziali come testo e audio
+- Transformer: l'architettura alla base dei moderni modelli linguistici come GPT e BERT
+
+
+CAPITOLO 3 — Elaborazione del Linguaggio Naturale (NLP)
+
+L'elaborazione del linguaggio naturale (Natural Language Processing, NLP) è il campo dell'IA che si occupa dell'interazione tra computer e linguaggio umano. L'obiettivo è permettere alle macchine di comprendere, interpretare e generare testo in modo significativo.
+
+Le sfide principali dell'NLP includono:
+- Ambiguità lessicale: una parola può avere più significati
+- Ambiguità sintattica: una frase può essere interpretata in modi diversi
+- Comprensione del contesto: il significato dipende dal contesto
+- Ironia e sarcasmo: difficili da rilevare per una macchina
+
+Le tecniche moderne di NLP si basano prevalentemente su modelli Transformer, introdotti nel 2017 con il paper "Attention is All You Need". I Transformer utilizzano un meccanismo di self-attention che permette di catturare relazioni tra tutte le parole di una frase simultaneamente, superando i limiti delle RNN che processano il testo sequenzialmente.
+
+I modelli linguistici di grandi dimensioni (Large Language Models, LLM) come GPT-4, Claude e LLaMA sono addestrati su enormi quantità di testo e possono generare testo coerente, rispondere a domande, tradurre lingue, riassumere documenti e molto altro. Il loro addestramento avviene in due fasi: pre-training su grandi corpus testuali e fine-tuning su dati specifici per il compito desiderato.
+
+Applicazioni dell'NLP includono: traduzione automatica, chatbot, analisi del sentimento, estrazione di informazioni, question answering e generazione automatica di testo.
+
+
+CAPITOLO 4 — Visione Artificiale
+
+La visione artificiale (Computer Vision) è il campo dell'IA che si occupa di far comprendere ai computer il contenuto visivo di immagini e video. L'obiettivo è estrarre informazioni significative da dati visivi, simulando la capacità del sistema visivo umano.
+
+I compiti fondamentali della visione artificiale sono:
+- Classificazione di immagini: assegnare un'etichetta a un'immagine intera
+- Object Detection: localizzare e classificare oggetti all'interno di un'immagine
+- Segmentazione semantica: classificare ogni pixel di un'immagine
+- Riconoscimento facciale: identificare persone dalle loro caratteristiche facciali
+
+Le Convolutional Neural Networks (CNN) hanno rivoluzionato il campo della visione artificiale. Architetture come AlexNet (2012), VGG, ResNet e EfficientNet hanno progressivamente migliorato le prestazioni su benchmark come ImageNet.
+
+Le applicazioni pratiche includono: veicoli a guida autonoma che devono riconoscere pedoni, segnali stradali e altri veicoli; sistemi di sorveglianza; controllo qualità industriale; diagnostica medica per immagini (radiografie, TAC, risonanze magnetiche); realtà aumentata.
+
+Recentemente, i modelli multimodali come CLIP e DALL-E hanno dimostrato la capacità di collegare linguaggio e visione, permettendo di generare immagini da descrizioni testuali e di descrivere immagini in linguaggio naturale.
+
+
+CAPITOLO 5 — Etica e Impatto Sociale dell'IA
+
+L'intelligenza artificiale solleva importanti questioni etiche e sociali che la società deve affrontare. Il rapido sviluppo dell'IA ha superato la capacità di legislatori e istituzioni di regolamentare adeguatamente il settore.
+
+I principali problemi etici includono:
+
+Bias e discriminazione: i sistemi di IA possono perpetuare e amplificare pregiudizi presenti nei dati di addestramento. Questo può portare a discriminazioni in ambiti critici come assunzioni, prestiti bancari, giustizia penale e accesso ai servizi sanitari.
+
+Privacy: la raccolta massiva di dati necessaria per addestrare i modelli di IA solleva preoccupazioni sulla privacy individuale. I sistemi di riconoscimento facciale, la sorveglianza di massa e il tracking comportamentale sono particolarmente controversi.
+
+Impatto sul lavoro: l'automazione guidata dall'IA potrebbe eliminare milioni di posti di lavoro tradizionali. Sebbene crei anche nuove opportunità, la transizione potrebbe essere difficile per molti lavoratori, specialmente quelli meno qualificati.
+
+Responsabilità: quando un sistema di IA causa un danno (ad esempio, un incidente con un veicolo autonomo), la questione di chi sia responsabile è complessa. Il produttore? Il programmatore? L'utente? La legislazione attuale non è adeguata a rispondere a queste domande.
+
+Sicurezza e uso militare: lo sviluppo di armi autonome e l'uso dell'IA in ambito militare pongono rischi esistenziali per l'umanità. Molti ricercatori hanno chiesto un bando internazionale sulle armi autonome letali.
+
+L'Unione Europea ha proposto l'AI Act, il primo quadro normativo completo per l'intelligenza artificiale, che classifica i sistemi di IA in base al rischio e impone requisiti proporzionati. Questo approccio potrebbe servire da modello per altre giurisdizioni.

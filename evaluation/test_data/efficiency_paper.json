@@ -1,0 +1,11 @@
+{
+  "document_file": "test_paper.txt",
+  "queries": [
+    "What is the Bellman equation?",
+    "How does PPO work?",
+    "What are the applications of RL in robot locomotion?",
+    "How does SAC maximize entropy?",
+    "What is the sim-to-real transfer problem?"
+  ],
+  "expand_node_name": "Model-Free"
+}
