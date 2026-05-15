@@ -217,6 +217,7 @@ export default function App() {
       console.error("Upload failed:", err);
     }
     setIsUploading(false);
+    setNodeStates({});
     setRightTab("analysis");
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
@@ -258,6 +259,7 @@ export default function App() {
       console.error("Expand failed:", err);
     }
     setIsExpanding(false);
+    setNodeStates({});
   };
 
   const findNode = (
