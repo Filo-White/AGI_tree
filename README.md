@@ -1,51 +1,92 @@
 # 🌳 AGI Tree
 
-A tree-based LLM routing system that distributes queries across a hierarchy of specialized AI models.
+Sistema ad albero che costruisce **dinamicamente** una gerarchia di modelli LLM specializzati a partire dai documenti caricati dall'utente.
 
-## Architecture
+## Come funziona
+
+1. **Carica un documento** (PDF, TXT, MD, CSV) tramite l'interfaccia web.
+2. Il sistema analizza il documento in due fasi:
+   - **Fase 1** — Rileva i capitoli (regex o LLM).
+   - **Fase 2** — Per ogni capitolo estrae tutte le sezioni/concetti con estratti testuali.
+3. Viene costruito un albero: **Root → Capitoli → Sezioni**.
+4. Ogni nodo foglia (sezione) ha un proprio system prompt e il contesto estratto dal documento.
+5. Quando fai una domanda, il sistema:
+   - Valuta la competenza di ogni foglia (score 0–1)
+   - Seleziona le foglie più competenti
+   - Genera risposte specializzate
+   - Sintetizza una risposta finale coerente
 
 ```
-            [Root - Orchestrator]
-               /            \
-        [Node A]           [Node B]
-        /      \           /      \
-   [Leaf 1] [Leaf 2] [Leaf 3] [Leaf 4]
+              [Orchestratore]
+              /      |      \
+      [Cap. 1]  [Cap. 2]  [Cap. 3]
+       / | \      / | \      / | \
+     sez sez sez sez sez sez sez sez sez
 ```
-
-Each node is an LLM. Leaves are domain specialists. The system operates in **3 phases**:
-
-1. **Discovery (top-down)** — The root propagates the query down the tree. Each leaf self-scores its competence (0–1).
-2. **Score bubble-up (bottom-up)** — Scores flow back to the root, which now knows which leaves are most competent.
-3. **Routing & Response** — The root decomposes the query if needed, routes sub-queries to the best leaves, collects answers, and synthesizes a final response via weighted merge.
 
 ## Tech Stack
 
-- **Backend**: Python, FastAPI, OpenAI API (`gpt-5.4-nano`)
-- **Frontend**: React, TypeScript, Vite, TailwindCSS
-- **Communication**: WebSocket for real-time progress updates
+- **Backend**: Python 3.11+, FastAPI, OpenAI API (`gpt-5.4-nano-2026-03-17`)
+- **Frontend**: React 18, TypeScript, Vite, TailwindCSS, Lucide Icons
+- **Comunicazione**: WebSocket per aggiornamenti in tempo reale
 
-## Setup
+---
 
-### 1. Clone & configure
+## Avvio rapido
+
+### Prerequisiti
+
+- **Python 3.11+** (consigliato: conda o venv)
+- **Node.js 18+** e npm
+- Una **API key OpenAI** con accesso al modello `gpt-5.4-nano-2026-03-17`
+
+### 1. Clona il repository
 
 ```bash
 git clone https://github.com/Filo-White/AGI_tree.git
 cd AGI_tree
-cp .env.example .env
-# Edit .env and add your OpenAI API key
 ```
 
-### 2. Backend
+### 2. Configura la API key
 
 ```bash
+cp .env.example .env
+```
+
+Apri `.env` e inserisci la tua chiave:
+
+```
+OPENAI_API_KEY=sk-...
+```
+
+### 3. Avvia il Backend
+
+**Opzione A — Con conda (consigliato):**
+
+```bash
+conda create -n AGI_tree python=3.11 -y
+conda activate AGI_tree
 cd backend
-python -m venv venv
-venv\Scripts\activate   # Windows
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
 
-### 3. Frontend
+**Opzione B — Con venv:**
+
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate       # Windows
+# source venv/bin/activate  # macOS/Linux
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+
+Il backend sarà attivo su `http://localhost:8000`.
+
+### 4. Avvia il Frontend
+
+In un **secondo terminale**:
 
 ```bash
 cd frontend
@@ -53,13 +94,50 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Il frontend sarà attivo su `http://localhost:3000`.
+
+### 5. Usa l'applicazione
+
+1. Apri **http://localhost:3000** nel browser.
+2. Clicca **"Carica documento"** e seleziona un PDF o TXT.
+3. Attendi la costruzione dell'albero (vedrai il progresso in tempo reale nel tab **Log**).
+4. Passa al tab **Analisi** per ispezionare come il documento è stato suddiviso.
+5. Passa al tab **Albero** per vedere la struttura visiva con nodi circolari.
+6. Scrivi una domanda nella chat a sinistra — il sistema instraderà la query ai nodi più competenti.
+
+---
+
+## Struttura del progetto
+
+```
+AGI_tree/
+├── backend/
+│   ├── main.py              # FastAPI app, endpoints, WebSocket
+│   ├── llm_client.py        # Chiamate OpenAI (analisi, scoring, sintesi)
+│   ├── tree_engine.py       # Logica albero (build, merge, query routing)
+│   ├── document_processor.py # Estrazione testo da PDF/TXT
+│   ├── models.py            # Modelli Pydantic
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── App.tsx          # Componente principale + AnalysisPanel
+│   │   ├── types.ts         # Tipi TypeScript
+│   │   └── components/
+│   │       ├── TreeView.tsx  # Visualizzazione albero (nodi circolari)
+│   │       ├── ChatPanel.tsx # Interfaccia chat
+│   │       └── NodeDetail.tsx # Dettaglio nodo selezionato
+│   ├── package.json
+│   └── vite.config.ts
+├── .env.example
+└── README.md
+```
 
 ## Features
 
-- 💬 Chat interface with the root orchestrator
-- 🌳 Live animated tree visualization showing query routing in real-time
-- 📊 Competence scoring and leaf selection
-- 📄 Document upload (PDF, TXT) for context-aware answers
-- ⚙️ Configurable tree structure via JSON editor
-- 🔍 Node detail inspector (model, role, system prompt, scores)
+- 📄 **Upload-first flow** — L'albero si genera automaticamente dal documento
+- 🌳 **Visualizzazione ad albero** con nodi circolari e animazioni in tempo reale
+- 🔍 **Pannello Analisi** — Ispeziona capitoli, sezioni e estratti assegnati a ogni nodo
+- � **Scoring di competenza** — Ogni foglia si auto-valuta sulla domanda
+- 💬 **Chat** — Risposte sintetizzate dai nodi più competenti
+- 🔄 **Merge incrementale** — Carica più documenti, l'albero si arricchisce senza perdere dati
+- 📡 **WebSocket** — Progresso live di ogni fase (analisi, building, scoring, risposta)
