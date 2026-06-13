@@ -1,11 +1,4 @@
 # AGI — Documentazione Tecnica Completa
-
-> "AGI is not an LLM (e fino a qui, siamo tutti d'accordo)"
-
----
-
-> **Nota sul termine SLM:** Nel codice, il docstring di `router.py` riporta erroneamente "SLM (Semantic Language Map)". Il termine corretto, come confermato dall'autore e coerente con l'intera architettura del progetto (vedi `SLMAgent.py`), è **SLM = Small Language Model**.
-
 ---
 
 ## Indice
