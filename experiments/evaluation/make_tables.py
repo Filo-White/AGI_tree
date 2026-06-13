@@ -58,10 +58,25 @@ def bold_best(values: list[str], higher_better=True) -> list[str]:
     return result
 
 
+def _measure_doc_length(doc_path: Path) -> int:
+    """Return character count for a document."""
+    if doc_path.suffix == ".txt":
+        return len(doc_path.read_text(encoding="utf-8"))
+    elif doc_path.suffix == ".pdf":
+        try:
+            from PyPDF2 import PdfReader
+        except ImportError:
+            from pypdf import PdfReader
+        reader = PdfReader(str(doc_path))
+        return sum(len(page.extract_text() or "") for page in reader.pages)
+    return 0
+
+
 def make_table_dataset():
     """Table 1: Dataset overview."""
     queries_file = EVAL_DIR / "data" / "queries.jsonl"
     docs_file = EVAL_DIR / "data" / "documents.json"
+    base_dir = EVAL_DIR.parent.parent  # repo root
 
     queries = []
     with open(queries_file, "r", encoding="utf-8") as f:
@@ -72,53 +87,48 @@ def make_table_dataset():
     with open(docs_file, "r", encoding="utf-8") as f:
         docs = json.load(f)
 
-    categories = {
-        "textbook": {"label": "Textbook", "docs": [], "queries": []},
-        "scientific_paper": {"label": "Scientific Papers", "docs": [], "queries": []},
-        "administrative": {"label": "Administrative/Legal", "docs": [], "queries": []},
-        "report": {"label": "Reports", "docs": [], "queries": []},
-    }
-
     doc_type_map = {d["doc_id"]: d["doc_type"] for d in docs}
-    for d in docs:
-        cat = d["doc_type"]
-        if cat in categories:
-            categories[cat]["docs"].append(d)
+    doc_path_map = {d["doc_id"]: d["path"] for d in docs}
 
-    for q in queries:
-        cat = doc_type_map.get(q["doc_id"], "")
-        if cat in categories:
-            categories[cat]["queries"].append(q)
+    # Check which docs are controlled (from evaluation/test_data)
+    controlled_ids = {d["doc_id"] for d in docs if "test_data" in d.get("path", "")}
 
     lines = [
         r"\begin{table}[t]",
         r"\centering",
-        r"\caption{Dataset overview.}",
+        r"\small",
+        r"\caption{Dataset overview. Documents marked with $\dagger$ are author-created",
+        r" with known ground-truth structure; all others are publicly available real-world documents.}",
         r"\label{tab:dataset}",
-        r"\begin{tabular}{lcccc}",
+        r"\begin{tabular}{llcrrr}",
         r"\toprule",
-        r"\textbf{Category} & \textbf{Docs} & \textbf{Queries} & \textbf{Avg. Length (chars)} & \textbf{Query Types} \\",
+        r"\textbf{Doc ID} & \textbf{Title} & \textbf{Type} & \textbf{Length (k\,ch)} & \textbf{Queries} & \textbf{Language} \\",
         r"\midrule",
     ]
 
-    total_docs = 0
     total_queries = 0
-    for cat_key, cat in categories.items():
-        n_docs = len(cat["docs"])
-        n_queries = len(cat["queries"])
-        total_docs += n_docs
-        total_queries += n_queries
-        # Query type distribution
-        qtypes = {}
-        for q in cat["queries"]:
-            qt = q["query_type"]
-            qtypes[qt] = qtypes.get(qt, 0) + 1
-        qt_str = ", ".join(f"{k[:3].upper()}: {v}" for k, v in sorted(qtypes.items()))
-        avg_len = "---"  # Would need actual doc lengths
-        lines.append(f"{cat['label']} & {n_docs} & {n_queries} & {avg_len} & {qt_str} \\\\")
+    all_lengths = []
+    for d in docs:
+        doc_id = d["doc_id"]
+        title = d["title"]
+        if len(title) > 42:
+            title = title[:39] + "..."
+        mark = "$^\\dagger$" if doc_id in controlled_ids else ""
+        dtype_labels = {"textbook": "textbook", "scientific_paper": "paper",
+                        "administrative": "admin.", "report": "report"}
+        dtype = dtype_labels.get(d["doc_type"], d["doc_type"])
+        n_q = sum(1 for q in queries if q["doc_id"] == doc_id)
+        total_queries += n_q
+        p = base_dir / d["path"]
+        length = _measure_doc_length(p) if p.exists() else 0
+        all_lengths.append(length)
+        len_k = f"{length / 1000:.1f}"
+        lang = d.get("language", "en").upper()
+        lines.append(f"{doc_id} & {title}{mark} & {dtype} & {len_k} & {n_q} & {lang} \\\\")
 
+    total_len = f"{sum(all_lengths) / 1000:.1f}"
     lines.append(r"\midrule")
-    lines.append(f"\\textbf{{Total}} & {total_docs} & {total_queries} & --- & --- \\\\")
+    lines.append(f"\\textbf{{Total}} & & & {total_len} & {total_queries} & \\\\")
     lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{table}"])
 
     return "\n".join(lines)
@@ -138,10 +148,23 @@ def make_table_answer_quality():
         "dat_full": "DAT Full",
     }
 
+    # Count unanswerable queries
+    queries_file = EVAL_DIR / "data" / "queries.jsonl"
+    n_unanswerable = 0
+    if queries_file.exists():
+        with open(queries_file, "r", encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    q = json.loads(line)
+                    if not q.get("answerable", True):
+                        n_unanswerable += 1
+
     lines = [
         r"\begin{table}[t]",
         r"\centering",
-        r"\caption{End-to-end answer quality (1--5 scale, higher is better).}",
+        r"\caption{End-to-end answer quality. Scores are LLM-judge ratings on a 1--5 Likert scale"
+        r" (higher is better). Abstention accuracy is computed on the $n=" + str(n_unanswerable) + r"$"
+        r" unanswerable queries. Judge: \texttt{gpt-5.4-nano-2026-03-17}, $T{=}0$, method names anonymized.}",
         r"\label{tab:answer_quality}",
         r"\begin{tabular}{lccccc}",
         r"\toprule",
@@ -202,7 +225,9 @@ def make_table_routing():
     lines = [
         r"\begin{table}[t]",
         r"\centering",
-        r"\caption{Evidence localization and routing quality.}",
+        r"\caption{Evidence localization and routing quality. Long-Context is marked N/A"
+        r" because it feeds the entire document as a single prompt and does not"
+        r" perform discrete evidence selection.}",
         r"\label{tab:routing}",
         r"\begin{tabular}{lcccc}",
         r"\toprule",
@@ -247,7 +272,9 @@ def make_table_efficiency():
     lines = [
         r"\begin{table}[t]",
         r"\centering",
-        r"\caption{Computational efficiency per query.}",
+        r"\caption{Computational efficiency per query. Costs estimated using"
+        r" \texttt{gpt-5.4-nano-2026-03-17} pricing"
+        r" (\$0.15/M input, \$0.60/M output tokens).}",
         r"\label{tab:efficiency}",
         r"\begin{tabular}{lcccc}",
         r"\toprule",
@@ -320,7 +347,7 @@ def make_table_structure():
         return "% No structural data available"
 
     categories = {
-        "textbook": "Textbook",
+        "textbook": "Controlled",
         "scientific_paper": "Scientific Papers",
         "administrative": "Administrative/Legal",
         "report": "Reports",
@@ -329,7 +356,10 @@ def make_table_structure():
     lines = [
         r"\begin{table}[t]",
         r"\centering",
-        r"\caption{Structural processing quality by document category.}",
+        r"\caption{Structural processing quality by document category."
+        r" Administrative/legal documents exhibit systematic over-segmentation"
+        r" due to misalignment between their nested Title$\to$Article$\to$Paragraph"
+        r" hierarchy and DAT's two-level node/leaf architecture.}",
         r"\label{tab:structure}",
         r"\begin{tabular}{lccccc}",
         r"\toprule",

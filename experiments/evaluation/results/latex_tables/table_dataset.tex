@@ -1,17 +1,24 @@
 \begin{table}[t]
 \centering
-\caption{Dataset overview.}
+\small
+\caption{Dataset overview. Documents marked with $\dagger$ are author-created
+ with known ground-truth structure; all others are publicly available real-world documents.}
 \label{tab:dataset}
-\begin{tabular}{lcccc}
+\begin{tabular}{llcrrr}
 \toprule
-\textbf{Category} & \textbf{Docs} & \textbf{Queries} & \textbf{Avg. Length (chars)} & \textbf{Query Types} \\
+\textbf{Doc ID} & \textbf{Title} & \textbf{Type} & \textbf{Length (k\,ch)} & \textbf{Queries} & \textbf{Language} \\
 \midrule
-Textbook & 1 & 10 & --- & CRO: 2, FAC: 3, PRO: 1, SEC: 3, UNA: 1 \\
-Scientific Papers & 4 & 32 & --- & CRO: 6, FAC: 8, PRO: 4, SEC: 10, UNA: 4 \\
-Administrative/Legal & 3 & 24 & --- & CRO: 1, FAC: 6, PRO: 5, SEC: 9, UNA: 3 \\
-Reports & 1 & 8 & --- & CRO: 2, FAC: 2, SEC: 3, UNA: 1 \\
+doc001 & Introduzione all'Intelligenza Artificiale$^\dagger$ & textbook & 7.7 & 10 & IT \\
+doc002 & Reinforcement Learning in Robotics: A S...$^\dagger$ & paper & 10.3 & 8 & EN \\
+doc003 & Regolamento Campus Universitario$^\dagger$ & admin. & 9.6 & 8 & IT \\
+doc004 & Attention Is All You Need & paper & 32.5 & 8 & EN \\
+doc005 & BERT: Pre-training of Deep Bidirectiona... & paper & 64.0 & 8 & EN \\
+doc006 & Language Models are Few-Shot Learners & paper & 236.5 & 8 & EN \\
+doc007 & Regolamento Didattico di Ateneo & admin. & 108.9 & 8 & IT \\
+doc008 & General Data Protection Regulation (Exc... & admin. & 366.5 & 8 & EN \\
+doc009 & World Energy Outlook 2023 — Executive S... & report & 916.0 & 8 & EN \\
 \midrule
-\textbf{Total} & 9 & 74 & --- & --- \\
+\textbf{Total} & & & 1752.0 & 74 & \\
 \bottomrule
 \end{tabular}
 \end{table}
