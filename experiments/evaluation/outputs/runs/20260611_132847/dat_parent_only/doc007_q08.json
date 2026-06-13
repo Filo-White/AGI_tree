@@ -1,0 +1,120 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_parent_only",
+  "query_id": "doc007_q08",
+  "doc_id": "doc007",
+  "query": "Quali sono le tipologie di esame previste dal regolamento?",
+  "answer": "Il regolamento prevede esami orali, scritti, pratici, o combinazioni di queste modalita, oltre a prove intermedie e valutazioni di idoneita.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_esami_e_valutazione",
+      "unit_type": "node",
+      "title": "Esami e Valutazione",
+      "text": "[Esami e Valutazione]",
+      "score": 0.883,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_titoli_accademici",
+      "unit_type": "node",
+      "title": "Titoli Accademici",
+      "text": "[Titoli Accademici]",
+      "score": 0.591,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_regolamenti_dei_corsi",
+      "unit_type": "node",
+      "title": "Regolamenti dei Corsi",
+      "text": "[Regolamenti dei Corsi]",
+      "score": 0.507,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_ordinamenti_didattici",
+      "unit_type": "node",
+      "title": "Ordinamenti Didattici",
+      "text": "[Ordinamenti Didattici]",
+      "score": 0.476,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "administrative",
+    "scorable_nodes": [
+      "node_esami_e_valutazione",
+      "node_titoli_accademici",
+      "node_regolamenti_dei_corsi",
+      "node_ordinamenti_didattici",
+      "node_disposizioni_generali",
+      "node_norme_transitorie"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_esami_e_valutazione",
+        "name": "Esami e Valutazione",
+        "score": 0.883,
+        "reason": ""
+      },
+      {
+        "node_id": "node_titoli_accademici",
+        "name": "Titoli Accademici",
+        "score": 0.591,
+        "reason": ""
+      },
+      {
+        "node_id": "node_regolamenti_dei_corsi",
+        "name": "Regolamenti dei Corsi",
+        "score": 0.507,
+        "reason": ""
+      },
+      {
+        "node_id": "node_ordinamenti_didattici",
+        "name": "Ordinamenti Didattici",
+        "score": 0.476,
+        "reason": ""
+      },
+      {
+        "node_id": "node_disposizioni_generali",
+        "name": "Disposizioni Generali",
+        "score": 0.253,
+        "reason": ""
+      },
+      {
+        "node_id": "node_norme_transitorie",
+        "name": "Norme Transitorie",
+        "score": 0.225,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_esami_e_valutazione",
+      "node_titoli_accademici",
+      "node_regolamenti_dei_corsi"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "Quali sono le tipologie di esame previste dal regolamento?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_esami_e_valutazione",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_titoli_accademici",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 5,
+    "input_tokens": 6959,
+    "output_tokens": 2977,
+    "total_tokens": 9936,
+    "latency_seconds": 3.653
+  },
+  "errors": []
+}

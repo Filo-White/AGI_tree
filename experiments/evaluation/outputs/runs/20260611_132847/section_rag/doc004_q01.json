@@ -1,0 +1,44 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "section_rag",
+  "query_id": "doc004_q01",
+  "doc_id": "doc004",
+  "query": "What is the core innovation of the Transformer architecture?",
+  "answer": "The Transformer relies entirely on self-attention mechanisms, dispensing with recurrence and convolutions entirely, enabling greater parallelization and achieving state-of-the-art translation quality.",
+  "selected_evidence": [
+    {
+      "unit_id": "section_00",
+      "unit_type": "section",
+      "title": "Results",
+      "text": "[Results]",
+      "score": 0.7225,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_01",
+      "unit_type": "section",
+      "title": "Model Architecture",
+      "text": "[Model Architecture]",
+      "score": 0.6757,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_02",
+      "unit_type": "section",
+      "title": "Why Self-Attention",
+      "text": "[Why Self-Attention]",
+      "score": 0.7962,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 5,
+    "input_tokens": 7727,
+    "output_tokens": 1693,
+    "total_tokens": 9420,
+    "latency_seconds": 3.694
+  },
+  "errors": []
+}

@@ -1,0 +1,52 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "flat_rag",
+  "query_id": "doc008_q06",
+  "doc_id": "doc008",
+  "query": "Does GDPR apply to paper-only records not part of a filing system?",
+  "answer": "The document does not contain sufficient information to answer this question.",
+  "selected_evidence": [
+    {
+      "unit_id": "chunk_000",
+      "unit_type": "chunk",
+      "title": "Chunk 0",
+      "text": "[chunk 0]",
+      "score": 0.6294,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_001",
+      "unit_type": "chunk",
+      "title": "Chunk 1",
+      "text": "[chunk 1]",
+      "score": 0.4798,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_002",
+      "unit_type": "chunk",
+      "title": "Chunk 2",
+      "text": "[chunk 2]",
+      "score": 0.1245,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_003",
+      "unit_type": "chunk",
+      "title": "Chunk 3",
+      "text": "[chunk 3]",
+      "score": 0.6003,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 5970,
+    "output_tokens": 399,
+    "total_tokens": 6369,
+    "latency_seconds": 2.875
+  },
+  "errors": []
+}

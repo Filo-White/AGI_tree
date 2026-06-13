@@ -1,0 +1,4 @@
+# Additional dependencies for the evaluation framework
+# (on top of backend/requirements.txt)
+pyyaml>=6.0
+numpy>=1.24.0

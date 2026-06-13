@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_full",
+  "query_id": "doc006_q02",
+  "doc_id": "doc006",
+  "query": "How large is GPT-3 in terms of parameters?",
+  "answer": "GPT-3 has 175 billion parameters.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_approach",
+      "unit_type": "node",
+      "title": "Approach",
+      "text": "[Approach]",
+      "score": 0.593,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_abstract",
+      "unit_type": "node",
+      "title": "Abstract",
+      "text": "[Abstract]",
+      "score": 0.457,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_limitations",
+      "unit_type": "node",
+      "title": "Limitations",
+      "text": "[Limitations]",
+      "score": 0.395,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_introduction",
+      "unit_type": "node",
+      "title": "Introduction",
+      "text": "[Introduction]",
+      "score": 0.23,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_approach",
+      "node_abstract",
+      "node_limitations",
+      "node_introduction",
+      "node_measuring_and_preventing_",
+      "node_broader_impacts",
+      "node_conclusion",
+      "node_results"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_approach",
+        "name": "Approach",
+        "score": 0.593,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.457,
+        "reason": ""
+      },
+      {
+        "node_id": "node_limitations",
+        "name": "Limitations",
+        "score": 0.395,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.23,
+        "reason": ""
+      },
+      {
+        "node_id": "node_measuring_and_preventing_",
+        "name": "Measuring and Preventing Memorization",
+        "score": 0.198,
+        "reason": ""
+      },
+      {
+        "node_id": "node_broader_impacts",
+        "name": "Broader Impacts",
+        "score": 0.166,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.153,
+        "reason": ""
+      },
+      {
+        "node_id": "node_results",
+        "name": "Results",
+        "score": 0.134,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_approach",
+      "node_abstract",
+      "node_limitations"
+    ],
+    "expansion_triggered": true,
+    "expanded_node": "node_approach",
+    "query_decomposition": [
+      "How large is GPT-3 in terms of parameters?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_approach",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_abstract",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 11,
+    "input_tokens": 8043,
+    "output_tokens": 2792,
+    "total_tokens": 10835,
+    "latency_seconds": 3.516
+  },
+  "errors": []
+}

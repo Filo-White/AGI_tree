@@ -1,0 +1,127 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_self_scoring",
+  "query_id": "doc005_q07",
+  "doc_id": "doc005",
+  "query": "What is the fine-tuning procedure for BERT on a classification task?",
+  "answer": "Add a classification layer on top of the [CLS] token output. Fine-tune all parameters end-to-end on the downstream task with a small learning rate (2e-5 to 5e-5) for 2-4 epochs.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_bert",
+      "unit_type": "node",
+      "title": "BERT",
+      "text": "[BERT]",
+      "score": 0.862,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_experiments",
+      "unit_type": "node",
+      "title": "Experiments",
+      "text": "[Experiments]",
+      "score": 0.765,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_abstract",
+      "unit_type": "node",
+      "title": "Abstract",
+      "text": "[Abstract]",
+      "score": 0.327,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_related_work",
+      "unit_type": "node",
+      "title": "Related Work",
+      "text": "[Related Work]",
+      "score": 0.254,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_bert",
+      "node_experiments",
+      "node_abstract",
+      "node_related_work",
+      "node_introduction",
+      "node_conclusion",
+      "node_ablation_studies"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_bert",
+        "name": "BERT",
+        "score": 0.862,
+        "reason": ""
+      },
+      {
+        "node_id": "node_experiments",
+        "name": "Experiments",
+        "score": 0.765,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.327,
+        "reason": ""
+      },
+      {
+        "node_id": "node_related_work",
+        "name": "Related Work",
+        "score": 0.254,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.219,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.095,
+        "reason": ""
+      },
+      {
+        "node_id": "node_ablation_studies",
+        "name": "Ablation Studies",
+        "score": 0.05,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_bert",
+      "node_experiments",
+      "node_abstract"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What is the fine-tuning procedure for BERT on a classification task?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_bert",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_experiments",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 5,
+    "input_tokens": 6672,
+    "output_tokens": 2141,
+    "total_tokens": 8813,
+    "latency_seconds": 3.014
+  },
+  "errors": []
+}

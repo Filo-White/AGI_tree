@@ -1,0 +1,120 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_self_scoring",
+  "query_id": "doc009_q05",
+  "doc_id": "doc009",
+  "query": "Does the report discuss nuclear fusion as an energy source?",
+  "answer": "The document does not contain sufficient information to answer this question.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_fuels",
+      "unit_type": "node",
+      "title": "Fuels",
+      "text": "[Fuels]",
+      "score": 0.493,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_energy_investment",
+      "unit_type": "node",
+      "title": "Energy Investment",
+      "text": "[Energy Investment]",
+      "score": 0.401,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_electricity",
+      "unit_type": "node",
+      "title": "Electricity",
+      "text": "[Electricity]",
+      "score": 0.301,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_implications_for_policy",
+      "unit_type": "node",
+      "title": "Implications for Policy",
+      "text": "[Implications for Policy]",
+      "score": 0.217,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "report",
+    "scorable_nodes": [
+      "node_fuels",
+      "node_energy_investment",
+      "node_electricity",
+      "node_implications_for_policy",
+      "node_global_energy_trends",
+      "node_overview"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_fuels",
+        "name": "Fuels",
+        "score": 0.493,
+        "reason": ""
+      },
+      {
+        "node_id": "node_energy_investment",
+        "name": "Energy Investment",
+        "score": 0.401,
+        "reason": ""
+      },
+      {
+        "node_id": "node_electricity",
+        "name": "Electricity",
+        "score": 0.301,
+        "reason": ""
+      },
+      {
+        "node_id": "node_implications_for_policy",
+        "name": "Implications for Policy",
+        "score": 0.217,
+        "reason": ""
+      },
+      {
+        "node_id": "node_global_energy_trends",
+        "name": "Global Energy Trends",
+        "score": 0.126,
+        "reason": ""
+      },
+      {
+        "node_id": "node_overview",
+        "name": "Overview",
+        "score": 0.088,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_fuels",
+      "node_energy_investment",
+      "node_electricity"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "Does the report discuss nuclear fusion as an energy source?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_fuels",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_energy_investment",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 9,
+    "input_tokens": 7581,
+    "output_tokens": 1831,
+    "total_tokens": 9412,
+    "latency_seconds": 3.907
+  },
+  "errors": []
+}

@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_full",
+  "query_id": "doc004_q07",
+  "doc_id": "doc004",
+  "query": "What regularization techniques are used during training?",
+  "answer": "The paper uses residual dropout (applied to sublayer outputs and embedding sums) and label smoothing.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_training",
+      "unit_type": "node",
+      "title": "Training",
+      "text": "[Training]",
+      "score": 0.858,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_model_architecture",
+      "unit_type": "node",
+      "title": "Model Architecture",
+      "text": "[Model Architecture]",
+      "score": 0.547,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_introduction",
+      "unit_type": "node",
+      "title": "Introduction",
+      "text": "[Introduction]",
+      "score": 0.305,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_abstract",
+      "unit_type": "node",
+      "title": "Abstract",
+      "text": "[Abstract]",
+      "score": 0.224,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_training",
+      "node_model_architecture",
+      "node_introduction",
+      "node_abstract",
+      "node_conclusion",
+      "node_why_self-attention",
+      "node_background",
+      "node_results"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_training",
+        "name": "Training",
+        "score": 0.858,
+        "reason": ""
+      },
+      {
+        "node_id": "node_model_architecture",
+        "name": "Model Architecture",
+        "score": 0.547,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.305,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.224,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.171,
+        "reason": ""
+      },
+      {
+        "node_id": "node_why_self-attention",
+        "name": "Why Self-Attention",
+        "score": 0.13,
+        "reason": ""
+      },
+      {
+        "node_id": "node_background",
+        "name": "Background",
+        "score": 0.124,
+        "reason": ""
+      },
+      {
+        "node_id": "node_results",
+        "name": "Results",
+        "score": 0.05,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_training",
+      "node_model_architecture",
+      "node_introduction"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What regularization techniques are used during training?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_training",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_model_architecture",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 11,
+    "input_tokens": 8833,
+    "output_tokens": 2354,
+    "total_tokens": 11187,
+    "latency_seconds": 3.46
+  },
+  "errors": []
+}

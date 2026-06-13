@@ -1,0 +1,120 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_expansion",
+  "query_id": "doc008_q07",
+  "doc_id": "doc008",
+  "query": "What is personal data according to the GDPR definition?",
+  "answer": "Personal data means any information relating to an identified or identifiable natural person (data subject), including name, identification number, location data, online identifier, or factors specific to physical, physiological, genetic, mental, economic, cultural or social identity.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_definitions",
+      "unit_type": "node",
+      "title": "Definitions",
+      "text": "[Definitions]",
+      "score": 0.731,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_transfers_to_third_countr",
+      "unit_type": "node",
+      "title": "Transfers to Third Countries",
+      "text": "[Transfers to Third Countries]",
+      "score": 0.504,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_remedies_and_penalties",
+      "unit_type": "node",
+      "title": "Remedies and Penalties",
+      "text": "[Remedies and Penalties]",
+      "score": 0.329,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_principles",
+      "unit_type": "node",
+      "title": "Principles",
+      "text": "[Principles]",
+      "score": 0.299,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "administrative",
+    "scorable_nodes": [
+      "node_definitions",
+      "node_transfers_to_third_countr",
+      "node_remedies_and_penalties",
+      "node_principles",
+      "node_controller_and_processor",
+      "node_rights_of_the_data_subjec"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_definitions",
+        "name": "Definitions",
+        "score": 0.731,
+        "reason": ""
+      },
+      {
+        "node_id": "node_transfers_to_third_countr",
+        "name": "Transfers to Third Countries",
+        "score": 0.504,
+        "reason": ""
+      },
+      {
+        "node_id": "node_remedies_and_penalties",
+        "name": "Remedies and Penalties",
+        "score": 0.329,
+        "reason": ""
+      },
+      {
+        "node_id": "node_principles",
+        "name": "Principles",
+        "score": 0.299,
+        "reason": ""
+      },
+      {
+        "node_id": "node_controller_and_processor",
+        "name": "Controller and Processor",
+        "score": 0.234,
+        "reason": ""
+      },
+      {
+        "node_id": "node_rights_of_the_data_subjec",
+        "name": "Rights of the Data Subject",
+        "score": 0.161,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_definitions",
+      "node_transfers_to_third_countr",
+      "node_remedies_and_penalties"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What is personal data according to the GDPR definition?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_definitions",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_transfers_to_third_countr",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 8,
+    "input_tokens": 8253,
+    "output_tokens": 2885,
+    "total_tokens": 11138,
+    "latency_seconds": 1.643
+  },
+  "errors": []
+}

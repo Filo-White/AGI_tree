@@ -1,0 +1,127 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_expansion",
+  "query_id": "doc005_q05",
+  "doc_id": "doc005",
+  "query": "Does BERT discuss knowledge distillation?",
+  "answer": "The document does not contain sufficient information to answer this question.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_bert",
+      "unit_type": "node",
+      "title": "BERT",
+      "text": "[BERT]",
+      "score": 0.424,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_ablation_studies",
+      "unit_type": "node",
+      "title": "Ablation Studies",
+      "text": "[Ablation Studies]",
+      "score": 0.354,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_conclusion",
+      "unit_type": "node",
+      "title": "Conclusion",
+      "text": "[Conclusion]",
+      "score": 0.328,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_abstract",
+      "unit_type": "node",
+      "title": "Abstract",
+      "text": "[Abstract]",
+      "score": 0.322,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_bert",
+      "node_ablation_studies",
+      "node_conclusion",
+      "node_abstract",
+      "node_introduction",
+      "node_related_work",
+      "node_experiments"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_bert",
+        "name": "BERT",
+        "score": 0.424,
+        "reason": ""
+      },
+      {
+        "node_id": "node_ablation_studies",
+        "name": "Ablation Studies",
+        "score": 0.354,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.328,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.322,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.22,
+        "reason": ""
+      },
+      {
+        "node_id": "node_related_work",
+        "name": "Related Work",
+        "score": 0.214,
+        "reason": ""
+      },
+      {
+        "node_id": "node_experiments",
+        "name": "Experiments",
+        "score": 0.087,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_bert",
+      "node_ablation_studies",
+      "node_conclusion"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "Does BERT discuss knowledge distillation?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_bert",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_ablation_studies",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 11,
+    "input_tokens": 8077,
+    "output_tokens": 2309,
+    "total_tokens": 10386,
+    "latency_seconds": 4.571
+  },
+  "errors": []
+}

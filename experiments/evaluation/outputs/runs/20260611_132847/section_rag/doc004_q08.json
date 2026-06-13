@@ -1,0 +1,44 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "section_rag",
+  "query_id": "doc004_q08",
+  "doc_id": "doc004",
+  "query": "Compare the computational complexity of self-attention vs. recurrent layers vs. convolutional layers.",
+  "answer": "Self-attention has O(n^2 * d) complexity per layer but O(1) sequential operations. Recurrent layers have O(n * d^2) and O(n) sequential. Convolutional layers have O(k * n * d^2) and O(1) sequential for single kernel.",
+  "selected_evidence": [
+    {
+      "unit_id": "section_00",
+      "unit_type": "section",
+      "title": "Why Self-Attention",
+      "text": "[Why Self-Attention]",
+      "score": 0.7593,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_01",
+      "unit_type": "section",
+      "title": "Model Architecture",
+      "text": "[Model Architecture]",
+      "score": 0.6434,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_02",
+      "unit_type": "section",
+      "title": "Abstract",
+      "text": "[Abstract]",
+      "score": 0.8807,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 3,
+    "input_tokens": 7063,
+    "output_tokens": 847,
+    "total_tokens": 7910,
+    "latency_seconds": 2.322
+  },
+  "errors": []
+}

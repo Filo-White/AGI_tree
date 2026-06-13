@@ -1,0 +1,44 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "section_rag",
+  "query_id": "doc002_q06",
+  "doc_id": "doc002",
+  "query": "Describe the actor-critic architecture.",
+  "answer": "Actor-critic methods combine policy-based and value-based approaches: the actor updates the policy, while the critic estimates the value function to reduce variance in policy gradient estimates.",
+  "selected_evidence": [
+    {
+      "unit_id": "section_00",
+      "unit_type": "section",
+      "title": "Actor-Critic Architectures",
+      "text": "[Actor-Critic Architectures]",
+      "score": 0.6541,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_01",
+      "unit_type": "section",
+      "title": "Model-Based Methods",
+      "text": "[Model-Based Methods]",
+      "score": 0.6706,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_02",
+      "unit_type": "section",
+      "title": "Introduction",
+      "text": "[Introduction]",
+      "score": 0.6382,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 4,
+    "input_tokens": 5168,
+    "output_tokens": 905,
+    "total_tokens": 6073,
+    "latency_seconds": 2.157
+  },
+  "errors": []
+}

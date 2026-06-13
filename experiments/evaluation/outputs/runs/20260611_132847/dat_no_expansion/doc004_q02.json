@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_expansion",
+  "query_id": "doc004_q02",
+  "doc_id": "doc004",
+  "query": "How does multi-head attention work?",
+  "answer": "Multi-head attention linearly projects queries, keys, and values h times with different learned projections, performs attention in parallel on each projection, then concatenates and projects the results.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_model_architecture",
+      "unit_type": "node",
+      "title": "Model Architecture",
+      "text": "[Model Architecture]",
+      "score": 0.664,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_results",
+      "unit_type": "node",
+      "title": "Results",
+      "text": "[Results]",
+      "score": 0.495,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_training",
+      "unit_type": "node",
+      "title": "Training",
+      "text": "[Training]",
+      "score": 0.415,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_introduction",
+      "unit_type": "node",
+      "title": "Introduction",
+      "text": "[Introduction]",
+      "score": 0.34,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_model_architecture",
+      "node_results",
+      "node_training",
+      "node_introduction",
+      "node_abstract",
+      "node_background",
+      "node_why_self-attention",
+      "node_conclusion"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_model_architecture",
+        "name": "Model Architecture",
+        "score": 0.664,
+        "reason": ""
+      },
+      {
+        "node_id": "node_results",
+        "name": "Results",
+        "score": 0.495,
+        "reason": ""
+      },
+      {
+        "node_id": "node_training",
+        "name": "Training",
+        "score": 0.415,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.34,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.321,
+        "reason": ""
+      },
+      {
+        "node_id": "node_background",
+        "name": "Background",
+        "score": 0.122,
+        "reason": ""
+      },
+      {
+        "node_id": "node_why_self-attention",
+        "name": "Why Self-Attention",
+        "score": 0.121,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.05,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_model_architecture",
+      "node_results",
+      "node_training"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "How does multi-head attention work?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_model_architecture",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_results",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 11,
+    "input_tokens": 6478,
+    "output_tokens": 2875,
+    "total_tokens": 9353,
+    "latency_seconds": 4.655
+  },
+  "errors": []
+}

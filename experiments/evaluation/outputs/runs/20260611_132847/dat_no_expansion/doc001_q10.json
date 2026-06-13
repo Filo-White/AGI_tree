@@ -1,0 +1,113 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_expansion",
+  "query_id": "doc001_q10",
+  "doc_id": "doc001",
+  "query": "Quali sono le applicazioni pratiche dell'apprendimento per rinforzo menzionate?",
+  "answer": "AlphaGo e robot che imparano a camminare.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_machine_learning_e_reti_n",
+      "unit_type": "node",
+      "title": "Machine Learning e Reti Neurali",
+      "text": "[Machine Learning e Reti Neurali]",
+      "score": 0.794,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_introduzione_all'ia",
+      "unit_type": "node",
+      "title": "Introduzione all'IA",
+      "text": "[Introduzione all'IA]",
+      "score": 0.327,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_elaborazione_del_linguagg",
+      "unit_type": "node",
+      "title": "Elaborazione del Linguaggio Naturale",
+      "text": "[Elaborazione del Linguaggio Naturale]",
+      "score": 0.318,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_etica_e_futuro_dell'ia",
+      "unit_type": "node",
+      "title": "Etica e Futuro dell'IA",
+      "text": "[Etica e Futuro dell'IA]",
+      "score": 0.29,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "book",
+    "scorable_nodes": [
+      "node_machine_learning_e_reti_n",
+      "node_introduzione_all'ia",
+      "node_elaborazione_del_linguagg",
+      "node_etica_e_futuro_dell'ia",
+      "node_visione_artificiale"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_machine_learning_e_reti_n",
+        "name": "Machine Learning e Reti Neurali",
+        "score": 0.794,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduzione_all'ia",
+        "name": "Introduzione all'IA",
+        "score": 0.327,
+        "reason": ""
+      },
+      {
+        "node_id": "node_elaborazione_del_linguagg",
+        "name": "Elaborazione del Linguaggio Naturale",
+        "score": 0.318,
+        "reason": ""
+      },
+      {
+        "node_id": "node_etica_e_futuro_dell'ia",
+        "name": "Etica e Futuro dell'IA",
+        "score": 0.29,
+        "reason": ""
+      },
+      {
+        "node_id": "node_visione_artificiale",
+        "name": "Visione Artificiale",
+        "score": 0.224,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_machine_learning_e_reti_n",
+      "node_introduzione_all'ia",
+      "node_elaborazione_del_linguagg"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "Quali sono le applicazioni pratiche dell'apprendimento per rinforzo menzionate?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_machine_learning_e_reti_n",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_introduzione_all'ia",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 13,
+    "input_tokens": 8183,
+    "output_tokens": 3163,
+    "total_tokens": 11346,
+    "latency_seconds": 5.264
+  },
+  "errors": []
+}

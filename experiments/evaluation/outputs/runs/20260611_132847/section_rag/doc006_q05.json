@@ -1,0 +1,44 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "section_rag",
+  "query_id": "doc006_q05",
+  "doc_id": "doc006",
+  "query": "How does the paper address the risk of data contamination in evaluation?",
+  "answer": "The paper includes a dedicated section on measuring and preventing memorization of benchmarks. They search for overlaps between training data and evaluation benchmarks and report contamination analysis.",
+  "selected_evidence": [
+    {
+      "unit_id": "section_00",
+      "unit_type": "section",
+      "title": "Abstract",
+      "text": "[Abstract]",
+      "score": 0.8379,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_01",
+      "unit_type": "section",
+      "title": "Conclusion",
+      "text": "[Conclusion]",
+      "score": 0.6946,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_02",
+      "unit_type": "section",
+      "title": "Approach",
+      "text": "[Approach]",
+      "score": 0.5862,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 6,
+    "input_tokens": 4561,
+    "output_tokens": 1558,
+    "total_tokens": 6119,
+    "latency_seconds": 3.586
+  },
+  "errors": []
+}

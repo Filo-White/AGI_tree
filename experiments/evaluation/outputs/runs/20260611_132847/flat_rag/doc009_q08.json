@@ -1,0 +1,52 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "flat_rag",
+  "query_id": "doc009_q08",
+  "doc_id": "doc009",
+  "query": "Compare the energy investment needs between advanced and developing economies.",
+  "answer": "Developing economies need a much larger increase in clean energy investment proportionally, but currently receive a small fraction. International financial support and de-risking mechanisms are critical.",
+  "selected_evidence": [
+    {
+      "unit_id": "chunk_000",
+      "unit_type": "chunk",
+      "title": "Chunk 0",
+      "text": "[chunk 0]",
+      "score": 0.6783,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_001",
+      "unit_type": "chunk",
+      "title": "Chunk 1",
+      "text": "[chunk 1]",
+      "score": 0.681,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_002",
+      "unit_type": "chunk",
+      "title": "Chunk 2",
+      "text": "[chunk 2]",
+      "score": 0.9945,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_003",
+      "unit_type": "chunk",
+      "title": "Chunk 3",
+      "text": "[chunk 3]",
+      "score": 0.6292,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 2,
+    "input_tokens": 2342,
+    "output_tokens": 1047,
+    "total_tokens": 3389,
+    "latency_seconds": 2.275
+  },
+  "errors": []
+}

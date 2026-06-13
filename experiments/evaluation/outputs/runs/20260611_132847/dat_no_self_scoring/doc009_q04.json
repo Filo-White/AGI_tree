@@ -1,0 +1,120 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_self_scoring",
+  "query_id": "doc009_q04",
+  "doc_id": "doc009",
+  "query": "How much investment is needed for clean energy transitions?",
+  "answer": "Annual clean energy investment needs to rise to around USD 4.5 trillion by 2030 in the Net Zero Emissions scenario, up from about USD 1.8 trillion in 2023.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_energy_investment",
+      "unit_type": "node",
+      "title": "Energy Investment",
+      "text": "[Energy Investment]",
+      "score": 0.99,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_global_energy_trends",
+      "unit_type": "node",
+      "title": "Global Energy Trends",
+      "text": "[Global Energy Trends]",
+      "score": 0.434,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_electricity",
+      "unit_type": "node",
+      "title": "Electricity",
+      "text": "[Electricity]",
+      "score": 0.363,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_overview",
+      "unit_type": "node",
+      "title": "Overview",
+      "text": "[Overview]",
+      "score": 0.274,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "report",
+    "scorable_nodes": [
+      "node_energy_investment",
+      "node_global_energy_trends",
+      "node_electricity",
+      "node_overview",
+      "node_fuels",
+      "node_implications_for_policy"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_energy_investment",
+        "name": "Energy Investment",
+        "score": 0.99,
+        "reason": ""
+      },
+      {
+        "node_id": "node_global_energy_trends",
+        "name": "Global Energy Trends",
+        "score": 0.434,
+        "reason": ""
+      },
+      {
+        "node_id": "node_electricity",
+        "name": "Electricity",
+        "score": 0.363,
+        "reason": ""
+      },
+      {
+        "node_id": "node_overview",
+        "name": "Overview",
+        "score": 0.274,
+        "reason": ""
+      },
+      {
+        "node_id": "node_fuels",
+        "name": "Fuels",
+        "score": 0.077,
+        "reason": ""
+      },
+      {
+        "node_id": "node_implications_for_policy",
+        "name": "Implications for Policy",
+        "score": 0.075,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_energy_investment",
+      "node_global_energy_trends",
+      "node_electricity"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "How much investment is needed for clean energy transitions?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_energy_investment",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_global_energy_trends",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 10,
+    "input_tokens": 6885,
+    "output_tokens": 1588,
+    "total_tokens": 8473,
+    "latency_seconds": 2.371
+  },
+  "errors": []
+}

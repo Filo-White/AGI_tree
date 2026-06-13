@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_self_scoring",
+  "query_id": "doc004_q05",
+  "doc_id": "doc004",
+  "query": "What training hardware and schedule was used?",
+  "answer": "The base model was trained on 8 NVIDIA P100 GPUs for about 12 hours (100K steps). The big model was trained for 3.5 days (300K steps).",
+  "selected_evidence": [
+    {
+      "unit_id": "node_training",
+      "unit_type": "node",
+      "title": "Training",
+      "text": "[Training]",
+      "score": 0.945,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_model_architecture",
+      "unit_type": "node",
+      "title": "Model Architecture",
+      "text": "[Model Architecture]",
+      "score": 0.508,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_abstract",
+      "unit_type": "node",
+      "title": "Abstract",
+      "text": "[Abstract]",
+      "score": 0.468,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_results",
+      "unit_type": "node",
+      "title": "Results",
+      "text": "[Results]",
+      "score": 0.46,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_training",
+      "node_model_architecture",
+      "node_abstract",
+      "node_results",
+      "node_background",
+      "node_conclusion",
+      "node_introduction",
+      "node_why_self-attention"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_training",
+        "name": "Training",
+        "score": 0.945,
+        "reason": ""
+      },
+      {
+        "node_id": "node_model_architecture",
+        "name": "Model Architecture",
+        "score": 0.508,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.468,
+        "reason": ""
+      },
+      {
+        "node_id": "node_results",
+        "name": "Results",
+        "score": 0.46,
+        "reason": ""
+      },
+      {
+        "node_id": "node_background",
+        "name": "Background",
+        "score": 0.333,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.326,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.242,
+        "reason": ""
+      },
+      {
+        "node_id": "node_why_self-attention",
+        "name": "Why Self-Attention",
+        "score": 0.177,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_training",
+      "node_model_architecture",
+      "node_abstract"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What training hardware and schedule was used?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_training",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_model_architecture",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 7,
+    "input_tokens": 7627,
+    "output_tokens": 1648,
+    "total_tokens": 9275,
+    "latency_seconds": 3.776
+  },
+  "errors": []
+}

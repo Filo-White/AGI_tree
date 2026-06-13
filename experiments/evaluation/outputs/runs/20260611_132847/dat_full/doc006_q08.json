@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_full",
+  "query_id": "doc006_q08",
+  "doc_id": "doc006",
+  "query": "What training data was used for GPT-3?",
+  "answer": "GPT-3 was trained on a filtered version of Common Crawl, WebText2, Books1, Books2, and Wikipedia, totaling about 570GB of text after filtering.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_approach",
+      "unit_type": "node",
+      "title": "Approach",
+      "text": "[Approach]",
+      "score": 0.73,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_results",
+      "unit_type": "node",
+      "title": "Results",
+      "text": "[Results]",
+      "score": 0.619,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_conclusion",
+      "unit_type": "node",
+      "title": "Conclusion",
+      "text": "[Conclusion]",
+      "score": 0.562,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_broader_impacts",
+      "unit_type": "node",
+      "title": "Broader Impacts",
+      "text": "[Broader Impacts]",
+      "score": 0.392,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_approach",
+      "node_results",
+      "node_conclusion",
+      "node_broader_impacts",
+      "node_introduction",
+      "node_measuring_and_preventing_",
+      "node_limitations",
+      "node_abstract"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_approach",
+        "name": "Approach",
+        "score": 0.73,
+        "reason": ""
+      },
+      {
+        "node_id": "node_results",
+        "name": "Results",
+        "score": 0.619,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.562,
+        "reason": ""
+      },
+      {
+        "node_id": "node_broader_impacts",
+        "name": "Broader Impacts",
+        "score": 0.392,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.306,
+        "reason": ""
+      },
+      {
+        "node_id": "node_measuring_and_preventing_",
+        "name": "Measuring and Preventing Memorization",
+        "score": 0.273,
+        "reason": ""
+      },
+      {
+        "node_id": "node_limitations",
+        "name": "Limitations",
+        "score": 0.201,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.158,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_approach",
+      "node_results",
+      "node_conclusion"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What training data was used for GPT-3?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_approach",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_results",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 9,
+    "input_tokens": 6093,
+    "output_tokens": 3290,
+    "total_tokens": 9383,
+    "latency_seconds": 4.309
+  },
+  "errors": []
+}

@@ -1,0 +1,52 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "flat_rag",
+  "query_id": "doc006_q01",
+  "doc_id": "doc006",
+  "query": "What is few-shot learning as defined in the GPT-3 paper?",
+  "answer": "Few-shot learning provides a few demonstrations of the task at inference time as conditioning, but no gradient updates. The model must learn from the context alone.",
+  "selected_evidence": [
+    {
+      "unit_id": "chunk_000",
+      "unit_type": "chunk",
+      "title": "Chunk 0",
+      "text": "[chunk 0]",
+      "score": 0.7052,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_001",
+      "unit_type": "chunk",
+      "title": "Chunk 1",
+      "text": "[chunk 1]",
+      "score": 0.6839,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_002",
+      "unit_type": "chunk",
+      "title": "Chunk 2",
+      "text": "[chunk 2]",
+      "score": 0.6291,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_003",
+      "unit_type": "chunk",
+      "title": "Chunk 3",
+      "text": "[chunk 3]",
+      "score": 0.2977,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 4174,
+    "output_tokens": 601,
+    "total_tokens": 4775,
+    "latency_seconds": 3.547
+  },
+  "errors": []
+}

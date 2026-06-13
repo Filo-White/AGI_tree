@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc002_q08",
+  "doc_id": "doc002",
+  "query": "What steps are needed to implement a PPO agent for robot locomotion?",
+  "answer": "PPO uses a clipped surrogate objective to ensure stable policy updates. For locomotion, one needs to define the state/action space, design a reward function, and use experience collected from rollouts to update the policy with the clipped objective.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 11041,
+    "output_tokens": 854,
+    "total_tokens": 11895,
+    "latency_seconds": 5.308
+  },
+  "errors": []
+}

@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc008_q04",
+  "doc_id": "doc008",
+  "query": "Under what conditions can personal data be transferred outside the EU?",
+  "answer": "Transfers are allowed when the destination country ensures an adequate level of protection (adequacy decision), or through appropriate safeguards such as standard contractual clauses or binding corporate rules.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 3,
+    "input_tokens": 13100,
+    "output_tokens": 421,
+    "total_tokens": 13521,
+    "latency_seconds": 3.059
+  },
+  "errors": []
+}

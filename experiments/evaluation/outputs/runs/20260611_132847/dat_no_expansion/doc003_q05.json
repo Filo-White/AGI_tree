@@ -1,0 +1,114 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_expansion",
+  "query_id": "doc003_q05",
+  "doc_id": "doc003",
+  "query": "Quali regole si applicano alla rete Wi-Fi del campus?",
+  "answer": "La rete Wi-Fi e riservata ad attivita istituzionali. E vietato l'uso per scopi illeciti, il download di materiale protetto da copyright, e attivita che compromettano la sicurezza della rete.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_servizi_informatici",
+      "unit_type": "node",
+      "title": "Servizi Informatici",
+      "text": "[Servizi Informatici]",
+      "score": 0.99,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_ristorazione",
+      "unit_type": "node",
+      "title": "Ristorazione",
+      "text": "[Ristorazione]",
+      "score": 0.266,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_sanzioni",
+      "unit_type": "node",
+      "title": "Sanzioni",
+      "text": "[Sanzioni]",
+      "score": 0.185,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_disposizioni_generali",
+      "unit_type": "node",
+      "title": "Disposizioni Generali",
+      "text": "[Disposizioni Generali]",
+      "score": 0.171,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "administrative",
+    "scorable_nodes": [
+      "node_servizi_informatici",
+      "node_ristorazione",
+      "node_sanzioni",
+      "node_disposizioni_generali",
+      "node_accesso_e_sicurezza",
+      "node_spazi_studio_e_bibliotech"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_servizi_informatici",
+        "name": "Servizi Informatici",
+        "score": 0.99,
+        "reason": ""
+      },
+      {
+        "node_id": "node_ristorazione",
+        "name": "Ristorazione",
+        "score": 0.266,
+        "reason": ""
+      },
+      {
+        "node_id": "node_sanzioni",
+        "name": "Sanzioni",
+        "score": 0.185,
+        "reason": ""
+      },
+      {
+        "node_id": "node_disposizioni_generali",
+        "name": "Disposizioni Generali",
+        "score": 0.171,
+        "reason": ""
+      },
+      {
+        "node_id": "node_accesso_e_sicurezza",
+        "name": "Accesso e Sicurezza",
+        "score": 0.128,
+        "reason": ""
+      },
+      {
+        "node_id": "node_spazi_studio_e_bibliotech",
+        "name": "Spazi Studio e Biblioteche",
+        "score": 0.05,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_servizi_informatici"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "Quali regole si applicano alla rete Wi-Fi del campus?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_servizi_informatici",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 13,
+    "input_tokens": 9029,
+    "output_tokens": 2583,
+    "total_tokens": 11612,
+    "latency_seconds": 4.202
+  },
+  "errors": []
+}

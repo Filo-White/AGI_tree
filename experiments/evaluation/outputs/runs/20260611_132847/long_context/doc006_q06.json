@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc006_q06",
+  "doc_id": "doc006",
+  "query": "What limitations of the GPT-3 approach are acknowledged?",
+  "answer": "Limitations include poor performance on some tasks (e.g. natural language inference), lack of bidirectionality, sample inefficiency compared to humans, unclear whether few-shot learning truly happens, and very high computational cost.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 3,
+    "input_tokens": 13004,
+    "output_tokens": 765,
+    "total_tokens": 13769,
+    "latency_seconds": 2.692
+  },
+  "errors": []
+}

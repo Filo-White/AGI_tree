@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc008_q01",
+  "doc_id": "doc008",
+  "query": "What is the right to be forgotten under GDPR?",
+  "answer": "The right to erasure (right to be forgotten) allows data subjects to request the deletion of their personal data when it is no longer necessary, consent is withdrawn, or processing is unlawful.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 8785,
+    "output_tokens": 1155,
+    "total_tokens": 9940,
+    "latency_seconds": 1.307
+  },
+  "errors": []
+}

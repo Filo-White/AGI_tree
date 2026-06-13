@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc009_q08",
+  "doc_id": "doc009",
+  "query": "Compare the energy investment needs between advanced and developing economies.",
+  "answer": "Developing economies need a much larger increase in clean energy investment proportionally, but currently receive a small fraction. International financial support and de-risking mechanisms are critical.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 12563,
+    "output_tokens": 540,
+    "total_tokens": 13103,
+    "latency_seconds": 4.578
+  },
+  "errors": []
+}

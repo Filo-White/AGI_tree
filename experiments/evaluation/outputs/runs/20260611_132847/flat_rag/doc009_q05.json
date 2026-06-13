@@ -1,0 +1,52 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "flat_rag",
+  "query_id": "doc009_q05",
+  "doc_id": "doc009",
+  "query": "Does the report discuss nuclear fusion as an energy source?",
+  "answer": "The document does not contain sufficient information to answer this question.",
+  "selected_evidence": [
+    {
+      "unit_id": "chunk_000",
+      "unit_type": "chunk",
+      "title": "Chunk 0",
+      "text": "[chunk 0]",
+      "score": 0.6204,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_001",
+      "unit_type": "chunk",
+      "title": "Chunk 1",
+      "text": "[chunk 1]",
+      "score": 0.5204,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_002",
+      "unit_type": "chunk",
+      "title": "Chunk 2",
+      "text": "[chunk 2]",
+      "score": 0.678,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_003",
+      "unit_type": "chunk",
+      "title": "Chunk 3",
+      "text": "[chunk 3]",
+      "score": 0.3413,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 3,
+    "input_tokens": 798,
+    "output_tokens": 789,
+    "total_tokens": 1587,
+    "latency_seconds": 1.272
+  },
+  "errors": []
+}

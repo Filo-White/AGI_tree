@@ -1,0 +1,120 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_full",
+  "query_id": "doc008_q04",
+  "doc_id": "doc008",
+  "query": "Under what conditions can personal data be transferred outside the EU?",
+  "answer": "Transfers are allowed when the destination country ensures an adequate level of protection (adequacy decision), or through appropriate safeguards such as standard contractual clauses or binding corporate rules.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_transfers_to_third_countr",
+      "unit_type": "node",
+      "title": "Transfers to Third Countries",
+      "text": "[Transfers to Third Countries]",
+      "score": 0.792,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_principles",
+      "unit_type": "node",
+      "title": "Principles",
+      "text": "[Principles]",
+      "score": 0.415,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_controller_and_processor",
+      "unit_type": "node",
+      "title": "Controller and Processor",
+      "text": "[Controller and Processor]",
+      "score": 0.338,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_remedies_and_penalties",
+      "unit_type": "node",
+      "title": "Remedies and Penalties",
+      "text": "[Remedies and Penalties]",
+      "score": 0.249,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "administrative",
+    "scorable_nodes": [
+      "node_transfers_to_third_countr",
+      "node_principles",
+      "node_controller_and_processor",
+      "node_remedies_and_penalties",
+      "node_rights_of_the_data_subjec",
+      "node_definitions"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_transfers_to_third_countr",
+        "name": "Transfers to Third Countries",
+        "score": 0.792,
+        "reason": ""
+      },
+      {
+        "node_id": "node_principles",
+        "name": "Principles",
+        "score": 0.415,
+        "reason": ""
+      },
+      {
+        "node_id": "node_controller_and_processor",
+        "name": "Controller and Processor",
+        "score": 0.338,
+        "reason": ""
+      },
+      {
+        "node_id": "node_remedies_and_penalties",
+        "name": "Remedies and Penalties",
+        "score": 0.249,
+        "reason": ""
+      },
+      {
+        "node_id": "node_rights_of_the_data_subjec",
+        "name": "Rights of the Data Subject",
+        "score": 0.195,
+        "reason": ""
+      },
+      {
+        "node_id": "node_definitions",
+        "name": "Definitions",
+        "score": 0.088,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_transfers_to_third_countr",
+      "node_principles",
+      "node_controller_and_processor"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "Under what conditions can personal data be transferred outside the EU?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_transfers_to_third_countr",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_principles",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 15,
+    "input_tokens": 7893,
+    "output_tokens": 3196,
+    "total_tokens": 11089,
+    "latency_seconds": 4.381
+  },
+  "errors": []
+}

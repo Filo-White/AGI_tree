@@ -1,0 +1,44 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "section_rag",
+  "query_id": "doc009_q05",
+  "doc_id": "doc009",
+  "query": "Does the report discuss nuclear fusion as an energy source?",
+  "answer": "The document does not contain sufficient information to answer this question.",
+  "selected_evidence": [
+    {
+      "unit_id": "section_00",
+      "unit_type": "section",
+      "title": "Electricity",
+      "text": "[Electricity]",
+      "score": 0.8523,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_01",
+      "unit_type": "section",
+      "title": "Global Energy Trends",
+      "text": "[Global Energy Trends]",
+      "score": 0.5547,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_02",
+      "unit_type": "section",
+      "title": "Implications for Policy",
+      "text": "[Implications for Policy]",
+      "score": 0.3973,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 2,
+    "input_tokens": 5752,
+    "output_tokens": 279,
+    "total_tokens": 6031,
+    "latency_seconds": 2.873
+  },
+  "errors": []
+}

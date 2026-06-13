@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc005_q04",
+  "doc_id": "doc005",
+  "query": "What is the effect of removing NSP from BERT pre-training?",
+  "answer": "Removing NSP hurts performance on tasks requiring sentence-pair understanding like QNLI, MNLI, and SQuAD.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 12935,
+    "output_tokens": 545,
+    "total_tokens": 13480,
+    "latency_seconds": 3.514
+  },
+  "errors": []
+}

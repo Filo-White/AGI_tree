@@ -1,0 +1,52 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "flat_rag",
+  "query_id": "doc009_q04",
+  "doc_id": "doc009",
+  "query": "How much investment is needed for clean energy transitions?",
+  "answer": "Annual clean energy investment needs to rise to around USD 4.5 trillion by 2030 in the Net Zero Emissions scenario, up from about USD 1.8 trillion in 2023.",
+  "selected_evidence": [
+    {
+      "unit_id": "chunk_000",
+      "unit_type": "chunk",
+      "title": "Chunk 0",
+      "text": "[chunk 0]",
+      "score": 0.6809,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_001",
+      "unit_type": "chunk",
+      "title": "Chunk 1",
+      "text": "[chunk 1]",
+      "score": 0.7422,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_002",
+      "unit_type": "chunk",
+      "title": "Chunk 2",
+      "text": "[chunk 2]",
+      "score": 0.7955,
+      "rationale": ""
+    },
+    {
+      "unit_id": "chunk_003",
+      "unit_type": "chunk",
+      "title": "Chunk 3",
+      "text": "[chunk 3]",
+      "score": 0.6876,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 2,
+    "input_tokens": 4076,
+    "output_tokens": 100,
+    "total_tokens": 4176,
+    "latency_seconds": 2.663
+  },
+  "errors": []
+}

@@ -1,0 +1,120 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_self_scoring",
+  "query_id": "doc007_q03",
+  "doc_id": "doc007",
+  "query": "Come viene calcolato il voto di laurea?",
+  "answer": "Il voto di laurea e calcolato sulla media ponderata dei voti degli esami, convertita in centodecimi, alla quale la commissione puo aggiungere un punteggio per la tesi e per la carriera.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_titoli_accademici",
+      "unit_type": "node",
+      "title": "Titoli Accademici",
+      "text": "[Titoli Accademici]",
+      "score": 0.747,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_regolamenti_dei_corsi",
+      "unit_type": "node",
+      "title": "Regolamenti dei Corsi",
+      "text": "[Regolamenti dei Corsi]",
+      "score": 0.351,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_esami_e_valutazione",
+      "unit_type": "node",
+      "title": "Esami e Valutazione",
+      "text": "[Esami e Valutazione]",
+      "score": 0.331,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_ordinamenti_didattici",
+      "unit_type": "node",
+      "title": "Ordinamenti Didattici",
+      "text": "[Ordinamenti Didattici]",
+      "score": 0.252,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "administrative",
+    "scorable_nodes": [
+      "node_titoli_accademici",
+      "node_regolamenti_dei_corsi",
+      "node_esami_e_valutazione",
+      "node_ordinamenti_didattici",
+      "node_disposizioni_generali",
+      "node_norme_transitorie"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_titoli_accademici",
+        "name": "Titoli Accademici",
+        "score": 0.747,
+        "reason": ""
+      },
+      {
+        "node_id": "node_regolamenti_dei_corsi",
+        "name": "Regolamenti dei Corsi",
+        "score": 0.351,
+        "reason": ""
+      },
+      {
+        "node_id": "node_esami_e_valutazione",
+        "name": "Esami e Valutazione",
+        "score": 0.331,
+        "reason": ""
+      },
+      {
+        "node_id": "node_ordinamenti_didattici",
+        "name": "Ordinamenti Didattici",
+        "score": 0.252,
+        "reason": ""
+      },
+      {
+        "node_id": "node_disposizioni_generali",
+        "name": "Disposizioni Generali",
+        "score": 0.201,
+        "reason": ""
+      },
+      {
+        "node_id": "node_norme_transitorie",
+        "name": "Norme Transitorie",
+        "score": 0.059,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_titoli_accademici",
+      "node_regolamenti_dei_corsi",
+      "node_esami_e_valutazione"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "Come viene calcolato il voto di laurea?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_titoli_accademici",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_regolamenti_dei_corsi",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 10,
+    "input_tokens": 4720,
+    "output_tokens": 2835,
+    "total_tokens": 7555,
+    "latency_seconds": 3.766
+  },
+  "errors": []
+}

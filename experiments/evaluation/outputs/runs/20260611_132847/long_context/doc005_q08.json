@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc005_q08",
+  "doc_id": "doc005",
+  "query": "How does model size affect BERT performance across tasks?",
+  "answer": "Larger models consistently improve performance. BERT-Large outperforms BERT-Base on all tasks, with especially large improvements on tasks with small training sets.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 2,
+    "input_tokens": 12555,
+    "output_tokens": 1398,
+    "total_tokens": 13953,
+    "latency_seconds": 2.171
+  },
+  "errors": []
+}

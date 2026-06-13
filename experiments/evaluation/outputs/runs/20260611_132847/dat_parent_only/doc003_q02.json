@@ -1,0 +1,120 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_parent_only",
+  "query_id": "doc003_q02",
+  "doc_id": "doc003",
+  "query": "Come si prenota una sala riunioni?",
+  "answer": "La prenotazione avviene tramite il portale online dell'Ateneo con almeno 48 ore di anticipo. Serve specificare data, orario, numero partecipanti e responsabile.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_spazi_studio_e_bibliotech",
+      "unit_type": "node",
+      "title": "Spazi Studio e Biblioteche",
+      "text": "[Spazi Studio e Biblioteche]",
+      "score": 0.99,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_disposizioni_generali",
+      "unit_type": "node",
+      "title": "Disposizioni Generali",
+      "text": "[Disposizioni Generali]",
+      "score": 0.488,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_ristorazione",
+      "unit_type": "node",
+      "title": "Ristorazione",
+      "text": "[Ristorazione]",
+      "score": 0.329,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_accesso_e_sicurezza",
+      "unit_type": "node",
+      "title": "Accesso e Sicurezza",
+      "text": "[Accesso e Sicurezza]",
+      "score": 0.228,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "administrative",
+    "scorable_nodes": [
+      "node_spazi_studio_e_bibliotech",
+      "node_disposizioni_generali",
+      "node_ristorazione",
+      "node_accesso_e_sicurezza",
+      "node_servizi_informatici",
+      "node_sanzioni"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_spazi_studio_e_bibliotech",
+        "name": "Spazi Studio e Biblioteche",
+        "score": 0.99,
+        "reason": ""
+      },
+      {
+        "node_id": "node_disposizioni_generali",
+        "name": "Disposizioni Generali",
+        "score": 0.488,
+        "reason": ""
+      },
+      {
+        "node_id": "node_ristorazione",
+        "name": "Ristorazione",
+        "score": 0.329,
+        "reason": ""
+      },
+      {
+        "node_id": "node_accesso_e_sicurezza",
+        "name": "Accesso e Sicurezza",
+        "score": 0.228,
+        "reason": ""
+      },
+      {
+        "node_id": "node_servizi_informatici",
+        "name": "Servizi Informatici",
+        "score": 0.192,
+        "reason": ""
+      },
+      {
+        "node_id": "node_sanzioni",
+        "name": "Sanzioni",
+        "score": 0.154,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_spazi_studio_e_bibliotech",
+      "node_disposizioni_generali",
+      "node_ristorazione"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "Come si prenota una sala riunioni?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_spazi_studio_e_bibliotech",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_disposizioni_generali",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 9,
+    "input_tokens": 9073,
+    "output_tokens": 2043,
+    "total_tokens": 11116,
+    "latency_seconds": 6.545
+  },
+  "errors": []
+}

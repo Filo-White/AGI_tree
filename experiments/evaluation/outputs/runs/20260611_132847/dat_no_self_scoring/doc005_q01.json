@@ -1,0 +1,127 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_self_scoring",
+  "query_id": "doc005_q01",
+  "doc_id": "doc005",
+  "query": "What are the two pre-training tasks used by BERT?",
+  "answer": "BERT uses Masked Language Modeling (MLM), where random tokens are masked and predicted, and Next Sentence Prediction (NSP), where the model predicts whether two sentences are consecutive.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_bert",
+      "unit_type": "node",
+      "title": "BERT",
+      "text": "[BERT]",
+      "score": 0.877,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_introduction",
+      "unit_type": "node",
+      "title": "Introduction",
+      "text": "[Introduction]",
+      "score": 0.388,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_related_work",
+      "unit_type": "node",
+      "title": "Related Work",
+      "text": "[Related Work]",
+      "score": 0.32,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_experiments",
+      "unit_type": "node",
+      "title": "Experiments",
+      "text": "[Experiments]",
+      "score": 0.254,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_bert",
+      "node_introduction",
+      "node_related_work",
+      "node_experiments",
+      "node_conclusion",
+      "node_abstract",
+      "node_ablation_studies"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_bert",
+        "name": "BERT",
+        "score": 0.877,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.388,
+        "reason": ""
+      },
+      {
+        "node_id": "node_related_work",
+        "name": "Related Work",
+        "score": 0.32,
+        "reason": ""
+      },
+      {
+        "node_id": "node_experiments",
+        "name": "Experiments",
+        "score": 0.254,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.212,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.05,
+        "reason": ""
+      },
+      {
+        "node_id": "node_ablation_studies",
+        "name": "Ablation Studies",
+        "score": 0.05,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_bert",
+      "node_introduction",
+      "node_related_work"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What are the two pre-training tasks used by BERT?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_bert",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_introduction",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 10,
+    "input_tokens": 7245,
+    "output_tokens": 2450,
+    "total_tokens": 9695,
+    "latency_seconds": 2.432
+  },
+  "errors": []
+}

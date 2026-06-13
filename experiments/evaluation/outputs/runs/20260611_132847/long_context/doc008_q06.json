@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc008_q06",
+  "doc_id": "doc008",
+  "query": "Does GDPR apply to paper-only records not part of a filing system?",
+  "answer": "The document does not contain sufficient information to answer this question.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 9941,
+    "output_tokens": 932,
+    "total_tokens": 10873,
+    "latency_seconds": 3.227
+  },
+  "errors": []
+}

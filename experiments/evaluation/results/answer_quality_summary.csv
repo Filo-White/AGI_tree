@@ -1,0 +1,8 @@
+method,correctness_mean,correctness_std,faithfulness_mean,faithfulness_std,completeness_mean,completeness_std,relevance_mean,relevance_std,abstention_accuracy,n_judged
+dat_full,4.229,0.608,4.313,0.43,3.934,0.765,4.359,0.444,0.778,74
+flat_rag,3.374,0.837,3.705,0.68,2.83,0.868,3.588,0.607,0.444,74
+section_rag,3.555,0.788,3.572,0.491,3.437,0.868,3.771,0.745,0.556,74
+long_context,3.963,0.738,4.139,0.533,3.686,0.703,3.822,0.589,0.667,74
+dat_no_expansion,3.937,0.668,4.125,0.568,3.673,0.652,4.112,0.542,0.667,74
+dat_parent_only,3.91,0.667,3.891,0.524,3.429,0.869,3.928,0.541,0.556,74
+dat_no_self_scoring,3.734,0.763,3.876,0.608,3.668,0.729,3.884,0.637,0.556,74

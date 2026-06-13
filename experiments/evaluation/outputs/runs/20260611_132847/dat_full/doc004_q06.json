@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_full",
+  "query_id": "doc004_q06",
+  "doc_id": "doc004",
+  "query": "Does the paper propose any method for document summarization?",
+  "answer": "The document does not contain sufficient information to answer this question.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_introduction",
+      "unit_type": "node",
+      "title": "Introduction",
+      "text": "[Introduction]",
+      "score": 0.633,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_model_architecture",
+      "unit_type": "node",
+      "title": "Model Architecture",
+      "text": "[Model Architecture]",
+      "score": 0.463,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_why_self-attention",
+      "unit_type": "node",
+      "title": "Why Self-Attention",
+      "text": "[Why Self-Attention]",
+      "score": 0.321,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_conclusion",
+      "unit_type": "node",
+      "title": "Conclusion",
+      "text": "[Conclusion]",
+      "score": 0.275,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_introduction",
+      "node_model_architecture",
+      "node_why_self-attention",
+      "node_conclusion",
+      "node_results",
+      "node_background",
+      "node_training",
+      "node_abstract"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.633,
+        "reason": ""
+      },
+      {
+        "node_id": "node_model_architecture",
+        "name": "Model Architecture",
+        "score": 0.463,
+        "reason": ""
+      },
+      {
+        "node_id": "node_why_self-attention",
+        "name": "Why Self-Attention",
+        "score": 0.321,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.275,
+        "reason": ""
+      },
+      {
+        "node_id": "node_results",
+        "name": "Results",
+        "score": 0.26,
+        "reason": ""
+      },
+      {
+        "node_id": "node_background",
+        "name": "Background",
+        "score": 0.243,
+        "reason": ""
+      },
+      {
+        "node_id": "node_training",
+        "name": "Training",
+        "score": 0.22,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.05,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_introduction",
+      "node_model_architecture",
+      "node_why_self-attention"
+    ],
+    "expansion_triggered": true,
+    "expanded_node": "node_introduction",
+    "query_decomposition": [
+      "Does the paper propose any method for document summarization?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_introduction",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_model_architecture",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 12,
+    "input_tokens": 10976,
+    "output_tokens": 2282,
+    "total_tokens": 13258,
+    "latency_seconds": 6.606
+  },
+  "errors": []
+}

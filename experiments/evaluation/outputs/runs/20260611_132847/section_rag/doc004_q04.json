@@ -1,0 +1,44 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "section_rag",
+  "query_id": "doc004_q04",
+  "doc_id": "doc004",
+  "query": "Why is self-attention preferred over recurrent layers according to the paper?",
+  "answer": "Self-attention connects all positions with a constant number of operations (O(1) sequential), while recurrent layers require O(n) sequential operations. Self-attention also enables learning long-range dependencies more easily.",
+  "selected_evidence": [
+    {
+      "unit_id": "section_00",
+      "unit_type": "section",
+      "title": "Conclusion",
+      "text": "[Conclusion]",
+      "score": 0.7154,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_01",
+      "unit_type": "section",
+      "title": "Training",
+      "text": "[Training]",
+      "score": 0.9978,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_02",
+      "unit_type": "section",
+      "title": "Introduction",
+      "text": "[Introduction]",
+      "score": 0.5817,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 3,
+    "input_tokens": 4378,
+    "output_tokens": 1228,
+    "total_tokens": 5606,
+    "latency_seconds": 3.999
+  },
+  "errors": []
+}

@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_self_scoring",
+  "query_id": "doc002_q01",
+  "doc_id": "doc002",
+  "query": "What is the Q-learning update rule?",
+  "answer": "Q(s,a) <- Q(s,a) + alpha[r + gamma max_a' Q(s',a') - Q(s,a)]",
+  "selected_evidence": [
+    {
+      "unit_id": "node_model-free_methods",
+      "unit_type": "node",
+      "title": "Model-Free Methods",
+      "text": "[Model-Free Methods]",
+      "score": 0.86,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_actor-critic_architecture",
+      "unit_type": "node",
+      "title": "Actor-Critic Architectures",
+      "text": "[Actor-Critic Architectures]",
+      "score": 0.474,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_applications_in_robotics",
+      "unit_type": "node",
+      "title": "Applications in Robotics",
+      "text": "[Applications in Robotics]",
+      "score": 0.443,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_challenges_and_future_dir",
+      "unit_type": "node",
+      "title": "Challenges and Future Directions",
+      "text": "[Challenges and Future Directions]",
+      "score": 0.381,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_model-free_methods",
+      "node_actor-critic_architecture",
+      "node_applications_in_robotics",
+      "node_challenges_and_future_dir",
+      "node_introduction",
+      "node_abstract",
+      "node_theoretical_foundations",
+      "node_model-based_methods"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_model-free_methods",
+        "name": "Model-Free Methods",
+        "score": 0.86,
+        "reason": ""
+      },
+      {
+        "node_id": "node_actor-critic_architecture",
+        "name": "Actor-Critic Architectures",
+        "score": 0.474,
+        "reason": ""
+      },
+      {
+        "node_id": "node_applications_in_robotics",
+        "name": "Applications in Robotics",
+        "score": 0.443,
+        "reason": ""
+      },
+      {
+        "node_id": "node_challenges_and_future_dir",
+        "name": "Challenges and Future Directions",
+        "score": 0.381,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.365,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.299,
+        "reason": ""
+      },
+      {
+        "node_id": "node_theoretical_foundations",
+        "name": "Theoretical Foundations",
+        "score": 0.293,
+        "reason": ""
+      },
+      {
+        "node_id": "node_model-based_methods",
+        "name": "Model-Based Methods",
+        "score": 0.171,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_model-free_methods",
+      "node_actor-critic_architecture",
+      "node_applications_in_robotics"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What is the Q-learning update rule?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_model-free_methods",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_actor-critic_architecture",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 8,
+    "input_tokens": 7461,
+    "output_tokens": 2272,
+    "total_tokens": 9733,
+    "latency_seconds": 2.956
+  },
+  "errors": []
+}

@@ -1,0 +1,34 @@
+models:
+  answer_model: "gpt-5.4-nano-2026-03-17"
+  judge_model: "gpt-5.4-nano-2026-03-17"
+  embedding_model: "text-embedding-3-small"
+  temperature_answer: 0.0
+  temperature_judge: 0.0
+
+rag:
+  chunk_size_tokens: 900
+  chunk_overlap_tokens: 120
+  top_k: 4
+
+section_rag:
+  top_k: 4
+
+dat:
+  top_k_respondents: 4
+  min_score_threshold: 0.3
+  expansion_threshold: 0.7
+  enable_lazy_expansion: true
+  enable_query_decomposition: true
+
+evaluation:
+  random_seed: 42
+  max_queries: null
+  anonymize_for_judge: true
+  manual_validation_sample_ratio: 0.25
+
+costs:
+  answer_model_input_per_1k: 0.00015
+  answer_model_output_per_1k: 0.0006
+  judge_model_input_per_1k: 0.00015
+  judge_model_output_per_1k: 0.0006
+  embedding_per_1k: 0.00002

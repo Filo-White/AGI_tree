@@ -1,0 +1,83 @@
+[
+  {
+    "doc_id": "doc001",
+    "title": "Introduzione all'Intelligenza Artificiale",
+    "doc_type": "textbook",
+    "path": "evaluation/test_data/test_doc.txt",
+    "language": "it",
+    "expected_top_level_sections": ["Introduzione all'IA", "Machine Learning e Reti Neurali", "Elaborazione del Linguaggio Naturale", "Visione Artificiale", "Etica e Futuro dell'IA"],
+    "notes": "Italian AI textbook, 5 chapters"
+  },
+  {
+    "doc_id": "doc002",
+    "title": "Reinforcement Learning in Robotics: A Survey",
+    "doc_type": "scientific_paper",
+    "path": "evaluation/test_data/test_paper.txt",
+    "language": "en",
+    "expected_top_level_sections": ["Abstract", "Introduction", "Theoretical Foundations", "Model-Free Methods", "Model-Based Methods", "Actor-Critic Architectures", "Applications in Robotics", "Challenges and Future Directions"],
+    "notes": "RL survey paper, 7 sections"
+  },
+  {
+    "doc_id": "doc003",
+    "title": "Regolamento Campus Universitario",
+    "doc_type": "administrative",
+    "path": "evaluation/test_data/test_administrative.txt",
+    "language": "it",
+    "expected_top_level_sections": ["Disposizioni Generali", "Accesso e Sicurezza", "Spazi Studio e Biblioteche", "Servizi Informatici", "Ristorazione", "Sanzioni"],
+    "notes": "Italian university campus regulation, 6 titles"
+  },
+  {
+    "doc_id": "doc004",
+    "title": "Attention Is All You Need",
+    "doc_type": "scientific_paper",
+    "path": "experiments/evaluation/data/docs/attention_is_all_you_need.pdf",
+    "language": "en",
+    "expected_top_level_sections": ["Abstract", "Introduction", "Background", "Model Architecture", "Why Self-Attention", "Training", "Results", "Conclusion"],
+    "notes": "Vaswani et al. 2017 (arXiv:1706.03762)"
+  },
+  {
+    "doc_id": "doc005",
+    "title": "BERT: Pre-training of Deep Bidirectional Transformers",
+    "doc_type": "scientific_paper",
+    "path": "experiments/evaluation/data/docs/bert.pdf",
+    "language": "en",
+    "expected_top_level_sections": ["Abstract", "Introduction", "Related Work", "BERT", "Experiments", "Ablation Studies", "Conclusion"],
+    "notes": "Devlin et al. 2019 (arXiv:1810.04805)"
+  },
+  {
+    "doc_id": "doc006",
+    "title": "Language Models are Few-Shot Learners",
+    "doc_type": "scientific_paper",
+    "path": "experiments/evaluation/data/docs/gpt3.pdf",
+    "language": "en",
+    "expected_top_level_sections": ["Abstract", "Introduction", "Approach", "Results", "Measuring and Preventing Memorization", "Limitations", "Broader Impacts", "Conclusion"],
+    "notes": "Brown et al. 2020 (arXiv:2005.14165)"
+  },
+  {
+    "doc_id": "doc007",
+    "title": "Regolamento Didattico di Ateneo",
+    "doc_type": "administrative",
+    "path": "experiments/evaluation/data/docs/regolamento_didattico.pdf",
+    "language": "it",
+    "expected_top_level_sections": ["Disposizioni Generali", "Ordinamenti Didattici", "Regolamenti dei Corsi", "Esami e Valutazione", "Titoli Accademici", "Norme Transitorie"],
+    "notes": "Italian university academic regulation"
+  },
+  {
+    "doc_id": "doc008",
+    "title": "General Data Protection Regulation (Excerpts)",
+    "doc_type": "administrative",
+    "path": "experiments/evaluation/data/docs/gdpr_excerpts.pdf",
+    "language": "en",
+    "expected_top_level_sections": ["Definitions", "Principles", "Rights of the Data Subject", "Controller and Processor", "Transfers to Third Countries", "Remedies and Penalties"],
+    "notes": "EU GDPR Chapters 1-6 (EUR-Lex)"
+  },
+  {
+    "doc_id": "doc009",
+    "title": "World Energy Outlook 2023 — Executive Summary",
+    "doc_type": "report",
+    "path": "experiments/evaluation/data/docs/iea_weo_2023_summary.pdf",
+    "language": "en",
+    "expected_top_level_sections": ["Overview", "Global Energy Trends", "Electricity", "Fuels", "Energy Investment", "Implications for Policy"],
+    "notes": "IEA World Energy Outlook 2023"
+  }
+]

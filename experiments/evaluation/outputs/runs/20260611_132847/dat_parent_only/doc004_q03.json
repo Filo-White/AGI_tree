@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_parent_only",
+  "query_id": "doc004_q03",
+  "doc_id": "doc004",
+  "query": "What BLEU scores did the Transformer achieve on WMT 2014 English-to-German?",
+  "answer": "The Transformer (big) achieved 28.4 BLEU on WMT 2014 English-to-German, improving over the best previously reported models by more than 2 BLEU.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_results",
+      "unit_type": "node",
+      "title": "Results",
+      "text": "[Results]",
+      "score": 0.886,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_abstract",
+      "unit_type": "node",
+      "title": "Abstract",
+      "text": "[Abstract]",
+      "score": 0.598,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_model_architecture",
+      "unit_type": "node",
+      "title": "Model Architecture",
+      "text": "[Model Architecture]",
+      "score": 0.373,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_conclusion",
+      "unit_type": "node",
+      "title": "Conclusion",
+      "text": "[Conclusion]",
+      "score": 0.307,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_results",
+      "node_abstract",
+      "node_model_architecture",
+      "node_conclusion",
+      "node_introduction",
+      "node_background",
+      "node_training",
+      "node_why_self-attention"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_results",
+        "name": "Results",
+        "score": 0.886,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.598,
+        "reason": ""
+      },
+      {
+        "node_id": "node_model_architecture",
+        "name": "Model Architecture",
+        "score": 0.373,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.307,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.2,
+        "reason": ""
+      },
+      {
+        "node_id": "node_background",
+        "name": "Background",
+        "score": 0.198,
+        "reason": ""
+      },
+      {
+        "node_id": "node_training",
+        "name": "Training",
+        "score": 0.195,
+        "reason": ""
+      },
+      {
+        "node_id": "node_why_self-attention",
+        "name": "Why Self-Attention",
+        "score": 0.194,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_results",
+      "node_abstract",
+      "node_model_architecture"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What BLEU scores did the Transformer achieve on WMT 2014 English-to-German?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_results",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_abstract",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 6,
+    "input_tokens": 8527,
+    "output_tokens": 2838,
+    "total_tokens": 11365,
+    "latency_seconds": 2.736
+  },
+  "errors": []
+}

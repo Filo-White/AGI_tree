@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc005_q03",
+  "doc_id": "doc005",
+  "query": "What downstream tasks were used to evaluate BERT?",
+  "answer": "BERT was evaluated on GLUE benchmark (including MNLI, QQP, QNLI, SST-2, CoLA, STS-B, MRPC, RTE), SQuAD 1.1/2.0 for question answering, and SWAG for commonsense inference.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 13871,
+    "output_tokens": 1210,
+    "total_tokens": 15081,
+    "latency_seconds": 3.411
+  },
+  "errors": []
+}

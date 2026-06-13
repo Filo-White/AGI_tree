@@ -1,0 +1,44 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "section_rag",
+  "query_id": "doc008_q04",
+  "doc_id": "doc008",
+  "query": "Under what conditions can personal data be transferred outside the EU?",
+  "answer": "Transfers are allowed when the destination country ensures an adequate level of protection (adequacy decision), or through appropriate safeguards such as standard contractual clauses or binding corporate rules.",
+  "selected_evidence": [
+    {
+      "unit_id": "section_00",
+      "unit_type": "section",
+      "title": "Controller and Processor",
+      "text": "[Controller and Processor]",
+      "score": 0.7358,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_01",
+      "unit_type": "section",
+      "title": "Principles",
+      "text": "[Principles]",
+      "score": 0.7278,
+      "rationale": ""
+    },
+    {
+      "unit_id": "section_02",
+      "unit_type": "section",
+      "title": "Rights of the Data Subject",
+      "text": "[Rights of the Data Subject]",
+      "score": 0.7695,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 3,
+    "input_tokens": 5467,
+    "output_tokens": 1739,
+    "total_tokens": 7206,
+    "latency_seconds": 2.944
+  },
+  "errors": []
+}

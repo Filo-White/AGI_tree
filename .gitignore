@@ -10,3 +10,6 @@ venv/
 .DS_Store
 Thumbs.db
 METODOLOGIA_ARCH.md
+
+# Evaluation - large PDF source documents (copyrighted)
+experiments/evaluation/data/docs/*.pdf

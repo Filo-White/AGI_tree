@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc001_q08",
+  "doc_id": "doc001",
+  "query": "Descrivi le fasi di addestramento di un LLM secondo il documento.",
+  "answer": "L'addestramento avviene in due fasi: pre-training su grandi corpus testuali e fine-tuning su dati specifici per il compito desiderato.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 9679,
+    "output_tokens": 855,
+    "total_tokens": 10534,
+    "latency_seconds": 4.589
+  },
+  "errors": []
+}

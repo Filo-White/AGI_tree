@@ -1,0 +1,127 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_self_scoring",
+  "query_id": "doc005_q03",
+  "doc_id": "doc005",
+  "query": "What downstream tasks were used to evaluate BERT?",
+  "answer": "BERT was evaluated on GLUE benchmark (including MNLI, QQP, QNLI, SST-2, CoLA, STS-B, MRPC, RTE), SQuAD 1.1/2.0 for question answering, and SWAG for commonsense inference.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_experiments",
+      "unit_type": "node",
+      "title": "Experiments",
+      "text": "[Experiments]",
+      "score": 0.687,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_ablation_studies",
+      "unit_type": "node",
+      "title": "Ablation Studies",
+      "text": "[Ablation Studies]",
+      "score": 0.489,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_related_work",
+      "unit_type": "node",
+      "title": "Related Work",
+      "text": "[Related Work]",
+      "score": 0.46,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_conclusion",
+      "unit_type": "node",
+      "title": "Conclusion",
+      "text": "[Conclusion]",
+      "score": 0.424,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_experiments",
+      "node_ablation_studies",
+      "node_related_work",
+      "node_conclusion",
+      "node_introduction",
+      "node_bert",
+      "node_abstract"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_experiments",
+        "name": "Experiments",
+        "score": 0.687,
+        "reason": ""
+      },
+      {
+        "node_id": "node_ablation_studies",
+        "name": "Ablation Studies",
+        "score": 0.489,
+        "reason": ""
+      },
+      {
+        "node_id": "node_related_work",
+        "name": "Related Work",
+        "score": 0.46,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.424,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.34,
+        "reason": ""
+      },
+      {
+        "node_id": "node_bert",
+        "name": "BERT",
+        "score": 0.251,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.14,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_experiments",
+      "node_ablation_studies",
+      "node_related_work"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What downstream tasks were used to evaluate BERT?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_experiments",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_ablation_studies",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 11,
+    "input_tokens": 7867,
+    "output_tokens": 2115,
+    "total_tokens": 9982,
+    "latency_seconds": 0.989
+  },
+  "errors": []
+}

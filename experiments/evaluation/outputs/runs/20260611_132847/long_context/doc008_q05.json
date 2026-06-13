@@ -1,0 +1,28 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "long_context",
+  "query_id": "doc008_q05",
+  "doc_id": "doc008",
+  "query": "What are the obligations of a data processor?",
+  "answer": "The processor must process data only on documented instructions from the controller, ensure confidentiality, implement security measures, assist the controller, and maintain records of processing activities.",
+  "selected_evidence": [
+    {
+      "unit_id": "full_document",
+      "unit_type": "full_document",
+      "title": "Full Document",
+      "text": "[full]",
+      "score": 1.0,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": null,
+  "usage": {
+    "llm_calls": 1,
+    "input_tokens": 11039,
+    "output_tokens": 925,
+    "total_tokens": 11964,
+    "latency_seconds": 3.511
+  },
+  "errors": []
+}

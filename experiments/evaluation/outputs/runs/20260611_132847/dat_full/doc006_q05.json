@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_full",
+  "query_id": "doc006_q05",
+  "doc_id": "doc006",
+  "query": "How does the paper address the risk of data contamination in evaluation?",
+  "answer": "The paper includes a dedicated section on measuring and preventing memorization of benchmarks. They search for overlaps between training data and evaluation benchmarks and report contamination analysis.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_measuring_and_preventing_",
+      "unit_type": "node",
+      "title": "Measuring and Preventing Memorization",
+      "text": "[Measuring and Preventing Memorization]",
+      "score": 0.928,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_introduction",
+      "unit_type": "node",
+      "title": "Introduction",
+      "text": "[Introduction]",
+      "score": 0.347,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_broader_impacts",
+      "unit_type": "node",
+      "title": "Broader Impacts",
+      "text": "[Broader Impacts]",
+      "score": 0.315,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_approach",
+      "unit_type": "node",
+      "title": "Approach",
+      "text": "[Approach]",
+      "score": 0.228,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_measuring_and_preventing_",
+      "node_introduction",
+      "node_broader_impacts",
+      "node_approach",
+      "node_results",
+      "node_limitations",
+      "node_conclusion",
+      "node_abstract"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_measuring_and_preventing_",
+        "name": "Measuring and Preventing Memorization",
+        "score": 0.928,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.347,
+        "reason": ""
+      },
+      {
+        "node_id": "node_broader_impacts",
+        "name": "Broader Impacts",
+        "score": 0.315,
+        "reason": ""
+      },
+      {
+        "node_id": "node_approach",
+        "name": "Approach",
+        "score": 0.228,
+        "reason": ""
+      },
+      {
+        "node_id": "node_results",
+        "name": "Results",
+        "score": 0.163,
+        "reason": ""
+      },
+      {
+        "node_id": "node_limitations",
+        "name": "Limitations",
+        "score": 0.157,
+        "reason": ""
+      },
+      {
+        "node_id": "node_conclusion",
+        "name": "Conclusion",
+        "score": 0.114,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.05,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_measuring_and_preventing_",
+      "node_introduction",
+      "node_broader_impacts"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "How does the paper address the risk of data contamination in evaluation?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_measuring_and_preventing_",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_introduction",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 12,
+    "input_tokens": 9004,
+    "output_tokens": 2236,
+    "total_tokens": 11240,
+    "latency_seconds": 4.917
+  },
+  "errors": []
+}

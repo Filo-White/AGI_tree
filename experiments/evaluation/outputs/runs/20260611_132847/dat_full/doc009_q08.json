@@ -1,0 +1,120 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_full",
+  "query_id": "doc009_q08",
+  "doc_id": "doc009",
+  "query": "Compare the energy investment needs between advanced and developing economies.",
+  "answer": "Developing economies need a much larger increase in clean energy investment proportionally, but currently receive a small fraction. International financial support and de-risking mechanisms are critical.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_implications_for_policy",
+      "unit_type": "node",
+      "title": "Implications for Policy",
+      "text": "[Implications for Policy]",
+      "score": 0.884,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_energy_investment",
+      "unit_type": "node",
+      "title": "Energy Investment",
+      "text": "[Energy Investment]",
+      "score": 0.729,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_fuels",
+      "unit_type": "node",
+      "title": "Fuels",
+      "text": "[Fuels]",
+      "score": 0.301,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_overview",
+      "unit_type": "node",
+      "title": "Overview",
+      "text": "[Overview]",
+      "score": 0.19,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "report",
+    "scorable_nodes": [
+      "node_implications_for_policy",
+      "node_energy_investment",
+      "node_fuels",
+      "node_overview",
+      "node_global_energy_trends",
+      "node_electricity"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_implications_for_policy",
+        "name": "Implications for Policy",
+        "score": 0.884,
+        "reason": ""
+      },
+      {
+        "node_id": "node_energy_investment",
+        "name": "Energy Investment",
+        "score": 0.729,
+        "reason": ""
+      },
+      {
+        "node_id": "node_fuels",
+        "name": "Fuels",
+        "score": 0.301,
+        "reason": ""
+      },
+      {
+        "node_id": "node_overview",
+        "name": "Overview",
+        "score": 0.19,
+        "reason": ""
+      },
+      {
+        "node_id": "node_global_energy_trends",
+        "name": "Global Energy Trends",
+        "score": 0.159,
+        "reason": ""
+      },
+      {
+        "node_id": "node_electricity",
+        "name": "Electricity",
+        "score": 0.132,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_implications_for_policy",
+      "node_energy_investment",
+      "node_fuels"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "Compare the energy investment needs between advanced and developing economies."
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_implications_for_policy",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_energy_investment",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 10,
+    "input_tokens": 7687,
+    "output_tokens": 2203,
+    "total_tokens": 9890,
+    "latency_seconds": 4.826
+  },
+  "errors": []
+}

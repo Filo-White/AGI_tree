@@ -1,0 +1,134 @@
+{
+  "run_id": "20260611_132847",
+  "timestamp": "2026-06-11T13:28:47",
+  "method": "dat_no_expansion",
+  "query_id": "doc002_q02",
+  "doc_id": "doc002",
+  "query": "What are the key innovations of DQN compared to tabular Q-learning?",
+  "answer": "DQN extends Q-learning to high-dimensional state spaces using neural networks. Key innovations include experience replay and target networks for training stability.",
+  "selected_evidence": [
+    {
+      "unit_id": "node_model-free_methods",
+      "unit_type": "node",
+      "title": "Model-Free Methods",
+      "text": "[Model-Free Methods]",
+      "score": 0.752,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_introduction",
+      "unit_type": "node",
+      "title": "Introduction",
+      "text": "[Introduction]",
+      "score": 0.583,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_actor-critic_architecture",
+      "unit_type": "node",
+      "title": "Actor-Critic Architectures",
+      "text": "[Actor-Critic Architectures]",
+      "score": 0.521,
+      "rationale": ""
+    },
+    {
+      "unit_id": "node_applications_in_robotics",
+      "unit_type": "node",
+      "title": "Applications in Robotics",
+      "text": "[Applications in Robotics]",
+      "score": 0.42,
+      "rationale": ""
+    }
+  ],
+  "dat_trace": {
+    "predicted_doc_type": "paper",
+    "scorable_nodes": [
+      "node_model-free_methods",
+      "node_introduction",
+      "node_actor-critic_architecture",
+      "node_applications_in_robotics",
+      "node_model-based_methods",
+      "node_theoretical_foundations",
+      "node_abstract",
+      "node_challenges_and_future_dir"
+    ],
+    "node_scores": [
+      {
+        "node_id": "node_model-free_methods",
+        "name": "Model-Free Methods",
+        "score": 0.752,
+        "reason": ""
+      },
+      {
+        "node_id": "node_introduction",
+        "name": "Introduction",
+        "score": 0.583,
+        "reason": ""
+      },
+      {
+        "node_id": "node_actor-critic_architecture",
+        "name": "Actor-Critic Architectures",
+        "score": 0.521,
+        "reason": ""
+      },
+      {
+        "node_id": "node_applications_in_robotics",
+        "name": "Applications in Robotics",
+        "score": 0.42,
+        "reason": ""
+      },
+      {
+        "node_id": "node_model-based_methods",
+        "name": "Model-Based Methods",
+        "score": 0.243,
+        "reason": ""
+      },
+      {
+        "node_id": "node_theoretical_foundations",
+        "name": "Theoretical Foundations",
+        "score": 0.217,
+        "reason": ""
+      },
+      {
+        "node_id": "node_abstract",
+        "name": "Abstract",
+        "score": 0.162,
+        "reason": ""
+      },
+      {
+        "node_id": "node_challenges_and_future_dir",
+        "name": "Challenges and Future Directions",
+        "score": 0.05,
+        "reason": ""
+      }
+    ],
+    "selected_nodes": [
+      "node_model-free_methods",
+      "node_introduction",
+      "node_actor-critic_architecture"
+    ],
+    "expansion_triggered": false,
+    "expanded_node": null,
+    "query_decomposition": [
+      "What are the key innovations of DQN compared to tabular Q-learning?"
+    ],
+    "local_answers": [
+      {
+        "node_id": "node_model-free_methods",
+        "answer": "..."
+      },
+      {
+        "node_id": "node_introduction",
+        "answer": "..."
+      }
+    ]
+  },
+  "usage": {
+    "llm_calls": 8,
+    "input_tokens": 5789,
+    "output_tokens": 2794,
+    "total_tokens": 8583,
+    "latency_seconds": 4.02
+  },
+  "errors": []
+}
