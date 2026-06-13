@@ -1,8 +1,8 @@
-method,n_queries,avg_llm_calls,avg_input_tokens,avg_output_tokens,avg_total_tokens,avg_latency_seconds,avg_estimated_cost_usd,total_tokens,total_cost_usd
-dat_full,74,11.4,8862.0,2772.0,11635.0,4.65,0.002993,860954,0.2215
-flat_rag,74,1.9,4513.0,769.0,5282.0,2.17,0.001138,390885,0.0842
-section_rag,74,3.5,5724.0,1173.0,6897.0,3.02,0.001562,510385,0.1156
-long_context,74,1.6,12008.0,966.0,12974.0,3.59,0.002381,960061,0.1762
-dat_no_expansion,74,9.4,6849.0,2428.0,9276.0,3.97,0.002484,686456,0.1838
-dat_parent_only,74,8.8,6997.0,2137.0,9134.0,3.56,0.002332,675908,0.1726
-dat_no_self_scoring,74,7.4,6418.0,2071.0,8488.0,3.25,0.002205,628143,0.1632
+method;n_queries;avg_llm_calls;avg_input_tokens;avg_output_tokens;avg_total_tokens;avg_latency_seconds;avg_estimated_cost_usd;total_tokens;total_cost_usd
+dat_full;74;11.4;8862.0;2772.0;11635.0;4.65;0.002993;860954;0.2215
+flat_rag;74;1.9;4513.0;769.0;5282.0;2.17;0.001138;390885;0.0842
+section_rag;74;3.5;5724.0;1173.0;6897.0;3.02;0.001562;510385;0.1156
+long_context;74;1.6;12008.0;966.0;12974.0;3.59;0.002381;960061;0.1762
+dat_no_expansion;74;9.4;6849.0;2428.0;9276.0;3.97;0.002484;686456;0.1838
+dat_parent_only;74;8.8;6997.0;2137.0;9134.0;3.56;0.002332;675908;0.1726
+dat_no_self_scoring;74;7.4;6418.0;2071.0;8488.0;3.25;0.002205;628143;0.1632
