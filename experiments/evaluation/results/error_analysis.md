@@ -86,7 +86,7 @@ DAT-parent-only demonstrates that even without leaves, the agentic scoring appro
 
 2. **Structure-awareness matters:** Section-RAG outperforms Flat RAG on most metrics, confirming that document structure provides valuable signal. DAT's additional improvement over Section-RAG (~0.4 correctness) demonstrates the value of agentic self-scoring.
 
-3. **Long-context is a strong baseline** for short documents and simple factual queries. It approaches DAT on faithfulness (4.05 vs 4.23) because it avoids information loss from routing. However, it lacks evidence localization capability and scales poorly with document length. Two independent LLM judges (gpt-5.4-nano and gpt-4.1-mini) produce the same method ranking (Spearman ρ = 1.0).
+3. **Long-context is a strong baseline** for short documents and simple factual queries. It approaches DAT on faithfulness (4.05 vs 4.23) because it avoids information loss from routing. However, it lacks evidence localization capability and scales poorly with document length. Two independent LLM judges (gpt-5.4-nano and deepseek-v4-pro) produce the same method ranking (Spearman ρ = 1.0).
 
 4. **Lazy expansion provides meaningful gains** when it triggers correctly (quality delta +0.38 on average), but current recall is ~76%. Improving the expansion trigger is a promising direction.
 

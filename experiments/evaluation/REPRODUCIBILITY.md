@@ -8,7 +8,7 @@ Complete specification of all parameters, models, and configurations used in the
 |-----------|-------|-------------|-------|
 | Answer generation | `gpt-5.4-nano-2026-03-17` | 0.0 | All methods use the same answer model |
 | Primary judge | `gpt-5.4-nano-2026-03-17` | 0.0 | Method names anonymized (Method_A–G) |
-| Secondary judge | `gpt-4.1-mini-2025-04-14` | 0.0 | Same rubric, independent evaluation |
+| Secondary judge | `deepseek-v4-pro` | 0.0 | Same rubric, independent evaluation |
 | Embedding | `text-embedding-3-small` | — | Used for Flat RAG chunking and DAT-no-self-scoring |
 
 ## RAG Baseline Parameters
@@ -46,6 +46,7 @@ Costs are estimated using OpenAI API pricing as of March 2026:
 | Model | Input | Output |
 |-------|-------|--------|
 | `gpt-5.4-nano-2026-03-17` | $0.15 / 1M tokens | $0.60 / 1M tokens |
+| `deepseek-v4-pro` | $0.435 / 1M tokens (cache miss) | $0.87 / 1M tokens |
 | `text-embedding-3-small` | $0.02 / 1M tokens | — |
 
 Per-query costs include all LLM calls (classification, scoring, expansion, answer generation) and embedding calls.

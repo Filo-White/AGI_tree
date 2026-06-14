@@ -455,7 +455,7 @@ def make_table_inter_judge():
         r"\begin{table}[t]",
         r"\centering",
         r"\caption{Inter-judge agreement. Primary: \texttt{gpt-5.4-nano}, secondary:",
-        r" \texttt{gpt-4.1-mini}. Spearman $\rho = " + spearman + r"$ on method ranking.}",
+        r" \texttt{deepseek-v4-pro}. Spearman $\rho = " + spearman + r"$ on method ranking.}",
         r"\label{tab:inter_judge}",
         r"\begin{tabular}{lcccc}",
         r"\toprule",
