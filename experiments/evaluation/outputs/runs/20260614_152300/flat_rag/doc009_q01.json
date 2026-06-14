@@ -1,0 +1,33 @@
+{
+  "query_id": "doc009_q01",
+  "doc_id": "doc009",
+  "method": "flat_rag",
+  "query": "What are the main global energy trends identified in the report?",
+  "answer": "Key trends include rising renewable energy capacity, declining fossil fuel investment in some...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 5,
+    "completeness": 2,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.2575,
+    "recall": 0.4029,
+    "precision": 0.4812
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 4815,
+    "latency_seconds": 2.004,
+    "estimated_cost_usd": 0.000914
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:42Z"
+}

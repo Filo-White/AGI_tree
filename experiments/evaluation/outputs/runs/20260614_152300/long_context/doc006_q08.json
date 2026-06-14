@@ -1,0 +1,27 @@
+{
+  "query_id": "doc006_q08",
+  "doc_id": "doc006",
+  "method": "long_context",
+  "query": "What training data was used for GPT-3?",
+  "answer": "GPT-3 was trained on a filtered version of Common Crawl, WebText2,...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 5,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 1,
+    "total_tokens": 12485,
+    "latency_seconds": 2.562,
+    "estimated_cost_usd": 0.0024
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:02Z"
+}

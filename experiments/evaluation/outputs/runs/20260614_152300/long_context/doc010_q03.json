@@ -1,0 +1,27 @@
+{
+  "query_id": "doc010_q03",
+  "doc_id": "doc010",
+  "method": "long_context",
+  "query": "What specific requirements apply to high-risk AI systems under Title III?",
+  "answer": "High-risk AI systems must implement a risk management system, use quality training data with bias mitigation, maintain...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 12622,
+    "latency_seconds": 3.233,
+    "estimated_cost_usd": 0.002022
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:06Z"
+}

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc014_q07",
+  "doc_id": "doc014",
+  "method": "dat_full",
+  "query": "Come funzionano l'input e l'output dei file in Python?",
+  "answer": "Il tutorial copre: la funzione open() con le modalità r/w/a, il costrutto with per la gestione automatica delle risorse, i metodi read(), readline() e write(), la formattazione delle stringhe con f-string e format(), e la serializzazione con il modulo json.",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 5,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.7821,
+    "recall": 0.7428,
+    "precision": 0.7185
+  },
+  "efficiency": {
+    "llm_calls": 11,
+    "total_tokens": 13623,
+    "latency_seconds": 4.937,
+    "estimated_cost_usd": 0.003807
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 8,
+    "nodes_after": 7,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:29Z"
+}

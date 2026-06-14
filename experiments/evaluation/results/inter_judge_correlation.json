@@ -1,0 +1,18 @@
+{
+  "spearman_rho": 1.0,
+  "primary_model": "gpt-5.4-nano-2026-03-17",
+  "secondary_model": "gpt-4.1-mini-2025-04-14",
+  "n_methods": 4,
+  "primary_ranking": {
+    "dat_full": 4.238,
+    "flat_rag": 3.287,
+    "section_rag": 3.451,
+    "long_context": 3.967
+  },
+  "secondary_ranking": {
+    "dat_full": 4.09,
+    "flat_rag": 3.254,
+    "section_rag": 3.328,
+    "long_context": 3.738
+  }
+}

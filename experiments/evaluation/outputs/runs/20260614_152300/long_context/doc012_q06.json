@@ -1,0 +1,27 @@
+{
+  "query_id": "doc012_q06",
+  "doc_id": "doc012",
+  "method": "long_context",
+  "query": "What monitoring and evaluation mechanisms does the WHO action plan propose?",
+  "answer": "The plan proposes: (1) biennial reporting by Member States using the Global Survey on Health and Physical Activity, (2) a global monitoring framework with 20 policy...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 13977,
+    "latency_seconds": 2.567,
+    "estimated_cost_usd": 0.002684
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:08Z"
+}

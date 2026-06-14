@@ -1,0 +1,38 @@
+{
+  "query_id": "doc009_q04",
+  "doc_id": "doc009",
+  "method": "dat_parent_only",
+  "query": "How much investment is needed for clean energy transitions?",
+  "answer": "Annual clean energy investment needs to rise to around USD 4.5 trillion by 2030...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 5,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6911,
+    "recall": 0.6108,
+    "precision": 0.7827
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 6084,
+    "latency_seconds": 3.076,
+    "estimated_cost_usd": 0.002147
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 6,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:40Z"
+}

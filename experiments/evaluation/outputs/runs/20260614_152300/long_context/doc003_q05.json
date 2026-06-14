@@ -1,0 +1,27 @@
+{
+  "query_id": "doc003_q05",
+  "doc_id": "doc003",
+  "method": "long_context",
+  "query": "Quali regole si applicano alla rete Wi-Fi del campus?",
+  "answer": "La rete Wi-Fi e riservata ad attivita istituzionali. E vietato l'uso per scopi illeciti,...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 17051,
+    "latency_seconds": 3.043,
+    "estimated_cost_usd": 0.003015
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:22Z"
+}

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc001_q06",
+  "doc_id": "doc001",
+  "method": "dat_no_self_scoring",
+  "query": "Cosa sono le GAN e come funzionano?",
+  "answer": "Le GAN (Generative Adversarial Networks) sono composte da due reti neurali che competono: un generatore che...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5697,
+    "recall": 0.5462,
+    "precision": 0.4058
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 12746,
+    "latency_seconds": 3.256,
+    "estimated_cost_usd": 0.001467
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 5,
+    "nodes_after": 13,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:52Z"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "doc014_q01",
+  "doc_id": "doc014",
+  "method": "long_context",
+  "query": "Quali sono i tipi di dati fondamentali in Python descritti nel tutorial?",
+  "answer": "Il tutorial descrive i tipi fondamentali: numeri interi (int), numeri in virgola mobile (float), stringhe (str),...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 13214,
+    "latency_seconds": 4.713,
+    "estimated_cost_usd": 0.002407
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:26Z"
+}

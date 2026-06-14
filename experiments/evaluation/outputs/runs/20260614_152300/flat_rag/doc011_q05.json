@@ -1,0 +1,33 @@
+{
+  "query_id": "doc011_q05",
+  "doc_id": "doc011",
+  "method": "flat_rag",
+  "query": "How do the MEASURE and MANAGE functions interact in the AI risk management lifecycle?",
+  "answer": "MEASURE provides quantitative and qualitative assessments of identified risks, producing metrics and benchmarks. MANAGE then uses these assessments to prioritize and respond to risks through resource allocation, risk treatment...",
+  "scores": {
+    "correctness": 2,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.3662,
+    "recall": 0.5956,
+    "precision": 0.3357
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5697,
+    "latency_seconds": 1.544,
+    "estimated_cost_usd": 0.00117
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:15Z"
+}

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc011_q01",
+  "doc_id": "doc011",
+  "method": "dat_no_self_scoring",
+  "query": "What are the four core functions of the NIST AI Risk Management Framework?",
+  "answer": "The four core functions are: GOVERN (cultivate a culture of risk management), MAP (contextualize risks within the AI lifecycle),...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7817,
+    "recall": 0.5986,
+    "precision": 0.438
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 7456,
+    "latency_seconds": 4.022,
+    "estimated_cost_usd": 0.001642
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 4,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:59Z"
+}

@@ -1,0 +1,33 @@
+{
+  "query_id": "doc002_q07",
+  "doc_id": "doc002",
+  "method": "section_rag",
+  "query": "Does the paper discuss multi-agent reinforcement learning?",
+  "answer": "The document does not contain sufficient information about multi-agent reinforcement...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.8912,
+    "recall": 0.5519,
+    "precision": 0.4998
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 9404,
+    "latency_seconds": 3.434,
+    "estimated_cost_usd": 0.00172
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:08Z"
+}

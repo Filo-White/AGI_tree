@@ -1,0 +1,38 @@
+{
+  "query_id": "doc007_q05",
+  "doc_id": "doc007",
+  "method": "dat_no_expansion",
+  "query": "Il regolamento prevede corsi di dottorato congiunti internazionali?",
+  "answer": "Il documento non contiene informazioni specifiche sui dottorati congiunti internazionali....",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.641,
+    "recall": 0.6658,
+    "precision": 0.3086
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 7933,
+    "latency_seconds": 3.815,
+    "estimated_cost_usd": 0.001984
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 4,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:55Z"
+}

@@ -1,0 +1,33 @@
+{
+  "query_id": "doc002_q04",
+  "doc_id": "doc002",
+  "method": "flat_rag",
+  "query": "What is the exploration-exploitation dilemma?",
+  "answer": "The agent must balance exploiting known rewarding actions and exploring new actions that...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 1,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6635,
+    "recall": 0.5647,
+    "precision": 0.5954
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5341,
+    "latency_seconds": 2.231,
+    "estimated_cost_usd": 0.001173
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:33Z"
+}

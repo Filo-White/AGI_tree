@@ -1,0 +1,33 @@
+{
+  "query_id": "doc009_q06",
+  "doc_id": "doc009",
+  "method": "section_rag",
+  "query": "What role do electric vehicles play in the energy outlook?",
+  "answer": "EVs are a major driver of electricity demand growth and oil demand reduction. By 2030,...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.3482,
+    "recall": 1.0,
+    "precision": 0.6814
+  },
+  "efficiency": {
+    "llm_calls": 4,
+    "total_tokens": 7598,
+    "latency_seconds": 3.746,
+    "estimated_cost_usd": 0.001785
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:01Z"
+}

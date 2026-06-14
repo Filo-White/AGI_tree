@@ -1,0 +1,33 @@
+{
+  "query_id": "doc008_q01",
+  "doc_id": "doc008",
+  "method": "flat_rag",
+  "query": "What is the right to be forgotten under GDPR?",
+  "answer": "The right to erasure (right to be forgotten) allows data subjects to request the deletion of...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7682,
+    "recall": 0.4992,
+    "precision": 0.5076
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 2704,
+    "latency_seconds": 2.016,
+    "estimated_cost_usd": 0.001583
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:53Z"
+}

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc012_q02",
+  "doc_id": "doc012",
+  "method": "dat_no_expansion",
+  "query": "How many strategic objectives does the WHO action plan define?",
+  "answer": "The plan defines four strategic objectives: (1) Create Active Societies (social norms and attitudes), (2) Create Active Environments...",
+  "scores": {
+    "correctness": 2,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7808,
+    "recall": 0.6969,
+    "precision": 0.484
+  },
+  "efficiency": {
+    "llm_calls": 8,
+    "total_tokens": 9760,
+    "latency_seconds": 3.981,
+    "estimated_cost_usd": 0.002586
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 7,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:11Z"
+}

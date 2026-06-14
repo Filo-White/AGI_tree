@@ -1,0 +1,38 @@
+{
+  "query_id": "doc005_q04",
+  "doc_id": "doc005",
+  "method": "dat_parent_only",
+  "query": "What is the effect of removing NSP from BERT pre-training?",
+  "answer": "Removing NSP hurts performance on tasks requiring sentence-pair understanding like...",
+  "scores": {
+    "correctness": 2,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.8005,
+    "recall": 0.7346,
+    "precision": 0.8617
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 9266,
+    "latency_seconds": 2.801,
+    "estimated_cost_usd": 0.001359
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 7,
+    "nodes_after": 9,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:46Z"
+}

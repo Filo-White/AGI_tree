@@ -1,0 +1,38 @@
+{
+  "query_id": "doc001_q09",
+  "doc_id": "doc001",
+  "method": "dat_full",
+  "query": "In che modo la visione artificiale e l'NLP si integrano nei sistemi multimodali?",
+  "answer": "I sistemi multimodali combinano visione artificiale e NLP per comprendere e generare contenuti che coinvolgono sia immagini che testo, come nella generazione di didascalie per immagini o nel visual question answering.",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 5,
+    "completeness": 5,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5894,
+    "recall": 0.8747,
+    "precision": 0.5279
+  },
+  "efficiency": {
+    "llm_calls": 12,
+    "total_tokens": 12983,
+    "latency_seconds": 3.407,
+    "estimated_cost_usd": 0.002987
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 7,
+    "nodes_after": 11,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:17Z"
+}

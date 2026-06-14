@@ -1,0 +1,27 @@
+{
+  "query_id": "doc014_q04",
+  "doc_id": "doc014",
+  "method": "long_context",
+  "query": "Come si collega la sezione sulle funzioni con quella sulle classi?",
+  "answer": "Le funzioni, introdotte come blocchi riutilizzabili con def, forniscono le basi per i metodi delle classi. Le classi utilizzano funzioni come metodi d'istanza,...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 1,
+    "total_tokens": 12316,
+    "latency_seconds": 3.138,
+    "estimated_cost_usd": 0.00302
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:25Z"
+}

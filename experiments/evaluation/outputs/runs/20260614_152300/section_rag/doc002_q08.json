@@ -1,0 +1,33 @@
+{
+  "query_id": "doc002_q08",
+  "doc_id": "doc002",
+  "method": "section_rag",
+  "query": "What steps are needed to implement a PPO agent for robot locomotion?",
+  "answer": "PPO uses a clipped surrogate objective to ensure stable policy updates. For locomotion, one needs to define the state/action...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5029,
+    "recall": 0.8855,
+    "precision": 0.3392
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 6935,
+    "latency_seconds": 3.893,
+    "estimated_cost_usd": 0.00126
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:07Z"
+}

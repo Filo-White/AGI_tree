@@ -1,0 +1,38 @@
+{
+  "query_id": "doc004_q04",
+  "doc_id": "doc004",
+  "method": "dat_no_expansion",
+  "query": "Why is self-attention preferred over recurrent layers according to the paper?",
+  "answer": "Self-attention connects all positions with a constant number of operations (O(1) sequential), while...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 5,
+    "completeness": 3,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.8372,
+    "recall": 0.8525,
+    "precision": 0.8488
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 7706,
+    "latency_seconds": 4.005,
+    "estimated_cost_usd": 0.002355
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 5,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:04Z"
+}

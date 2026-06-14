@@ -1,0 +1,38 @@
+{
+  "query_id": "doc013_q05",
+  "doc_id": "doc013",
+  "method": "dat_no_self_scoring",
+  "query": "Come si relazionano i criteri per le connessioni through-hole con quelli SMT?",
+  "answer": "Entrambi valutano bagnatura, quantità di lega e integrità della connessione, ma i criteri through-hole richiedono anche la risalita della lega nel foro (barrel fill) e il filetto...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7219,
+    "recall": 0.7094,
+    "precision": 0.6064
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 8516,
+    "latency_seconds": 2.821,
+    "estimated_cost_usd": 0.00177
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 7,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:24Z"
+}

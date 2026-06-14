@@ -1,0 +1,27 @@
+{
+  "query_id": "doc012_q04",
+  "doc_id": "doc012",
+  "method": "long_context",
+  "query": "What evidence does the plan cite for the economic burden of physical inactivity?",
+  "answer": "The plan cites that physical inactivity costs health-care systems INT$ 54 billion per year in direct costs, with an additional...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 1
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 11628,
+    "latency_seconds": 2.73,
+    "estimated_cost_usd": 0.001464
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:16Z"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "doc014_q06",
+  "doc_id": "doc014",
+  "method": "long_context",
+  "query": "Come vengono presentati i dizionari e le loro operazioni principali?",
+  "answer": "I dizionari sono presentati come strutture chiave-valore. Le operazioni includono: creazione con {} o dict(), accesso con [], modifica e...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 10857,
+    "latency_seconds": 3.171,
+    "estimated_cost_usd": 0.002807
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:14Z"
+}

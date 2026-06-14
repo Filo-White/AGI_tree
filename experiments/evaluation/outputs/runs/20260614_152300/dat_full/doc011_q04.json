@@ -1,0 +1,38 @@
+{
+  "query_id": "doc011_q04",
+  "doc_id": "doc011",
+  "method": "dat_full",
+  "query": "What does the MAP function prescribe for AI system context identification?",
+  "answer": "The MAP function requires identifying the intended purpose and context of the AI system, the stakeholders and impacted communities, the relevant deployment environment, and the potential benefits and risks. It also includes mapping data and assumptions, defining acceptable use conditions, and identifying potential failure modes.",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 4,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5149,
+    "recall": 0.6231,
+    "precision": 0.5549
+  },
+  "efficiency": {
+    "llm_calls": 10,
+    "total_tokens": 14537,
+    "latency_seconds": 3.116,
+    "estimated_cost_usd": 0.003876
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 8,
+    "nodes_after": 7,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:06Z"
+}

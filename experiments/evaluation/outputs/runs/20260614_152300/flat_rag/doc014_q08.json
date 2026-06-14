@@ -1,0 +1,33 @@
+{
+  "query_id": "doc014_q08",
+  "doc_id": "doc014",
+  "method": "flat_rag",
+  "query": "Il tutorial tratta la programmazione asincrona con asyncio?",
+  "answer": "No, il tutorial ufficiale di Python non tratta asyncio né la programmazione asincrona. Si...",
+  "scores": {
+    "correctness": 2,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.3177,
+    "recall": 0.4022,
+    "precision": 0.6539
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5528,
+    "latency_seconds": 2.167,
+    "estimated_cost_usd": 0.000652
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:59Z"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "doc010_q05",
+  "doc_id": "doc010",
+  "method": "long_context",
+  "query": "How do the transparency obligations in Title IV relate to the high-risk requirements in Title III?",
+  "answer": "Title IV imposes lighter transparency requirements on limited-risk systems (e.g. disclosing AI interaction, labelling deepfakes), while Title III mandates comprehensive transparency for...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 1,
+    "total_tokens": 13434,
+    "latency_seconds": 3.839,
+    "estimated_cost_usd": 0.002649
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:11Z"
+}

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc015_q06",
+  "doc_id": "doc015",
+  "method": "dat_no_self_scoring",
+  "query": "What framework does the SPM use to assess confidence and likelihood?",
+  "answer": "The SPM uses a calibrated uncertainty language: confidence levels (very low, low, medium, high, very high) based on evidence and agreement; likelihood...",
+  "scores": {
+    "correctness": 2,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.4609,
+    "recall": 0.7986,
+    "precision": 0.5403
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 9379,
+    "latency_seconds": 3.772,
+    "estimated_cost_usd": 0.002032
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 6,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:42Z"
+}

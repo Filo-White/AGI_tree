@@ -1,0 +1,33 @@
+{
+  "query_id": "doc010_q08",
+  "doc_id": "doc010",
+  "method": "flat_rag",
+  "query": "Does the EU AI Act regulate quantum computing applications?",
+  "answer": "The document does not address quantum computing. The Act is technology-neutral and applies to...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 5,
+    "completeness": 2,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 0,
+    "mrr": 0.631,
+    "recall": 0.4808,
+    "precision": 0.7597
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 6302,
+    "latency_seconds": 1.232,
+    "estimated_cost_usd": 0.001594
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:31Z"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "doc014_q02",
+  "doc_id": "doc014",
+  "method": "long_context",
+  "query": "Come funziona la gestione delle eccezioni in Python secondo il tutorial?",
+  "answer": "Il tutorial spiega l'uso di try/except per catturare eccezioni, la clausola else per codice eseguito senza errori, e finally per...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 5,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 14303,
+    "latency_seconds": 3.749,
+    "estimated_cost_usd": 0.002538
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:09Z"
+}

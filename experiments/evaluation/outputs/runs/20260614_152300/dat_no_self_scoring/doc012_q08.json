@@ -1,0 +1,38 @@
+{
+  "query_id": "doc012_q08",
+  "doc_id": "doc012",
+  "method": "dat_no_self_scoring",
+  "query": "Does the plan address cognitive enhancement through exercise in elderly populations?",
+  "answer": "While the plan mentions health benefits for older adults and recommends inclusive programs, it...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.7315,
+    "recall": 0.5648,
+    "precision": 0.6258
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 9063,
+    "latency_seconds": 2.923,
+    "estimated_cost_usd": 0.001384
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:38Z"
+}

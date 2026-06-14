@@ -1,0 +1,38 @@
+{
+  "query_id": "doc003_q07",
+  "doc_id": "doc003",
+  "method": "dat_full",
+  "query": "Quali categorie di utenti sono definite dal regolamento e quali diritti hanno?",
+  "answer": "Il regolamento definisce: studenti iscritti, personale docente, personale tecnico-amministrativo, collaboratori e visitatori autorizzati. Tutti devono avere un badge identificativo per accedere.",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.411,
+    "recall": 0.7241,
+    "precision": 0.4996
+  },
+  "efficiency": {
+    "llm_calls": 13,
+    "total_tokens": 13878,
+    "latency_seconds": 3.876,
+    "estimated_cost_usd": 0.002636
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:52Z"
+}

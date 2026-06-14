@@ -8,3 +8,9 @@ doc006,scientific_paper,paper,paper,True,8,9,1,0.913,0.931,none
 doc007,administrative,administrative,administrative,True,6,10,4,0.562,0.879,over_segmentation
 doc008,administrative,administrative,report,False,6,8,2,0.704,0.937,none
 doc009,report,report,report,True,6,7,1,0.686,0.941,none
+doc010,regulation,regulation,administrative,False,8,13,5,0.714,0.856,over_segmentation
+doc011,report,report,report,True,9,10,1,0.876,0.943,none
+doc012,report,report,report,True,8,9,1,0.841,0.927,none
+doc013,manual,manual,manual,True,8,11,3,0.792,0.856,over_segmentation
+doc014,manual,manual,book,False,9,10,1,0.867,0.934,none
+doc015,report,report,report,True,4,5,1,0.912,0.961,none

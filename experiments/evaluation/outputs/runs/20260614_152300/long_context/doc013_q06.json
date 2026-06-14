@@ -1,0 +1,27 @@
+{
+  "query_id": "doc013_q06",
+  "doc_id": "doc013",
+  "method": "long_context",
+  "query": "Quale procedura deve seguire un ispettore per classificare un difetto?",
+  "answer": "L'ispettore deve: (1) identificare la classe del prodotto, (2) localizzare la sezione pertinente dello standard, (3) confrontare la condizione osservata con i criteri...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 14442,
+    "latency_seconds": 3.849,
+    "estimated_cost_usd": 0.001459
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:48Z"
+}

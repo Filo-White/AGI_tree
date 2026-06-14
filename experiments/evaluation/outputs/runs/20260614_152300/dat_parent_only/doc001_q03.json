@@ -1,0 +1,38 @@
+{
+  "query_id": "doc001_q03",
+  "doc_id": "doc001",
+  "method": "dat_parent_only",
+  "query": "Come funziona il meccanismo di self-attention nei Transformer?",
+  "answer": "Il meccanismo di self-attention permette di catturare relazioni tra tutte le parole di...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5228,
+    "recall": 0.7097,
+    "precision": 0.8003
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 8688,
+    "latency_seconds": 3.093,
+    "estimated_cost_usd": 0.002464
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 4,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:25Z"
+}

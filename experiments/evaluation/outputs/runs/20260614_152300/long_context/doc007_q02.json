@@ -1,0 +1,27 @@
+{
+  "query_id": "doc007_q02",
+  "doc_id": "doc007",
+  "method": "long_context",
+  "query": "Quante volte si puo ripetere un esame?",
+  "answer": "Lo studente puo ripetere l'esame senza limitazioni di tentativi, ma...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 2,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 11277,
+    "latency_seconds": 4.449,
+    "estimated_cost_usd": 0.002658
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:11Z"
+}

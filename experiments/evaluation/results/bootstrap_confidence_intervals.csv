@@ -1,0 +1,5 @@
+method,correctness_mean,correctness_ci_lo,correctness_ci_hi,faithfulness_mean,faithfulness_ci_lo,faithfulness_ci_hi
+dat_full,4.156,4.033,4.279,4.23,4.107,4.352
+flat_rag,3.262,3.107,3.418,3.574,3.402,3.738
+section_rag,3.475,3.328,3.623,3.484,3.328,3.639
+long_context,3.852,3.721,3.984,4.049,3.918,4.18

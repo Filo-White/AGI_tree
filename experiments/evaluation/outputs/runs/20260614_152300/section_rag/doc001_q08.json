@@ -1,0 +1,33 @@
+{
+  "query_id": "doc001_q08",
+  "doc_id": "doc001",
+  "method": "section_rag",
+  "query": "Descrivi le fasi di addestramento di un LLM secondo il documento.",
+  "answer": "L'addestramento avviene in due fasi: pre-training su grandi corpus testuali...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.706,
+    "recall": 0.5728,
+    "precision": 0.5274
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 7013,
+    "latency_seconds": 3.099,
+    "estimated_cost_usd": 0.001388
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:15Z"
+}

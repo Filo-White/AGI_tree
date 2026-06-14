@@ -1,0 +1,38 @@
+{
+  "query_id": "doc013_q08",
+  "doc_id": "doc013",
+  "method": "dat_parent_only",
+  "query": "Lo standard IPC-A-610 definisce requisiti per il collaudo funzionale dei circuiti?",
+  "answer": "No, lo standard IPC-A-610 riguarda esclusivamente l'accettabilità visiva e dimensionale degli assemblaggi...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.514,
+    "recall": 0.7446,
+    "precision": 0.6465
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 7700,
+    "latency_seconds": 3.334,
+    "estimated_cost_usd": 0.001705
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 7,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:35Z"
+}

@@ -1,0 +1,33 @@
+{
+  "query_id": "doc001_q04",
+  "doc_id": "doc001",
+  "method": "section_rag",
+  "query": "Quali architetture di deep learning sono usate per immagini e quali per testo?",
+  "answer": "Le CNN sono specializzate per l'elaborazione di immagini, mentre le RNN sono usate per...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 5,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7223,
+    "recall": 0.8074,
+    "precision": 0.6847
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 6115,
+    "latency_seconds": 1.904,
+    "estimated_cost_usd": 0.00203
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:18Z"
+}

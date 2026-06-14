@@ -1,0 +1,33 @@
+{
+  "query_id": "doc015_q05",
+  "doc_id": "doc015",
+  "method": "flat_rag",
+  "query": "How do observed warming trends relate to the projected scenarios in the SPM?",
+  "answer": "The observed warming of ~1.1°C is consistent with the lower end of all SSP projections for the near-term (2021-2040). The scenarios diverge...",
+  "scores": {
+    "correctness": 2,
+    "faithfulness": 2,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.5404,
+    "recall": 0.5495,
+    "precision": 0.3578
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 6150,
+    "latency_seconds": 2.225,
+    "estimated_cost_usd": 0.000903
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:12Z"
+}

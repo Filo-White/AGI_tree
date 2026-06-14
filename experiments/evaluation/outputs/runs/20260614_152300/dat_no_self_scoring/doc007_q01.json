@@ -1,0 +1,38 @@
+{
+  "query_id": "doc007_q01",
+  "doc_id": "doc007",
+  "method": "dat_no_self_scoring",
+  "query": "Quali sono i requisiti per l'ammissione alla laurea magistrale?",
+  "answer": "Per l'ammissione alla laurea magistrale occorre possedere una laurea triennale o titolo equivalente e...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.3773,
+    "recall": 0.8341,
+    "precision": 0.6889
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 11618,
+    "latency_seconds": 3.762,
+    "estimated_cost_usd": 0.002682
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 7,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:32Z"
+}

@@ -1,0 +1,27 @@
+{
+  "query_id": "doc014_q07",
+  "doc_id": "doc014",
+  "method": "long_context",
+  "query": "Come funzionano l'input e l'output dei file in Python?",
+  "answer": "Il tutorial copre: la funzione open() con le modalità r/w/a, il costrutto with per la gestione automatica delle risorse, i...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 1,
+    "total_tokens": 12974,
+    "latency_seconds": 3.394,
+    "estimated_cost_usd": 0.003427
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:19Z"
+}

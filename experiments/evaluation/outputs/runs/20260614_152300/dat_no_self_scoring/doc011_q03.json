@@ -1,0 +1,38 @@
+{
+  "query_id": "doc011_q03",
+  "doc_id": "doc011",
+  "method": "dat_no_self_scoring",
+  "query": "How does the GOVERN function address organizational responsibilities for AI risk?",
+  "answer": "The GOVERN function establishes policies, processes, and organizational structures for AI risk management. It includes designating responsible individuals, aligning AI risk with enterprise...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7417,
+    "recall": 0.7017,
+    "precision": 0.4753
+  },
+  "efficiency": {
+    "llm_calls": 8,
+    "total_tokens": 7576,
+    "latency_seconds": 2.948,
+    "estimated_cost_usd": 0.001614
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 7,
+    "nodes_after": 8,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:08Z"
+}

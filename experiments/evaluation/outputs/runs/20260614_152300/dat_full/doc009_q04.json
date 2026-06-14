@@ -1,0 +1,38 @@
+{
+  "query_id": "doc009_q04",
+  "doc_id": "doc009",
+  "method": "dat_full",
+  "query": "How much investment is needed for clean energy transitions?",
+  "answer": "Annual clean energy investment needs to rise to around USD 4.5 trillion by 2030 in the Net Zero Emissions scenario, up from about USD 1.8 trillion in 2023.",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7106,
+    "recall": 0.7688,
+    "precision": 0.4735
+  },
+  "efficiency": {
+    "llm_calls": 9,
+    "total_tokens": 13418,
+    "latency_seconds": 5.856,
+    "estimated_cost_usd": 0.003075
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 6,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:03Z"
+}

@@ -79,5 +79,59 @@
     "language": "en",
     "expected_top_level_sections": ["Overview", "Global Energy Trends", "Electricity", "Fuels", "Energy Investment", "Implications for Policy"],
     "notes": "IEA World Energy Outlook 2023"
+  },
+  {
+    "doc_id": "doc010",
+    "title": "Regulation (EU) 2024/1689 — EU AI Act",
+    "doc_type": "regulation",
+    "path": "experiments/evaluation/data/docs/EU_AI_Act.pdf",
+    "language": "en",
+    "expected_top_level_sections": ["General Provisions", "Prohibited AI Practices", "High-Risk AI Systems", "Transparency Obligations", "General-Purpose AI Models", "Governance", "Enforcement", "Final Provisions"],
+    "notes": "EU AI Act (EUR-Lex OJ L 2024/1689), 144 pages"
+  },
+  {
+    "doc_id": "doc011",
+    "title": "NIST AI 100-1: AI Risk Management Framework",
+    "doc_type": "report",
+    "path": "experiments/evaluation/data/docs/NIST.AI.100-1.pdf",
+    "language": "en",
+    "expected_top_level_sections": ["Introduction", "Audience", "AI Risks and Trustworthiness", "AI RMF Core", "GOVERN Function", "MAP Function", "MEASURE Function", "MANAGE Function", "Effectiveness"],
+    "notes": "NIST AI 100-1 v1.0, January 2023, 48 pages"
+  },
+  {
+    "doc_id": "doc012",
+    "title": "WHO Global Action Plan on Physical Activity 2018–2030",
+    "doc_type": "report",
+    "path": "experiments/evaluation/data/docs/WHO_Global_Action_Plan_on_Physical_Activity.pdf",
+    "language": "en",
+    "expected_top_level_sections": ["Executive Summary", "Introduction", "Vision and Goal", "Strategic Objective 1: Active Societies", "Strategic Objective 2: Active Environments", "Strategic Objective 3: Active People", "Strategic Objective 4: Active Systems", "Implementation and Monitoring"],
+    "notes": "WHO 2018, 104 pages"
+  },
+  {
+    "doc_id": "doc013",
+    "title": "IPC-A-610F: Acceptability of Electronic Assemblies",
+    "doc_type": "manual",
+    "path": "experiments/evaluation/data/docs/IPC-A-610F.pdf",
+    "language": "it",
+    "expected_top_level_sections": ["Programma di Accettabilità", "Documenti Applicabili", "Requisiti Generali", "Requisiti Hardware", "Saldature", "Componenti a Montaggio Superficiale", "Componenti a Foro Passante", "Pulizia"],
+    "notes": "IPC-A-610F quality standard for PCB assemblies, 440 pages"
+  },
+  {
+    "doc_id": "doc014",
+    "title": "Il Tutorial di Python",
+    "doc_type": "manual",
+    "path": "experiments/evaluation/data/docs/Python_tutorial_IT.pdf",
+    "language": "it",
+    "expected_top_level_sections": ["Per Stimolarvi l'Appetito", "L'Interprete Python", "Introduzione Informale", "Strutture di Controllo", "Strutture Dati", "Moduli", "Input e Output", "Errori ed Eccezioni", "Classi"],
+    "notes": "Official Python tutorial, Italian translation, 114 pages"
+  },
+  {
+    "doc_id": "doc015",
+    "title": "IPCC AR6 WG1 — Summary for Policymakers",
+    "doc_type": "report",
+    "path": "experiments/evaluation/data/docs/IPCC_AR6_WGI_SPM.pdf",
+    "language": "en",
+    "expected_top_level_sections": ["Current State of the Climate", "Possible Climate Futures", "Climate Information for Risk Assessment", "Limiting Future Climate Change"],
+    "notes": "IPCC Sixth Assessment, Working Group I SPM, 2021, 32 pages"
   }
 ]

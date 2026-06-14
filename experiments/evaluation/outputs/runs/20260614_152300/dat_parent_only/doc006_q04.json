@@ -1,0 +1,38 @@
+{
+  "query_id": "doc006_q04",
+  "doc_id": "doc006",
+  "method": "dat_parent_only",
+  "query": "Does GPT-3 outperform fine-tuned BERT on all NLP benchmarks?",
+  "answer": "The paper does not directly compare GPT-3 few-shot to fine-tuned...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5922,
+    "recall": 0.5753,
+    "precision": 0.8591
+  },
+  "efficiency": {
+    "llm_calls": 9,
+    "total_tokens": 9156,
+    "latency_seconds": 2.401,
+    "estimated_cost_usd": 0.001484
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 5,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:09Z"
+}

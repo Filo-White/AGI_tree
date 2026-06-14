@@ -1,0 +1,33 @@
+{
+  "query_id": "doc006_q03",
+  "doc_id": "doc006",
+  "method": "section_rag",
+  "query": "What are the broader societal impacts discussed in the paper?",
+  "answer": "The paper discusses risks of misuse (generating fake news, spam, social...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 1,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6647,
+    "recall": 0.5606,
+    "precision": 0.7008
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 7858,
+    "latency_seconds": 3.057,
+    "estimated_cost_usd": 0.001067
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:02Z"
+}

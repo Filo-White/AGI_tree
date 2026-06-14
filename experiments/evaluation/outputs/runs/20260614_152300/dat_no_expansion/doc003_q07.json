@@ -1,0 +1,38 @@
+{
+  "query_id": "doc003_q07",
+  "doc_id": "doc003",
+  "method": "dat_no_expansion",
+  "query": "Quali categorie di utenti sono definite dal regolamento e quali diritti hanno?",
+  "answer": "Il regolamento definisce: studenti iscritti, personale docente, personale tecnico-amministrativo, collaboratori...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.7507,
+    "recall": 0.7476,
+    "precision": 0.8059
+  },
+  "efficiency": {
+    "llm_calls": 9,
+    "total_tokens": 9683,
+    "latency_seconds": 2.576,
+    "estimated_cost_usd": 0.00248
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 5,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:05Z"
+}

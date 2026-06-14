@@ -1,0 +1,38 @@
+{
+  "query_id": "doc011_q08",
+  "doc_id": "doc011",
+  "method": "dat_parent_only",
+  "query": "Does the NIST AI RMF provide specific model architecture recommendations?",
+  "answer": "The NIST AI RMF does not prescribe specific model architectures. It is a governance and risk management framework,...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 5,
+    "completeness": 3,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6094,
+    "recall": 0.626,
+    "precision": 0.9971
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 10286,
+    "latency_seconds": 2.638,
+    "estimated_cost_usd": 0.001681
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:07Z"
+}

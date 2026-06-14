@@ -1,0 +1,33 @@
+{
+  "query_id": "doc015_q02",
+  "doc_id": "doc015",
+  "method": "section_rag",
+  "query": "By how much has global surface temperature increased relative to 1850-1900?",
+  "answer": "Global surface temperature was 1.09°C [0.95 to 1.20°C] higher in 2011-2020 than in 1850-1900. Human...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.8862,
+    "recall": 0.6626,
+    "precision": 0.4079
+  },
+  "efficiency": {
+    "llm_calls": 4,
+    "total_tokens": 7949,
+    "latency_seconds": 2.896,
+    "estimated_cost_usd": 0.001952
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:04Z"
+}

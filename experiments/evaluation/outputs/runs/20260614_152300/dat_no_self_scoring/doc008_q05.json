@@ -1,0 +1,38 @@
+{
+  "query_id": "doc008_q05",
+  "doc_id": "doc008",
+  "method": "dat_no_self_scoring",
+  "query": "What are the obligations of a data processor?",
+  "answer": "The processor must process data only on documented instructions from the controller, ensure...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 5,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6402,
+    "recall": 0.5596,
+    "precision": 0.4683
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 9048,
+    "latency_seconds": 2.859,
+    "estimated_cost_usd": 0.001493
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 8,
+    "nodes_after": 9,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:23Z"
+}

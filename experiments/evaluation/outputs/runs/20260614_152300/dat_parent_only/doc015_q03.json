@@ -1,0 +1,38 @@
+{
+  "query_id": "doc015_q03",
+  "doc_id": "doc015",
+  "method": "dat_parent_only",
+  "query": "What does the SPM state about observed changes in the cryosphere?",
+  "answer": "The SPM states that Arctic sea ice area has decreased since at least 1979, that the Greenland and Antarctic ice sheets have lost...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.9347,
+    "recall": 0.7091,
+    "precision": 0.562
+  },
+  "efficiency": {
+    "llm_calls": 5,
+    "total_tokens": 8998,
+    "latency_seconds": 3.366,
+    "estimated_cost_usd": 0.002111
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 7,
+    "nodes_after": 12,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:27Z"
+}

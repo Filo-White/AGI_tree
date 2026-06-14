@@ -1,0 +1,38 @@
+{
+  "query_id": "doc007_q07",
+  "doc_id": "doc007",
+  "method": "dat_full",
+  "query": "Come si effettua il passaggio da un corso di laurea all'altro?",
+  "answer": "Il passaggio richiede domanda alla segreteria studenti, valutazione dei crediti acquisiti da parte del consiglio di corso, e eventuale integrazione del piano di studi.",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 5,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5801,
+    "recall": 0.7849,
+    "precision": 0.5045
+  },
+  "efficiency": {
+    "llm_calls": 11,
+    "total_tokens": 12306,
+    "latency_seconds": 2.52,
+    "estimated_cost_usd": 0.003307
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 6,
+    "nodes_after": 7,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:35Z"
+}

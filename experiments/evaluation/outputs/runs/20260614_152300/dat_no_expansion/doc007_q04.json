@@ -1,0 +1,38 @@
+{
+  "query_id": "doc007_q04",
+  "doc_id": "doc007",
+  "method": "dat_no_expansion",
+  "query": "Cosa succede in caso di plagio nella tesi?",
+  "answer": "Il plagio nella tesi comporta l'annullamento dell'esame di laurea e...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.833,
+    "recall": 0.7072,
+    "precision": 0.2958
+  },
+  "efficiency": {
+    "llm_calls": 9,
+    "total_tokens": 8115,
+    "latency_seconds": 3.285,
+    "estimated_cost_usd": 0.002177
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:49Z"
+}

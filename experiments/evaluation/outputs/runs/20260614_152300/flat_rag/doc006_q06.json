@@ -1,0 +1,33 @@
+{
+  "query_id": "doc006_q06",
+  "doc_id": "doc006",
+  "method": "flat_rag",
+  "query": "What limitations of the GPT-3 approach are acknowledged?",
+  "answer": "Limitations include poor performance on some tasks (e.g. natural language inference), lack of bidirectionality, sample...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6471,
+    "recall": 0.6887,
+    "precision": 0.5003
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 4713,
+    "latency_seconds": 2.603,
+    "estimated_cost_usd": 0.000994
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:00Z"
+}

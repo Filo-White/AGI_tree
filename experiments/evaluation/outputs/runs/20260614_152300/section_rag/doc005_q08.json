@@ -1,0 +1,33 @@
+{
+  "query_id": "doc005_q08",
+  "doc_id": "doc005",
+  "method": "section_rag",
+  "query": "How does model size affect BERT performance across tasks?",
+  "answer": "Larger models consistently improve performance. BERT-Large outperforms BERT-Base on all...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 5,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.8207,
+    "recall": 0.6846,
+    "precision": 0.6516
+  },
+  "efficiency": {
+    "llm_calls": 4,
+    "total_tokens": 5858,
+    "latency_seconds": 3.091,
+    "estimated_cost_usd": 0.001584
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:13Z"
+}

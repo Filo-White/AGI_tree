@@ -1,0 +1,38 @@
+{
+  "query_id": "doc005_q05",
+  "doc_id": "doc005",
+  "method": "dat_full",
+  "query": "Does BERT discuss knowledge distillation?",
+  "answer": "The paper does not discuss knowledge distillation.",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 5,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.9213,
+    "recall": 1.0,
+    "precision": 0.4503
+  },
+  "efficiency": {
+    "llm_calls": 12,
+    "total_tokens": 10883,
+    "latency_seconds": 5.939,
+    "estimated_cost_usd": 0.002799
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 5,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:04Z"
+}

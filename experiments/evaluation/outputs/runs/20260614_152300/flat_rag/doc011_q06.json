@@ -1,0 +1,33 @@
+{
+  "query_id": "doc011_q06",
+  "doc_id": "doc011",
+  "method": "flat_rag",
+  "query": "What steps should an organization follow to implement the AI RMF?",
+  "answer": "Organizations should: (1) assess current AI risk practices, (2) establish governance structures (GOVERN), (3) map AI systems and their contexts (MAP), (4) develop measurement approaches and...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6024,
+    "recall": 0.6229,
+    "precision": 0.771
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 4236,
+    "latency_seconds": 2.338,
+    "estimated_cost_usd": 0.001455
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:33Z"
+}

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc010_q04",
+  "doc_id": "doc010",
+  "method": "dat_no_expansion",
+  "query": "How does the AI Act define prohibited AI practices in Article 5?",
+  "answer": "Article 5 prohibits: (a) subliminal or manipulative techniques causing harm, (b) exploitation of vulnerabilities of specific groups, (c) social scoring by public authorities, (d) untargeted scraping for facial recognition...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7547,
+    "recall": 0.7126,
+    "precision": 0.6983
+  },
+  "efficiency": {
+    "llm_calls": 10,
+    "total_tokens": 8851,
+    "latency_seconds": 4.895,
+    "estimated_cost_usd": 0.002441
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 7,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:03Z"
+}

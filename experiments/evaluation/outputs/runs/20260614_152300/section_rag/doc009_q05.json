@@ -1,0 +1,33 @@
+{
+  "query_id": "doc009_q05",
+  "doc_id": "doc009",
+  "method": "section_rag",
+  "query": "Does the report discuss nuclear fusion as an energy source?",
+  "answer": "The executive summary does not contain specific discussion of nuclear...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 2,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.8412,
+    "recall": 0.4511,
+    "precision": 0.6407
+  },
+  "efficiency": {
+    "llm_calls": 4,
+    "total_tokens": 8300,
+    "latency_seconds": 2.796,
+    "estimated_cost_usd": 0.001896
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:09Z"
+}

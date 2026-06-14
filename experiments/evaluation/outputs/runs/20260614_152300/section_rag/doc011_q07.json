@@ -1,0 +1,33 @@
+{
+  "query_id": "doc011_q07",
+  "doc_id": "doc011",
+  "method": "section_rag",
+  "query": "What role do AI actors play in the NIST framework?",
+  "answer": "AI actors are individuals or organizations involved in the AI system lifecycle, including designers, developers, deployers, operators, evaluators, and end...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.8224,
+    "recall": 0.4201,
+    "precision": 0.2915
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 6356,
+    "latency_seconds": 2.39,
+    "estimated_cost_usd": 0.001604
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:36Z"
+}

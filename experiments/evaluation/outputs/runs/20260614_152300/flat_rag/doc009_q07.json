@@ -1,0 +1,33 @@
+{
+  "query_id": "doc009_q07",
+  "doc_id": "doc009",
+  "method": "flat_rag",
+  "query": "What is the outlook for natural gas demand?",
+  "answer": "Natural gas demand is expected to plateau by the late 2020s in the...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 2
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.3608,
+    "recall": 0.5477,
+    "precision": 0.6413
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5825,
+    "latency_seconds": 1.749,
+    "estimated_cost_usd": 0.001271
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:16Z"
+}

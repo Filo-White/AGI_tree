@@ -1,0 +1,33 @@
+{
+  "query_id": "doc005_q07",
+  "doc_id": "doc005",
+  "method": "flat_rag",
+  "query": "What is the fine-tuning procedure for BERT on a classification task?",
+  "answer": "Add a classification layer on top of the [CLS] token output. Fine-tune all parameters end-to-end...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 5,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.7427,
+    "recall": 0.6571,
+    "precision": 0.2613
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 4679,
+    "latency_seconds": 2.203,
+    "estimated_cost_usd": 0.000969
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:22Z"
+}

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc013_q07",
+  "doc_id": "doc013",
+  "method": "dat_full",
+  "query": "Quali sono i criteri per la pulizia residua dopo il processo di saldatura?",
+  "answer": "La pulizia residua richiede l'assenza di residui di flussante visibili o corrosivi, l'assenza di particolato conduttivo, e livelli di contaminazione ionica entro i limiti specificati. Per Classe 3, i requisiti sono più stringenti e possono richiedere test di contaminazione ionica (ROSE/SEC).",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.5587,
+    "recall": 0.7115,
+    "precision": 0.6179
+  },
+  "efficiency": {
+    "llm_calls": 11,
+    "total_tokens": 6262,
+    "latency_seconds": 5.428,
+    "estimated_cost_usd": 0.002766
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:47Z"
+}

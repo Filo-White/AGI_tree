@@ -1,0 +1,27 @@
+{
+  "query_id": "doc013_q04",
+  "doc_id": "doc013",
+  "method": "long_context",
+  "query": "Come vengono valutati i difetti di montaggio dei componenti SMT?",
+  "answer": "I componenti SMT sono valutati per: allineamento (offset laterale e rotazionale), coplanarità, bagnatura dei terminali, quantità di...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 4,
+    "completeness": 5,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 17037,
+    "latency_seconds": 3.845,
+    "estimated_cost_usd": 0.00227
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:46Z"
+}

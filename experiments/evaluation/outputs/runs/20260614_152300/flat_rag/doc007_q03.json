@@ -1,0 +1,33 @@
+{
+  "query_id": "doc007_q03",
+  "doc_id": "doc007",
+  "method": "flat_rag",
+  "query": "Come viene calcolato il voto di laurea?",
+  "answer": "Il voto di laurea e calcolato sulla media ponderata dei voti degli esami, convertita in...",
+  "scores": {
+    "correctness": 2,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.4403,
+    "recall": 0.5577,
+    "precision": 0.3724
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5715,
+    "latency_seconds": 1.891,
+    "estimated_cost_usd": 0.001042
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:38Z"
+}

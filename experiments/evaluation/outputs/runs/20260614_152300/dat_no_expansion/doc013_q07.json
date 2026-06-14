@@ -1,0 +1,38 @@
+{
+  "query_id": "doc013_q07",
+  "doc_id": "doc013",
+  "method": "dat_no_expansion",
+  "query": "Quali sono i criteri per la pulizia residua dopo il processo di saldatura?",
+  "answer": "La pulizia residua richiede l'assenza di residui di flussante visibili o corrosivi, l'assenza di particolato conduttivo, e livelli di contaminazione...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 5,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.708,
+    "recall": 0.7206,
+    "precision": 0.7485
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 10428,
+    "latency_seconds": 3.972,
+    "estimated_cost_usd": 0.001953
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 6,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:25Z"
+}

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc008_q06",
+  "doc_id": "doc008",
+  "method": "dat_full",
+  "query": "Does GDPR apply to paper-only records not part of a filing system?",
+  "answer": "The excerpts do not provide a clear answer on whether GDPR applies to purely paper-based records not forming part of a filing system.",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 5,
+    "completeness": 5,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.753,
+    "recall": 0.7891,
+    "precision": 0.7655
+  },
+  "efficiency": {
+    "llm_calls": 12,
+    "total_tokens": 12919,
+    "latency_seconds": 4.909,
+    "estimated_cost_usd": 0.002968
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 6,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:32Z"
+}

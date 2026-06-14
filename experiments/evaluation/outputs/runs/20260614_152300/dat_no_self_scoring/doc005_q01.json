@@ -1,0 +1,38 @@
+{
+  "query_id": "doc005_q01",
+  "doc_id": "doc005",
+  "method": "dat_no_self_scoring",
+  "query": "What are the two pre-training tasks used by BERT?",
+  "answer": "BERT uses Masked Language Modeling (MLM), where random tokens are masked and predicted,...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.1396,
+    "recall": 0.7011,
+    "precision": 0.918
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 7121,
+    "latency_seconds": 4.084,
+    "estimated_cost_usd": 0.002155
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:26Z"
+}

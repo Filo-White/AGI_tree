@@ -1,0 +1,27 @@
+{
+  "query_id": "doc007_q06",
+  "doc_id": "doc007",
+  "method": "long_context",
+  "query": "Quali crediti formativi sono richiesti per la laurea triennale?",
+  "answer": "Per il conseguimento della laurea triennale sono richiesti 180 crediti...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 12075,
+    "latency_seconds": 3.563,
+    "estimated_cost_usd": 0.001545
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:22Z"
+}

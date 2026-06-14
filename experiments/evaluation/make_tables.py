@@ -115,7 +115,8 @@ def make_table_dataset():
             title = title[:39] + "..."
         mark = "$^\\dagger$" if doc_id in controlled_ids else ""
         dtype_labels = {"textbook": "textbook", "scientific_paper": "paper",
-                        "administrative": "admin.", "report": "report"}
+                        "administrative": "admin.", "report": "report",
+                        "regulation": "regulation", "manual": "manual"}
         dtype = dtype_labels.get(d["doc_type"], d["doc_type"])
         n_q = sum(1 for q in queries if q["doc_id"] == doc_id)
         total_queries += n_q
@@ -350,7 +351,9 @@ def make_table_structure():
         "textbook": "Controlled",
         "scientific_paper": "Scientific Papers",
         "administrative": "Administrative/Legal",
+        "regulation": "Regulation",
         "report": "Reports",
+        "manual": "Manuals/Guides",
     }
 
     lines = [
@@ -385,6 +388,97 @@ def make_table_structure():
     return "\n".join(lines)
 
 
+def make_table_bootstrap():
+    """Table 7: Bootstrap confidence intervals."""
+    rows = read_csv(RESULTS_DIR / "bootstrap_confidence_intervals.csv")
+    if not rows:
+        return "% No bootstrap data available"
+
+    method_labels = {
+        "flat_rag": "Flat RAG",
+        "section_rag": "Section-RAG",
+        "long_context": "Long-Context",
+        "dat_full": "DAT Full",
+    }
+    method_order = ["flat_rag", "section_rag", "long_context", "dat_full"]
+    method_rows = {r.get("method"): r for r in rows}
+
+    lines = [
+        r"\begin{table}[t]",
+        r"\centering",
+        r"\caption{Bootstrap 95\% confidence intervals (10{,}000 resamples, $n=122$).}",
+        r"\label{tab:bootstrap}",
+        r"\begin{tabular}{lcc}",
+        r"\toprule",
+        r"\textbf{Method} & \textbf{Correctness (95\% CI)} & \textbf{Faithfulness (95\% CI)} \\",
+        r"\midrule",
+    ]
+
+    for m in method_order:
+        label = method_labels.get(m, m)
+        r = method_rows.get(m, {})
+        c_mean = fmt(r.get("correctness_mean"))
+        c_lo = fmt(r.get("correctness_ci_lo"))
+        c_hi = fmt(r.get("correctness_ci_hi"))
+        f_mean = fmt(r.get("faithfulness_mean"))
+        f_lo = fmt(r.get("faithfulness_ci_lo"))
+        f_hi = fmt(r.get("faithfulness_ci_hi"))
+        lines.append(f"{label} & {c_mean} [{c_lo}, {c_hi}] & {f_mean} [{f_lo}, {f_hi}] \\\\")
+
+    lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{table}"])
+    return "\n".join(lines)
+
+
+def make_table_inter_judge():
+    """Table 8: Inter-judge agreement."""
+    rows = read_csv(RESULTS_DIR / "inter_judge_agreement.csv")
+    if not rows:
+        return "% No inter-judge data available"
+
+    # Load correlation
+    corr_file = RESULTS_DIR / "inter_judge_correlation.json"
+    spearman = "---"
+    if corr_file.exists():
+        with open(corr_file, "r", encoding="utf-8") as f:
+            corr = json.load(f)
+            spearman = fmt(corr.get("spearman_rho"), 3)
+
+    method_labels = {
+        "flat_rag": "Flat RAG",
+        "section_rag": "Section-RAG",
+        "long_context": "Long-Context",
+        "dat_full": "DAT Full",
+    }
+    method_order = ["flat_rag", "section_rag", "long_context", "dat_full"]
+
+    lines = [
+        r"\begin{table}[t]",
+        r"\centering",
+        r"\caption{Inter-judge agreement. Primary: \texttt{gpt-5.4-nano}, secondary:",
+        r" \texttt{gpt-4.1-mini}. Spearman $\rho = " + spearman + r"$ on method ranking.}",
+        r"\label{tab:inter_judge}",
+        r"\begin{tabular}{lcccc}",
+        r"\toprule",
+        r"\textbf{Method} & \multicolumn{2}{c}{\textbf{Primary Judge}} & \multicolumn{2}{c}{\textbf{Secondary Judge}} \\",
+        r"\cmidrule(lr){2-3} \cmidrule(lr){4-5}",
+        r" & Correct. & Faithful. & Correct. & Faithful. \\",
+        r"\midrule",
+    ]
+
+    for m in method_order:
+        label = method_labels.get(m, m)
+        primary = [r for r in rows if r["method"] == m and r["judge"] == "primary"]
+        secondary = [r for r in rows if r["method"] == m and r["judge"] == "secondary"]
+        p = primary[0] if primary else {}
+        s = secondary[0] if secondary else {}
+        lines.append(
+            f"{label} & {fmt(p.get('correctness_mean'))} & {fmt(p.get('faithfulness_mean'))}"
+            f" & {fmt(s.get('correctness_mean'))} & {fmt(s.get('faithfulness_mean'))} \\\\")
+
+    lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{table}"])
+    return "\n".join(lines)
+
+
 def generate_all_tables():
     LATEX_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -395,6 +489,8 @@ def generate_all_tables():
         "table_efficiency.tex": make_table_efficiency,
         "table_ablation.tex": make_table_ablation,
         "table_structure.tex": make_table_structure,
+        "table_bootstrap.tex": make_table_bootstrap,
+        "table_inter_judge.tex": make_table_inter_judge,
     }
 
     for filename, generator in tables.items():

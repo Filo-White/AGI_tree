@@ -1,0 +1,38 @@
+{
+  "query_id": "doc002_q04",
+  "doc_id": "doc002",
+  "method": "dat_full",
+  "query": "What is the exploration-exploitation dilemma?",
+  "answer": "The agent must balance exploiting known rewarding actions and exploring new actions that might lead to higher rewards. Common strategies include epsilon-greedy, UCB, and Thompson Sampling.",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.592,
+    "recall": 0.5902,
+    "precision": 0.9
+  },
+  "efficiency": {
+    "llm_calls": 13,
+    "total_tokens": 9996,
+    "latency_seconds": 3.909,
+    "estimated_cost_usd": 0.002288
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 5,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:59Z"
+}

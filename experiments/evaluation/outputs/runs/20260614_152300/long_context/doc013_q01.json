@@ -1,0 +1,27 @@
+{
+  "query_id": "doc013_q01",
+  "doc_id": "doc013",
+  "method": "long_context",
+  "query": "Quali sono le tre classi di accettabilità definite dallo standard IPC-A-610?",
+  "answer": "Le tre classi sono: Classe 1 (Prodotti Elettronici Generali), Classe 2 (Prodotti Elettronici per Servizio Dedicato)...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 5,
+    "completeness": 2,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 12402,
+    "latency_seconds": 3.635,
+    "estimated_cost_usd": 0.002296
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:38Z"
+}

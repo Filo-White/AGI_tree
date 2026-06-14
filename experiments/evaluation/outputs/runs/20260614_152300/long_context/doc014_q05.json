@@ -1,0 +1,27 @@
+{
+  "query_id": "doc014_q05",
+  "doc_id": "doc014",
+  "method": "long_context",
+  "query": "Quali passaggi descrive il tutorial per creare e importare un modulo Python?",
+  "answer": "Il tutorial spiega: (1) creare un file .py con definizioni di funzioni e variabili, (2) usare import per caricare il modulo, (3) usare...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 12130,
+    "latency_seconds": 4.404,
+    "estimated_cost_usd": 0.001734
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:03Z"
+}

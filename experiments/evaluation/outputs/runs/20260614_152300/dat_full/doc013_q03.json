@@ -1,0 +1,38 @@
+{
+  "query_id": "doc013_q03",
+  "doc_id": "doc013",
+  "method": "dat_full",
+  "query": "Quali criteri di accettabilità si applicano alle saldature a onda?",
+  "answer": "Per le saldature a onda si valutano: bagnatura completa del terminale e della piazzola, assenza di ponti di saldatura, quantità adeguata di lega saldante, assenza di vuoti o difetti di dewetting, e conformità geometrica del filetto di saldatura secondo le specifiche per classe.",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 5,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6748,
+    "recall": 0.7738,
+    "precision": 0.5909
+  },
+  "efficiency": {
+    "llm_calls": 11,
+    "total_tokens": 12883,
+    "latency_seconds": 3.472,
+    "estimated_cost_usd": 0.002716
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 7,
+    "nodes_after": 13,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:08Z"
+}

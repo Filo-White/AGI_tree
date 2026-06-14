@@ -1,0 +1,38 @@
+{
+  "query_id": "doc014_q03",
+  "doc_id": "doc014",
+  "method": "dat_no_self_scoring",
+  "query": "Come vengono presentate le strutture di controllo nel tutorial?",
+  "answer": "Il tutorial presenta le istruzioni if/elif/else per le condizioni, il ciclo for per iterare su sequenze, il ciclo while con condizione, le istruzioni...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.747,
+    "recall": 0.5878,
+    "precision": 0.508
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 9868,
+    "latency_seconds": 2.912,
+    "estimated_cost_usd": 0.001992
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 6,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:10Z"
+}

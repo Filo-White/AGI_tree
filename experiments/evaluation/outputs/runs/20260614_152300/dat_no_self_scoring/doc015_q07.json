@@ -1,0 +1,38 @@
+{
+  "query_id": "doc015_q07",
+  "doc_id": "doc015",
+  "method": "dat_no_self_scoring",
+  "query": "What is the remaining carbon budget for limiting warming to 1.5°C?",
+  "answer": "From the beginning of 2020, the remaining carbon budget for a 50% chance of limiting warming to 1.5°C is approximately 500 GtCO2. For...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.4428,
+    "recall": 0.611,
+    "precision": 0.5866
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 8291,
+    "latency_seconds": 2.701,
+    "estimated_cost_usd": 0.001881
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:59Z"
+}

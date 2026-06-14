@@ -1,0 +1,38 @@
+{
+  "query_id": "doc003_q08",
+  "doc_id": "doc003",
+  "method": "dat_full",
+  "query": "Come funziona il servizio di ristorazione del campus?",
+  "answer": "Il campus dispone di mense e aree ristoro con orari definiti. L'accesso alla mensa richiede il badge universitario e il pagamento avviene tramite credito prepagato.",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 5,
+    "completeness": 2,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.5544,
+    "recall": 0.5863,
+    "precision": 0.5295
+  },
+  "efficiency": {
+    "llm_calls": 12,
+    "total_tokens": 13414,
+    "latency_seconds": 6.034,
+    "estimated_cost_usd": 0.00317
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 7,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:05Z"
+}

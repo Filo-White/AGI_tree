@@ -1,0 +1,33 @@
+{
+  "query_id": "doc012_q03",
+  "doc_id": "doc012",
+  "method": "section_rag",
+  "query": "What policy actions are recommended under the 'Create Active Societies' objective?",
+  "answer": "Recommended actions include: implementing mass media and social marketing campaigns, integrating physical activity promotion into health and...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.8809,
+    "recall": 0.5538,
+    "precision": 0.8919
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 6836,
+    "latency_seconds": 2.394,
+    "estimated_cost_usd": 0.001585
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:35Z"
+}

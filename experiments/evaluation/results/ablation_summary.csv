@@ -1,5 +1,5 @@
 method,correctness,faithfulness,hit_at_3,avg_total_tokens,avg_latency
-dat_full,4.229,4.313,0.986,11635.0,4.65
-dat_no_expansion,3.937,4.125,0.919,9276.0,3.97
-dat_parent_only,3.91,3.891,0.919,9134.0,3.56
-dat_no_self_scoring,3.734,3.876,0.892,8488.0,3.25
+dat_full,4.156,4.23,0.992,11431,4.807
+dat_no_expansion,3.943,4.008,0.975,9354,4.017
+dat_parent_only,3.885,3.877,0.951,8903,3.531
+dat_no_self_scoring,3.648,3.787,0.934,8634,3.319

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc012_q06",
+  "doc_id": "doc012",
+  "method": "dat_full",
+  "query": "What monitoring and evaluation mechanisms does the WHO action plan propose?",
+  "answer": "The plan proposes: (1) biennial reporting by Member States using the Global Survey on Health and Physical Activity, (2) a global monitoring framework with 20 policy indicators, (3) integration with existing NCD monitoring through WHO STEPS surveys, (4) midterm (2023) and final (2030) progress reviews, and (5) use of standardized data collection instruments.",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.8649,
+    "recall": 0.8166,
+    "precision": 0.7507
+  },
+  "efficiency": {
+    "llm_calls": 11,
+    "total_tokens": 11038,
+    "latency_seconds": 4.899,
+    "estimated_cost_usd": 0.003577
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 5,
+    "nodes_after": 6,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:45Z"
+}

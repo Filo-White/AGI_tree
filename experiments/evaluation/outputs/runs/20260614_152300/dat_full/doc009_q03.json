@@ -1,0 +1,38 @@
+{
+  "query_id": "doc009_q03",
+  "doc_id": "doc009",
+  "method": "dat_full",
+  "query": "What policy recommendations does the report make?",
+  "answer": "The report recommends tripling renewable capacity, doubling energy efficiency improvements, reducing methane emissions from fossil fuels, and accelerating clean energy investment in developing economies.",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 5,
+    "completeness": 5,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.6846,
+    "recall": 0.77,
+    "precision": 0.7535
+  },
+  "efficiency": {
+    "llm_calls": 10,
+    "total_tokens": 11338,
+    "latency_seconds": 5.256,
+    "estimated_cost_usd": 0.00366
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 7,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:27Z"
+}

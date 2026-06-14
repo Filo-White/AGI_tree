@@ -1,0 +1,33 @@
+{
+  "query_id": "doc010_q06",
+  "doc_id": "doc010",
+  "method": "flat_rag",
+  "query": "What steps must a provider follow to place a high-risk AI system on the EU market?",
+  "answer": "A provider must: (1) implement a quality management system, (2) prepare technical documentation, (3) conduct a conformity assessment (self-assessment or via notified body depending on the...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5409,
+    "recall": 0.7478,
+    "precision": 0.5791
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 6810,
+    "latency_seconds": 2.044,
+    "estimated_cost_usd": 0.000842
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:01Z"
+}

@@ -1,0 +1,38 @@
+{
+  "query_id": "doc010_q07",
+  "doc_id": "doc010",
+  "method": "dat_no_self_scoring",
+  "query": "What governance structure does the EU AI Act establish for AI regulation at EU level?",
+  "answer": "The Act creates: (1) the AI Office within the Commission, responsible for GPAI model oversight, (2) the European Artificial Intelligence Board comprising Member State...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5202,
+    "recall": 0.7111,
+    "precision": 0.5556
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 8537,
+    "latency_seconds": 4.085,
+    "estimated_cost_usd": 0.001578
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 5,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:26Z"
+}

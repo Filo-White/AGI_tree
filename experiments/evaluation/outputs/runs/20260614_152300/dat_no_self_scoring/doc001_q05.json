@@ -1,0 +1,38 @@
+{
+  "query_id": "doc001_q05",
+  "doc_id": "doc001",
+  "method": "dat_no_self_scoring",
+  "query": "Quali sono le sfide etiche dell'intelligenza artificiale menzionate nel documento?",
+  "answer": "Le sfide etiche includono bias algoritmico, privacy, impatto sul lavoro,...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 5,
+    "completeness": 4,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7629,
+    "recall": 0.676,
+    "precision": 0.718
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 8891,
+    "latency_seconds": 3.804,
+    "estimated_cost_usd": 0.001852
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 6,
+    "nodes_after": 9,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:34Z"
+}

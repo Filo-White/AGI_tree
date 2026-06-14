@@ -1,0 +1,38 @@
+{
+  "query_id": "doc003_q03",
+  "doc_id": "doc003",
+  "method": "dat_no_self_scoring",
+  "query": "Quali sanzioni sono previste per il danneggiamento di beni?",
+  "answer": "Il danneggiamento comporta l'obbligo di risarcimento e l'applicazione delle sanzioni...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.666,
+    "recall": 0.6277,
+    "precision": 0.7664
+  },
+  "efficiency": {
+    "llm_calls": 5,
+    "total_tokens": 10491,
+    "latency_seconds": 3.429,
+    "estimated_cost_usd": 0.001888
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:06Z"
+}

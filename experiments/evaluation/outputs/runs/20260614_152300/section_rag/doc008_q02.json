@@ -1,0 +1,33 @@
+{
+  "query_id": "doc008_q02",
+  "doc_id": "doc008",
+  "method": "section_rag",
+  "query": "What are the conditions for lawful processing of personal data?",
+  "answer": "Lawful processing requires at least one of: consent, contractual necessity, legal...",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7418,
+    "recall": 0.5956,
+    "precision": 0.8016
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 6072,
+    "latency_seconds": 4.004,
+    "estimated_cost_usd": 0.001591
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:12Z"
+}

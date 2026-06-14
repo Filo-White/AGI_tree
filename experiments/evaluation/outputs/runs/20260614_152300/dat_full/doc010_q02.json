@@ -1,0 +1,38 @@
+{
+  "query_id": "doc010_q02",
+  "doc_id": "doc010",
+  "method": "dat_full",
+  "query": "What penalties does the EU AI Act impose for non-compliance?",
+  "answer": "Fines up to EUR 35 million or 7% of global annual turnover for prohibited AI practices; up to EUR 15 million or 3% for violating other requirements; up to EUR 7.5 million or 1.5% for supplying incorrect information.",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6663,
+    "recall": 0.7764,
+    "precision": 0.5317
+  },
+  "efficiency": {
+    "llm_calls": 11,
+    "total_tokens": 14163,
+    "latency_seconds": 3.875,
+    "estimated_cost_usd": 0.003761
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:54Z"
+}

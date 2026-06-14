@@ -1,0 +1,33 @@
+{
+  "query_id": "doc007_q08",
+  "doc_id": "doc007",
+  "method": "section_rag",
+  "query": "Quali sono le tipologie di esame previste dal regolamento?",
+  "answer": "Il regolamento prevede esami orali, scritti, pratici, o combinazioni di...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 2,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.534,
+    "recall": 0.499,
+    "precision": 0.8048
+  },
+  "efficiency": {
+    "llm_calls": 4,
+    "total_tokens": 7116,
+    "latency_seconds": 3.008,
+    "estimated_cost_usd": 0.001912
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:15Z"
+}

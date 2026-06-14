@@ -1,0 +1,33 @@
+{
+  "query_id": "doc005_q02",
+  "doc_id": "doc005",
+  "method": "flat_rag",
+  "query": "How does BERT differ from GPT in terms of directionality?",
+  "answer": "BERT is bidirectional, attending to both left and right context simultaneously via...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 2,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.6278,
+    "recall": 0.799,
+    "precision": 0.7406
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5026,
+    "latency_seconds": 3.269,
+    "estimated_cost_usd": 0.001244
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:07Z"
+}

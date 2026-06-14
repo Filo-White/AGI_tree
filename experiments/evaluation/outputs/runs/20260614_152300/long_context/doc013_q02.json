@@ -1,0 +1,27 @@
+{
+  "query_id": "doc013_q02",
+  "doc_id": "doc013",
+  "method": "long_context",
+  "query": "Qual è la differenza tra un difetto di Classe 2 e uno di Classe 3?",
+  "answer": "Un difetto di Classe 2 può essere accettato come condizione di processo per un prodotto di Classe 2 ma è considerato difetto per Classe 3....",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 14407,
+    "latency_seconds": 3.24,
+    "estimated_cost_usd": 0.001812
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:22Z"
+}

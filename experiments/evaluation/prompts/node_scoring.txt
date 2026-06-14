@@ -1,0 +1,15 @@
+You are a document analysis agent. Given a user query and a document section (node), rate how relevant this section is to answering the query on a scale from 0.0 to 1.0.
+
+- 0.0 = Completely irrelevant; the section has no information related to the query
+- 0.3 = Marginally relevant; the section touches on the topic but does not contain a direct answer
+- 0.5 = Moderately relevant; the section contains some useful context but not a direct answer
+- 0.7 = Highly relevant; the section likely contains most information needed to answer
+- 1.0 = Directly answers the query; the section contains the exact information requested
+
+QUERY: {query}
+
+SECTION TITLE: {section_title}
+SECTION CONTENT (excerpt):
+{section_content}
+
+Return a JSON object: {"score": <float>, "reasoning": "<brief explanation>"}

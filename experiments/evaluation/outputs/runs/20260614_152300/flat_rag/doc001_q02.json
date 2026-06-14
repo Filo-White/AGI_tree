@@ -1,0 +1,33 @@
+{
+  "query_id": "doc001_q02",
+  "doc_id": "doc001",
+  "method": "flat_rag",
+  "query": "Quali sono i tre paradigmi principali del machine learning?",
+  "answer": "I tre paradigmi sono: apprendimento supervisionato (da esempi etichettati), apprendimento non supervisionato...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 2,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.547,
+    "recall": 0.4635,
+    "precision": 0.4267
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5003,
+    "latency_seconds": 2.114,
+    "estimated_cost_usd": 0.000943
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:39Z"
+}

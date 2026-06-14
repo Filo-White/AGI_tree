@@ -1,0 +1,33 @@
+{
+  "query_id": "doc004_q05",
+  "doc_id": "doc004",
+  "method": "flat_rag",
+  "query": "What training hardware and schedule was used?",
+  "answer": "The base model was trained on 8 NVIDIA P100 GPUs for about 12...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 2,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.8353,
+    "recall": 0.5689,
+    "precision": 0.6997
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5400,
+    "latency_seconds": 2.094,
+    "estimated_cost_usd": 0.000805
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:50Z"
+}

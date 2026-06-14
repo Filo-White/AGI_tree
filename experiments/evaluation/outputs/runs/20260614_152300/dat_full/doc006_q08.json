@@ -1,0 +1,38 @@
+{
+  "query_id": "doc006_q08",
+  "doc_id": "doc006",
+  "method": "dat_full",
+  "query": "What training data was used for GPT-3?",
+  "answer": "GPT-3 was trained on a filtered version of Common Crawl, WebText2, Books1, Books2, and Wikipedia, totaling about 570GB of text after filtering.",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7065,
+    "recall": 0.7114,
+    "precision": 0.5752
+  },
+  "efficiency": {
+    "llm_calls": 11,
+    "total_tokens": 11594,
+    "latency_seconds": 3.352,
+    "estimated_cost_usd": 0.00296
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 5,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:57Z"
+}

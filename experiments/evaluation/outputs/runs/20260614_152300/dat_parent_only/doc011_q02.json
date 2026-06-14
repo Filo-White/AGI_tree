@@ -1,0 +1,38 @@
+{
+  "query_id": "doc011_q02",
+  "doc_id": "doc011",
+  "method": "dat_parent_only",
+  "query": "What characteristics does NIST identify as components of AI trustworthiness?",
+  "answer": "NIST identifies seven trustworthiness characteristics: (1) valid and reliable, (2) safe, (3) secure and resilient, (4)...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 2,
+    "relevance": 2
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6683,
+    "recall": 0.4722,
+    "precision": 0.5162
+  },
+  "efficiency": {
+    "llm_calls": 5,
+    "total_tokens": 9373,
+    "latency_seconds": 2.188,
+    "estimated_cost_usd": 0.001664
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 8,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:48Z"
+}

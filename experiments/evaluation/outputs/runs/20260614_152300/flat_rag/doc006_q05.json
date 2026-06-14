@@ -1,0 +1,33 @@
+{
+  "query_id": "doc006_q05",
+  "doc_id": "doc006",
+  "method": "flat_rag",
+  "query": "How does the paper address the risk of data contamination in evaluation?",
+  "answer": "The paper includes a dedicated section on measuring and preventing memorization of benchmarks....",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 5,
+    "completeness": 2,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5023,
+    "recall": 0.5266,
+    "precision": 0.6553
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5137,
+    "latency_seconds": 2.025,
+    "estimated_cost_usd": 0.000618
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:34Z"
+}

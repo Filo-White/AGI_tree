@@ -1,0 +1,38 @@
+{
+  "query_id": "doc001_q04",
+  "doc_id": "doc001",
+  "method": "dat_full",
+  "query": "Quali architetture di deep learning sono usate per immagini e quali per testo?",
+  "answer": "Le CNN sono specializzate per l'elaborazione di immagini, mentre le RNN sono usate per dati sequenziali come testo e audio. I Transformer sono alla base dei moderni modelli linguistici.",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.6639,
+    "recall": 0.8068,
+    "precision": 0.4523
+  },
+  "efficiency": {
+    "llm_calls": 11,
+    "total_tokens": 9013,
+    "latency_seconds": 5.842,
+    "estimated_cost_usd": 0.002393
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 6,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:06Z"
+}

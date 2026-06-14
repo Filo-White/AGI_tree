@@ -1,0 +1,33 @@
+{
+  "query_id": "doc001_q10",
+  "doc_id": "doc001",
+  "method": "section_rag",
+  "query": "Quali sono le applicazioni pratiche dell'apprendimento per rinforzo menzionate?",
+  "answer": "AlphaGo e robot che imparano a camminare....",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.5195,
+    "recall": 0.5357,
+    "precision": 0.5889
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 7105,
+    "latency_seconds": 3.072,
+    "estimated_cost_usd": 0.001838
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:21Z"
+}

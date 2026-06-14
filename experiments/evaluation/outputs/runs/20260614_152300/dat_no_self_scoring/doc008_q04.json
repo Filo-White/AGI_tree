@@ -1,0 +1,38 @@
+{
+  "query_id": "doc008_q04",
+  "doc_id": "doc008",
+  "method": "dat_no_self_scoring",
+  "query": "Under what conditions can personal data be transferred outside the EU?",
+  "answer": "Transfers are allowed when the destination country ensures an adequate level of protection (adequacy...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.7616,
+    "recall": 0.7662,
+    "precision": 0.621
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 8074,
+    "latency_seconds": 3.699,
+    "estimated_cost_usd": 0.001996
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 4,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:36Z"
+}

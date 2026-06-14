@@ -1,0 +1,38 @@
+{
+  "query_id": "doc002_q02",
+  "doc_id": "doc002",
+  "method": "dat_no_self_scoring",
+  "query": "What are the key innovations of DQN compared to tabular Q-learning?",
+  "answer": "DQN extends Q-learning to high-dimensional state spaces using neural networks....",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7993,
+    "recall": 0.7627,
+    "precision": 0.6607
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 10688,
+    "latency_seconds": 4.031,
+    "estimated_cost_usd": 0.000563
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 8,
+    "nodes_after": 8,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:12Z"
+}

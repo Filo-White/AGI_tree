@@ -1,15 +1,15 @@
 \begin{table}[t]
 \centering
-\caption{End-to-end answer quality. Scores are LLM-judge ratings on a 1--5 Likert scale (higher is better). Abstention accuracy is computed on the $n=9$ unanswerable queries. Judge: \texttt{gpt-5.4-nano-2026-03-17}, $T{=}0$, method names anonymized.}
+\caption{End-to-end answer quality. Scores are LLM-judge ratings on a 1--5 Likert scale (higher is better). Abstention accuracy is computed on the $n=15$ unanswerable queries. Judge: \texttt{gpt-5.4-nano-2026-03-17}, $T{=}0$, method names anonymized.}
 \label{tab:answer_quality}
 \begin{tabular}{lccccc}
 \toprule
 \textbf{Method} & \textbf{Correct.} & \textbf{Faithful.} & \textbf{Complete.} & \textbf{Relev.} & \textbf{Abst. Acc.} \\
 \midrule
-Flat RAG & 3.37 & 3.71 & 2.83 & 3.59 & 0.44 \\
-Section-RAG & 3.56 & 3.57 & 3.44 & 3.77 & 0.56 \\
-Long-Context & 3.96 & 4.14 & 3.69 & 3.82 & 0.67 \\
-DAT Full & \textbf{4.23} & \textbf{4.31} & \textbf{3.93} & \textbf{4.36} & \textbf{0.78} \\
+Flat RAG & 3.26 & 3.57 & 2.87 & 3.51 & 0.40 \\
+Section-RAG & 3.48 & 3.48 & 3.42 & 3.65 & 0.53 \\
+Long-Context & 3.85 & 4.05 & 3.66 & 3.75 & 0.67 \\
+DAT Full & \textbf{4.16} & \textbf{4.23} & \textbf{3.88} & \textbf{4.33} & \textbf{0.80} \\
 \bottomrule
 \end{tabular}
 \end{table}

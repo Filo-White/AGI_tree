@@ -1,0 +1,27 @@
+{
+  "query_id": "doc008_q08",
+  "doc_id": "doc008",
+  "method": "long_context",
+  "query": "What rights does a data subject have regarding automated decision-making?",
+  "answer": "Data subjects have the right not to be subject to a decision based solely on automated processing, including...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 13853,
+    "latency_seconds": 3.734,
+    "estimated_cost_usd": 0.00263
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:28Z"
+}

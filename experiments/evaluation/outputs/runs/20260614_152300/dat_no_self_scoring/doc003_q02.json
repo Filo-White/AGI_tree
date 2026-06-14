@@ -1,0 +1,38 @@
+{
+  "query_id": "doc003_q02",
+  "doc_id": "doc003",
+  "method": "dat_no_self_scoring",
+  "query": "Come si prenota una sala riunioni?",
+  "answer": "La prenotazione avviene tramite il portale online dell'Ateneo con almeno 48...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 5
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.6926,
+    "recall": 0.9177,
+    "precision": 0.7098
+  },
+  "efficiency": {
+    "llm_calls": 7,
+    "total_tokens": 8365,
+    "latency_seconds": 3.117,
+    "estimated_cost_usd": 0.001728
+  },
+  "expansion": {
+    "expanded": true,
+    "nodes_before": 4,
+    "nodes_after": 6,
+    "expansion_trigger": "auto"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:39Z"
+}

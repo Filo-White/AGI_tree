@@ -1,0 +1,33 @@
+{
+  "query_id": "doc006_q07",
+  "doc_id": "doc006",
+  "method": "section_rag",
+  "query": "Compare zero-shot, one-shot, and few-shot performance on SuperGLUE.",
+  "answer": "Performance improves significantly from zero-shot to few-shot, with few-shot approaching or...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 5,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7009,
+    "recall": 0.5098,
+    "precision": 0.9926
+  },
+  "efficiency": {
+    "llm_calls": 4,
+    "total_tokens": 7144,
+    "latency_seconds": 2.864,
+    "estimated_cost_usd": 0.001542
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:12Z"
+}

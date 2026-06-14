@@ -1,0 +1,33 @@
+{
+  "query_id": "doc003_q01",
+  "doc_id": "doc003",
+  "method": "section_rag",
+  "query": "Quali sono gli orari di accesso al campus?",
+  "answer": "Dal lunedi al venerdi dalle 7:00 alle 23:00, il sabato...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.8308,
+    "recall": 0.6284,
+    "precision": 0.9227
+  },
+  "efficiency": {
+    "llm_calls": 4,
+    "total_tokens": 5905,
+    "latency_seconds": 1.995,
+    "estimated_cost_usd": 0.001812
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:40Z"
+}

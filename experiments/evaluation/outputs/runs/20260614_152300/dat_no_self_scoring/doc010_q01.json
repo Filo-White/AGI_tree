@@ -1,0 +1,38 @@
+{
+  "query_id": "doc010_q01",
+  "doc_id": "doc010",
+  "method": "dat_no_self_scoring",
+  "query": "What are the four risk categories for AI systems defined in the EU AI Act?",
+  "answer": "The EU AI Act classifies AI systems into four risk tiers: (1) unacceptable risk (prohibited, e.g. social scoring, real-time biometric identification), (2) high risk...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 2,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.4899,
+    "recall": 0.7098,
+    "precision": 0.7104
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 7347,
+    "latency_seconds": 3.706,
+    "estimated_cost_usd": 0.001912
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 7,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:04Z"
+}

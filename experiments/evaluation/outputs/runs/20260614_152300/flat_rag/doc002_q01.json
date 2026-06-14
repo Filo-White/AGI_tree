@@ -1,0 +1,33 @@
+{
+  "query_id": "doc002_q01",
+  "doc_id": "doc002",
+  "method": "flat_rag",
+  "query": "What is the Q-learning update rule?",
+  "answer": "Q(s,a) <- Q(s,a) + alpha[r + gamma max_a' Q(s',a') -...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 2,
+    "relevance": 2
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.6365,
+    "recall": 0.4811,
+    "precision": 0.2703
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 5481,
+    "latency_seconds": 1.91,
+    "estimated_cost_usd": 0.00137
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:49Z"
+}

@@ -1,0 +1,33 @@
+{
+  "query_id": "doc008_q07",
+  "doc_id": "doc008",
+  "method": "section_rag",
+  "query": "What is personal data according to the GDPR definition?",
+  "answer": "Personal data means any information relating to an identified or identifiable natural person (data subject), including name, identification...",
+  "scores": {
+    "correctness": 2,
+    "faithfulness": 5,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.8782,
+    "recall": 0.7537,
+    "precision": 0.6928
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 7351,
+    "latency_seconds": 3.26,
+    "estimated_cost_usd": 0.001518
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:04Z"
+}

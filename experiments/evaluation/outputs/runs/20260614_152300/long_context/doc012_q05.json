@@ -1,0 +1,27 @@
+{
+  "query_id": "doc012_q05",
+  "doc_id": "doc012",
+  "method": "long_context",
+  "query": "How does 'Create Active Systems' relate to 'Create Active People' in implementation?",
+  "answer": "Active Systems provides the governance infrastructure, funding mechanisms, surveillance, and research that enable Active People programs to be designed, delivered, and evaluated...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 5,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 9930,
+    "latency_seconds": 2.527,
+    "estimated_cost_usd": 0.00205
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:21Z"
+}

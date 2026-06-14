@@ -1,0 +1,33 @@
+{
+  "query_id": "doc004_q07",
+  "doc_id": "doc004",
+  "method": "flat_rag",
+  "query": "What regularization techniques are used during training?",
+  "answer": "The paper uses residual dropout (applied to sublayer outputs and...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 1,
+    "relevance": 2
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.3637,
+    "recall": 0.3234,
+    "precision": 0.8267
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 4391,
+    "latency_seconds": 1.749,
+    "estimated_cost_usd": 0.001221
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:16Z"
+}

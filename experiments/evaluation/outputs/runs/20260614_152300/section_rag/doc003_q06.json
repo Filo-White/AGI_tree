@@ -1,0 +1,33 @@
+{
+  "query_id": "doc003_q06",
+  "doc_id": "doc003",
+  "method": "section_rag",
+  "query": "Il regolamento prevede norme sul parcheggio delle biciclette?",
+  "answer": "Il documento non contiene informazioni specifiche sul parcheggio delle biciclette....",
+  "scores": {
+    "correctness": 5,
+    "faithfulness": 2,
+    "completeness": 5,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.9745,
+    "recall": 0.6276,
+    "precision": 0.7725
+  },
+  "efficiency": {
+    "llm_calls": 3,
+    "total_tokens": 7393,
+    "latency_seconds": 2.444,
+    "estimated_cost_usd": 0.001375
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:04Z"
+}

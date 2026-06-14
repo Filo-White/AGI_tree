@@ -1,0 +1,38 @@
+{
+  "query_id": "doc002_q06",
+  "doc_id": "doc002",
+  "method": "dat_parent_only",
+  "query": "Describe the actor-critic architecture.",
+  "answer": "Actor-critic methods combine policy-based and value-based approaches: the actor updates the policy, while...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 5,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.5992,
+    "recall": 0.7467,
+    "precision": 0.5937
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 9974,
+    "latency_seconds": 3.692,
+    "estimated_cost_usd": 0.00178
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 7,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:45Z"
+}

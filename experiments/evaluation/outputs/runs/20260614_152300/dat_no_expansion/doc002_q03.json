@@ -1,0 +1,38 @@
+{
+  "query_id": "doc002_q03",
+  "doc_id": "doc002",
+  "method": "dat_no_expansion",
+  "query": "How do model-based methods differ from model-free methods in RL?",
+  "answer": "Model-free methods learn directly from interaction without building a model of the environment. Model-based methods learn or...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.7884,
+    "recall": 0.8611,
+    "precision": 0.6497
+  },
+  "efficiency": {
+    "llm_calls": 8,
+    "total_tokens": 10067,
+    "latency_seconds": 3.72,
+    "estimated_cost_usd": 0.002415
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 4,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:27Z"
+}

@@ -1,0 +1,33 @@
+{
+  "query_id": "doc001_q01",
+  "doc_id": "doc001",
+  "method": "flat_rag",
+  "query": "Qual è la differenza tra IA debole e IA forte?",
+  "answer": "L'IA debole (o stretta) è progettata per eseguire compiti specifici, mentre l'IA forte (o generale) mira...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 5,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.4622,
+    "recall": 0.7288,
+    "precision": 0.7735
+  },
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 4597,
+    "latency_seconds": 2.286,
+    "estimated_cost_usd": 0.001016
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:37Z"
+}

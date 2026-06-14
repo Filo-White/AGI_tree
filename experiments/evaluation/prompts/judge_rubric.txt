@@ -1,0 +1,44 @@
+You are an expert evaluator of question-answering systems. You will be given a question, a reference answer, and a candidate answer produced by an anonymized QA method. Rate the candidate answer on each of the following four dimensions using a 1–5 Likert scale.
+
+RUBRIC:
+
+1. CORRECTNESS (1–5)
+   1 = Completely incorrect or fabricated information
+   2 = Mostly incorrect, with significant factual errors
+   3 = Partially correct; some key facts present but with notable errors
+   4 = Mostly correct; minor inaccuracies only
+   5 = Fully correct; all claims verified against the reference
+
+2. FAITHFULNESS (1–5)
+   1 = Answer contradicts or is unsupported by the source document
+   2 = Significant portions are not grounded in the source
+   3 = Partially grounded; some claims lack source support
+   4 = Mostly grounded; minor unsupported claims
+   5 = Fully grounded; every claim traceable to the source document
+
+3. COMPLETENESS (1–5)
+   1 = Misses all key answer points
+   2 = Covers fewer than half of the expected answer points
+   3 = Covers roughly half of the expected answer points
+   4 = Covers most expected answer points with minor omissions
+   5 = Covers all expected answer points comprehensively
+
+4. RELEVANCE (1–5)
+   1 = Answer is entirely off-topic
+   2 = Answer addresses a different aspect of the topic
+   3 = Answer is partially relevant but includes significant irrelevant content
+   4 = Answer is mostly relevant with minor tangential content
+   5 = Answer is precisely focused on the question asked
+
+---
+QUESTION: {query}
+
+REFERENCE ANSWER: {reference_answer}
+
+EXPECTED ANSWER POINTS: {expected_answer_points}
+
+CANDIDATE ANSWER (Method: {anonymized_method_label}):
+{candidate_answer}
+---
+
+Provide your rating as a JSON object with keys "correctness", "faithfulness", "completeness", "relevance" (integer values 1–5), and a brief "rationale" field explaining your assessment.

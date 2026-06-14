@@ -1,0 +1,38 @@
+{
+  "query_id": "doc003_q08",
+  "doc_id": "doc003",
+  "method": "dat_parent_only",
+  "query": "Come funziona il servizio di ristorazione del campus?",
+  "answer": "Il campus dispone di mense e aree ristoro con orari definiti. L'accesso...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 0.3798,
+    "recall": 0.6813,
+    "precision": 0.7998
+  },
+  "efficiency": {
+    "llm_calls": 6,
+    "total_tokens": 5172,
+    "latency_seconds": 3.548,
+    "estimated_cost_usd": 0.001286
+  },
+  "expansion": {
+    "expanded": false,
+    "nodes_before": 6,
+    "nodes_after": 0,
+    "expansion_trigger": "none"
+  },
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:20Z"
+}

@@ -1,0 +1,33 @@
+{
+  "query_id": "doc005_q03",
+  "doc_id": "doc005",
+  "method": "section_rag",
+  "query": "What downstream tasks were used to evaluate BERT?",
+  "answer": "BERT was evaluated on GLUE benchmark (including MNLI, QQP, QNLI, SST-2, CoLA,...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 4,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.9957,
+    "recall": 0.6687,
+    "precision": 0.3514
+  },
+  "efficiency": {
+    "llm_calls": 4,
+    "total_tokens": 9162,
+    "latency_seconds": 3.157,
+    "estimated_cost_usd": 0.002163
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:39Z"
+}

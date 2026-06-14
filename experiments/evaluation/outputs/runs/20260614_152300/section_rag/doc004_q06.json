@@ -1,0 +1,33 @@
+{
+  "query_id": "doc004_q06",
+  "doc_id": "doc004",
+  "method": "section_rag",
+  "query": "Does the paper propose any method for document summarization?",
+  "answer": "The paper focuses on machine translation and does not discuss...",
+  "scores": {
+    "correctness": 3,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 3
+  },
+  "abstention": {
+    "abstained": true,
+    "was_unanswerable": true
+  },
+  "routing": {
+    "hit_at_1": 0,
+    "hit_at_3": 1,
+    "mrr": 0.7043,
+    "recall": 0.4317,
+    "precision": 0.5669
+  },
+  "efficiency": {
+    "llm_calls": 4,
+    "total_tokens": 5892,
+    "latency_seconds": 4.053,
+    "estimated_cost_usd": 0.001752
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:26Z"
+}

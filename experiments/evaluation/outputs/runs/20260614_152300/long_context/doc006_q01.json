@@ -1,0 +1,27 @@
+{
+  "query_id": "doc006_q01",
+  "doc_id": "doc006",
+  "method": "long_context",
+  "query": "What is few-shot learning as defined in the GPT-3 paper?",
+  "answer": "Few-shot learning provides a few demonstrations of the task at inference time as...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 3,
+    "completeness": 3,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 1,
+    "total_tokens": 13782,
+    "latency_seconds": 2.603,
+    "estimated_cost_usd": 0.002368
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:35Z"
+}

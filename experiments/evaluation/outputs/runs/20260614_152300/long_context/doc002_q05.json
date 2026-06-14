@@ -1,0 +1,27 @@
+{
+  "query_id": "doc002_q05",
+  "doc_id": "doc002",
+  "method": "long_context",
+  "query": "What are the main challenges of applying RL to real robots?",
+  "answer": "Key challenges include sample efficiency (real-world interactions are expensive), sim-to-real...",
+  "scores": {
+    "correctness": 4,
+    "faithfulness": 4,
+    "completeness": 4,
+    "relevance": 4
+  },
+  "abstention": {
+    "abstained": false,
+    "was_unanswerable": false
+  },
+  "routing": null,
+  "efficiency": {
+    "llm_calls": 2,
+    "total_tokens": 14129,
+    "latency_seconds": 3.941,
+    "estimated_cost_usd": 0.001616
+  },
+  "expansion": null,
+  "model": "gpt-5.4-nano-2026-03-17",
+  "timestamp": "2026-06-14T15:23:03Z"
+}
