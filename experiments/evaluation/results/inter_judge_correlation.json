@@ -4,15 +4,15 @@
   "secondary_model": "deepseek-v4-pro",
   "n_methods": 4,
   "primary_ranking": {
-    "dat_full": 4.238,
-    "flat_rag": 3.287,
-    "section_rag": 3.451,
-    "long_context": 3.967
+    "dat_full": 4.156,
+    "flat_rag": 3.262,
+    "section_rag": 3.475,
+    "long_context": 3.852
   },
   "secondary_ranking": {
-    "dat_full": 4.09,
-    "flat_rag": 3.254,
-    "section_rag": 3.328,
-    "long_context": 3.738
+    "dat_full": 4.016,
+    "flat_rag": 3.148,
+    "section_rag": 3.344,
+    "long_context": 3.721
   }
 }

@@ -1,9 +1,9 @@
 method,judge,correctness_mean,faithfulness_mean
-dat_full,primary,4.238,4.156
-dat_full,secondary,4.09,4.221
-flat_rag,primary,3.287,3.73
-flat_rag,secondary,3.254,3.549
-section_rag,primary,3.451,3.467
-section_rag,secondary,3.328,3.434
-long_context,primary,3.967,4.057
-long_context,secondary,3.738,3.992
+dat_full,primary,4.156,4.230
+dat_full,secondary,4.016,4.098
+flat_rag,primary,3.262,3.574
+flat_rag,secondary,3.148,3.426
+section_rag,primary,3.475,3.484
+section_rag,secondary,3.344,3.369
+long_context,primary,3.852,4.049
+long_context,secondary,3.721,3.910
