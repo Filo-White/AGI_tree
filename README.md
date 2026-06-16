@@ -4,20 +4,6 @@
 
 DAT dynamically builds a tree of specialized LLM agents from an uploaded document's structure, then routes queries to the most relevant node using self-scoring and lazy expansion. It outperforms flat RAG, section-level RAG, and long-context baselines on answer quality while providing interpretable evidence localization.
 
----
-
-## Key Results
-
-| Method | Correctness | Faithfulness | Hit@3 | Abstention Acc. |
-|--------|:-----------:|:------------:|:-----:|:---------------:|
-| Flat RAG | 3.26 | 3.57 | 0.762 | 0.40 |
-| Section-RAG | 3.48 | 3.48 | 0.951 | 0.53 |
-| Long-Context | 3.85 | 4.05 | N/A | 0.67 |
-| **DAT (ours)** | **4.16** | **4.23** | **0.992** | **0.80** |
-
-> Evaluated on 15 real-world documents (122 queries) with dual LLM judges. Bootstrap 95% CIs confirm non-overlapping intervals between DAT and all baselines on correctness. See [`experiments/evaluation/`](experiments/evaluation/) for full methodology and reproducibility details.
-
----
 
 ## How It Works
 
@@ -151,22 +137,6 @@ See [`experiments/evaluation/REPRODUCIBILITY.md`](experiments/evaluation/REPRODU
 - Expansion recall is ~76%: some queries that should trigger expansion do not.
 - Evaluation uses LLM-as-judge; systematic biases are mitigated via anonymization and dual-judge validation but not eliminated.
 
----
-
-## Citation
-
-If you use this work, please cite:
-
-```bibtex
-@misc{dat2026,
-  title={Document Agent Tree: Agentic Document QA via Structure-Aware Hierarchical Routing},
-  author={Filippo Bianchini},
-  year={2026},
-  url={https://github.com/Filo-White/AGI_tree}
-}
-```
-
----
 
 ## License
 
