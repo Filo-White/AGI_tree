@@ -57,7 +57,7 @@ DAT dynamically builds a tree of specialized LLM agents from an uploaded documen
 ### Setup
 
 ```bash
-git clone https://github.com/Filo-White/AGI_tree.git
+git clone [link_to_repository]
 cd AGI_tree
 
 # Configure API key
